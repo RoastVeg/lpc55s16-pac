@@ -1,0 +1,20 @@
+#[doc = "Register `PRNG_OUT` reader"]
+pub type R = crate::R<PrngOutSpec>;
+#[doc = "Field `PRNG_OUT` reader - Provide random number."]
+pub type PrngOutR = crate::FieldReader<u32>;
+impl R {
+    #[doc = "Bits 0:31 - Provide random number."]
+    #[inline(always)]
+    pub fn prng_out(&self) -> PrngOutR {
+        PrngOutR::new(self.bits)
+    }
+}
+#[doc = "Provide random number.\n\nYou can [`read`](crate::Reg::read) this register and get [`prng_out::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct PrngOutSpec;
+impl crate::RegisterSpec for PrngOutSpec {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [`prng_out::R`](R) reader structure"]
+impl crate::Readable for PrngOutSpec {}
+#[doc = "`reset()` method sets PRNG_OUT to value 0"]
+impl crate::Resettable for PrngOutSpec {}
