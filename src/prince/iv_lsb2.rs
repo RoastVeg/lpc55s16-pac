@@ -2,6 +2,11 @@
 pub type W = crate::W<IvLsb2Spec>;
 #[doc = "Field `IVVAL` writer - Initial Vector value for the 32 Least Significant Bits of the 64-bit Initial Vector."]
 pub type IvvalW<'a, REG> = crate::FieldWriter<'a, REG, 32, u32>;
+impl core::fmt::Debug for crate::generic::Reg<IvLsb2Spec> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "(not readable)")
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - Initial Vector value for the 32 Least Significant Bits of the 64-bit Initial Vector."]
     #[inline(always)]

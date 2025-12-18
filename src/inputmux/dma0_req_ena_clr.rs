@@ -2,6 +2,11 @@
 pub type W = crate::W<Dma0ReqEnaClrSpec>;
 #[doc = "Field `CLR` writer - Write : If bit #i = 1, bit #i in DMA0_REQ_ENA register is reset to 0; if bit #i = 0 , no change in DMA0_REQ_ENA register"]
 pub type ClrW<'a, REG> = crate::FieldWriter<'a, REG, 23, u32>;
+impl core::fmt::Debug for crate::generic::Reg<Dma0ReqEnaClrSpec> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "(not readable)")
+    }
+}
 impl W {
     #[doc = "Bits 0:22 - Write : If bit #i = 1, bit #i in DMA0_REQ_ENA register is reset to 0; if bit #i = 0 , no change in DMA0_REQ_ENA register"]
     #[inline(always)]

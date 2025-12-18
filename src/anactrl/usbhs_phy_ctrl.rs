@@ -31,6 +31,15 @@ impl R {
         IsoAtxR::new(((self.bits >> 3) & 1) != 0)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("USBHS_PHY_CTRL")
+            .field("usb_vbusvalid_ext", &self.usb_vbusvalid_ext())
+            .field("usb_id_ext", &self.usb_id_ext())
+            .field("iso_atx", &self.iso_atx())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Override value for Vbus if using external detectors."]
     #[inline(always)]

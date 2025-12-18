@@ -3,6 +3,7 @@ pub type R = crate::R<BodDcdcIntCtrlSpec>;
 #[doc = "Register `BOD_DCDC_INT_CTRL` writer"]
 pub type W = crate::W<BodDcdcIntCtrlSpec>;
 #[doc = "BOD VBAT interrupt control.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum BodvbatIntEnable {
     #[doc = "0: BOD VBAT interrupt is disabled."]
@@ -60,6 +61,7 @@ pub type BodvbatIntClearR = crate::BitReader;
 #[doc = "Field `BODVBAT_INT_CLEAR` writer - BOD VBAT interrupt clear.1: Clear the interrupt. Self-cleared bit."]
 pub type BodvbatIntClearW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "BOD CORE interrupt control.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum BodcoreIntEnable {
     #[doc = "0: BOD CORE interrupt is disabled."]
@@ -117,6 +119,7 @@ pub type BodcoreIntClearR = crate::BitReader;
 #[doc = "Field `BODCORE_INT_CLEAR` writer - BOD CORE interrupt clear.1: Clear the interrupt. Self-cleared bit."]
 pub type BodcoreIntClearW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "DCDC interrupt control.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum DcdcIntEnable {
     #[doc = "0: DCDC interrupt is disabled."]
@@ -203,6 +206,18 @@ impl R {
     #[inline(always)]
     pub fn dcdc_int_clear(&self) -> DcdcIntClearR {
         DcdcIntClearR::new(((self.bits >> 5) & 1) != 0)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("BOD_DCDC_INT_CTRL")
+            .field("bodvbat_int_enable", &self.bodvbat_int_enable())
+            .field("bodvbat_int_clear", &self.bodvbat_int_clear())
+            .field("bodcore_int_enable", &self.bodcore_int_enable())
+            .field("bodcore_int_clear", &self.bodcore_int_clear())
+            .field("dcdc_int_enable", &self.dcdc_int_enable())
+            .field("dcdc_int_clear", &self.dcdc_int_clear())
+            .finish()
     }
 }
 impl W {

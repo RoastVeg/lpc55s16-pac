@@ -13,6 +13,11 @@ impl R {
         F1aiR::new((self.bits & 0x3f) as u8)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RXF1A").field("f1ai", &self.f1ai()).finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:5 - Rx FIFO 1 acknowledge index."]
     #[inline(always)]

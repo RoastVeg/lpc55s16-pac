@@ -103,6 +103,23 @@ impl R {
         BooterrorcounterR::new(((self.bits >> 16) & 0x0f) as u8)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("AOREG1")
+            .field("por", &self.por())
+            .field("padreset", &self.padreset())
+            .field("bodreset", &self.bodreset())
+            .field("systemreset", &self.systemreset())
+            .field("wdtreset", &self.wdtreset())
+            .field("swrreset", &self.swrreset())
+            .field("dpdreset_wakeupio", &self.dpdreset_wakeupio())
+            .field("dpdreset_rtc", &self.dpdreset_rtc())
+            .field("dpdreset_ostimer", &self.dpdreset_ostimer())
+            .field("cdogreset", &self.cdogreset())
+            .field("booterrorcounter", &self.booterrorcounter())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 4 - The last chip reset was caused by a Power On Reset."]
     #[inline(always)]

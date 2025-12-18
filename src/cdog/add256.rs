@@ -2,6 +2,11 @@
 pub type W = crate::W<Add256Spec>;
 #[doc = "Field `AD256` writer - Address of ADD256 command"]
 pub type Ad256W<'a, REG> = crate::FieldWriter<'a, REG, 32, u32>;
+impl core::fmt::Debug for crate::generic::Reg<Add256Spec> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "(not readable)")
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - Address of ADD256 command"]
     #[inline(always)]

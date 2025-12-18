@@ -13,6 +13,13 @@ impl R {
         StartaR::new(self.bits & 0x0003_ffff)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("STARTA")
+            .field("starta", &self.starta())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:17 - Address / Start address for commands that take an address (range) as a parameter."]
     #[inline(always)]

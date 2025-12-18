@@ -3,6 +3,7 @@ pub type R = crate::R<AuxBiasSpec>;
 #[doc = "Register `AUX_BIAS` writer"]
 pub type W = crate::W<AuxBiasSpec>;
 #[doc = "Control output of 1V reference voltage.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Vref1venable {
     #[doc = "0: Output of 1V reference voltage buffer is bypassed."]
@@ -114,6 +115,19 @@ impl R {
     #[inline(always)]
     pub fn itrimctrl1(&self) -> Itrimctrl1R {
         Itrimctrl1R::new(((self.bits >> 21) & 1) != 0)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("AUX_BIAS")
+            .field("vref1venable", &self.vref1venable())
+            .field("itrim", &self.itrim())
+            .field("ptatitrim", &self.ptatitrim())
+            .field("vref1vtrim", &self.vref1vtrim())
+            .field("vref1vcurvetrim", &self.vref1vcurvetrim())
+            .field("itrimctrl0", &self.itrimctrl0())
+            .field("itrimctrl1", &self.itrimctrl1())
+            .finish()
     }
 }
 impl W {

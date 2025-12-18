@@ -31,6 +31,15 @@ impl R {
         FitR::new(((self.bits >> 31) & 1) != 0)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("HCFMINTERVAL")
+            .field("fi", &self.fi())
+            .field("fsmps", &self.fsmps())
+            .field("fit", &self.fit())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:13 - FrameInterval This specifies the interval between two consecutive SOFs in bit times."]
     #[inline(always)]

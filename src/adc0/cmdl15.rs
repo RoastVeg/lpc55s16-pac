@@ -3,6 +3,7 @@ pub type R = crate::R<Cmdl15Spec>;
 #[doc = "Register `CMDL15` writer"]
 pub type W = crate::W<Cmdl15Spec>;
 #[doc = "Input channel select\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Adch {
@@ -193,6 +194,7 @@ where
     }
 }
 #[doc = "Conversion Type\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Ctype {
@@ -279,6 +281,7 @@ where
     }
 }
 #[doc = "Select resolution of conversions\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Mode {
     #[doc = "0: Standard resolution. Single-ended 12-bit conversion; Differential 13-bit conversion with 2's complement output."]
@@ -346,6 +349,15 @@ impl R {
     #[inline(always)]
     pub fn mode(&self) -> ModeR {
         ModeR::new(((self.bits >> 7) & 1) != 0)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("CMDL15")
+            .field("adch", &self.adch())
+            .field("ctype", &self.ctype())
+            .field("mode", &self.mode())
+            .finish()
     }
 }
 impl W {

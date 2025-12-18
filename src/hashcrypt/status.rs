@@ -3,6 +3,7 @@ pub type R = crate::R<StatusSpec>;
 #[doc = "Register `STATUS` writer"]
 pub type W = crate::W<StatusSpec>;
 #[doc = "If 1, the block is waiting for more data to process.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Waiting {
     #[doc = "0: Not waiting for data - may be disabled or may be busy. Note that for cryptographic uses, this is not set if IsLast is set nor will it set until at least 1 word is read of the output."]
@@ -39,6 +40,7 @@ impl WaitingR {
     }
 }
 #[doc = "For Hash, if 1 then a DIGEST is ready and waiting and there is no active next block already started. For Cryptographic uses, this will be set for each block processed, indicating OUTDATA (and OUTDATA2 if larger output) contains the next value to read out. This is cleared when any data is written, when New is written, for Cryptographic uses when the last word is read out, or when the block is disabled.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Digest {
     #[doc = "0: No Digest is ready"]
@@ -75,6 +77,7 @@ impl DigestR {
     }
 }
 #[doc = "If 1, an error occurred. For normal uses, this is due to an attempted overrun: INDATA was written when it was not appropriate. For Master cases, this is an AHB bus error; the COUNT field will indicate which block it was on.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Error {
     #[doc = "0: No error."]
@@ -128,6 +131,7 @@ where
     }
 }
 #[doc = "Indicates if an AES or PRNG fault has occurred\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Fault {
     #[doc = "0: No AES or PRNG fault has occurred."]
@@ -164,6 +168,7 @@ impl FaultR {
     }
 }
 #[doc = "Indicates the block wants the key to be written in (set along with WAITING)\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Needkey {
     #[doc = "0: No Key is needed and writes will not be treated as Key"]
@@ -200,6 +205,7 @@ impl NeedkeyR {
     }
 }
 #[doc = "Indicates the block wants an IV/NONE to be written in (set along with WAITING)\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Neediv {
     #[doc = "0: No IV/Nonce is needed, either because written already or because not needed."]
@@ -236,6 +242,7 @@ impl NeedivR {
     }
 }
 #[doc = "AES fault status\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Aesfault {
     #[doc = "0: No AES fault has occurred."]
@@ -272,6 +279,7 @@ impl AesfaultR {
     }
 }
 #[doc = "PRNG fault status\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Prngfault {
     #[doc = "0: No PRNG fault has occurred."]
@@ -347,6 +355,20 @@ impl R {
     #[inline(always)]
     pub fn prngfault(&self) -> PrngfaultR {
         PrngfaultR::new(((self.bits >> 9) & 1) != 0)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("STATUS")
+            .field("waiting", &self.waiting())
+            .field("digest", &self.digest())
+            .field("error", &self.error())
+            .field("fault", &self.fault())
+            .field("needkey", &self.needkey())
+            .field("neediv", &self.neediv())
+            .field("aesfault", &self.aesfault())
+            .field("prngfault", &self.prngfault())
+            .finish()
     }
 }
 impl W {

@@ -2,6 +2,11 @@
 pub type W = crate::W<Settrig0Spec>;
 #[doc = "Field `TRIG` writer - Set Trigger control bit for DMA channel 0. Bit n corresponds to DMA channel n. The number of bits = number of DMA channels in this device. Other bits are reserved. 0 = no effect. 1 = sets the TRIG bit for DMA channel n."]
 pub type TrigW<'a, REG> = crate::FieldWriter<'a, REG, 32, u32>;
+impl core::fmt::Debug for crate::generic::Reg<Settrig0Spec> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "(not readable)")
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - Set Trigger control bit for DMA channel 0. Bit n corresponds to DMA channel n. The number of bits = number of DMA channels in this device. Other bits are reserved. 0 = no effect. 1 = sets the TRIG bit for DMA channel n."]
     #[inline(always)]

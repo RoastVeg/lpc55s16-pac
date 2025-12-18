@@ -37,6 +37,17 @@ impl R {
         TeflR::new(((self.bits >> 25) & 1) != 0)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("TXEFS")
+            .field("effl", &self.effl())
+            .field("efgi", &self.efgi())
+            .field("efpi", &self.efpi())
+            .field("eff", &self.eff())
+            .field("tefl", &self.tefl())
+            .finish()
+    }
+}
 #[doc = "Tx Event FIFO Status\n\nYou can [`read`](crate::Reg::read) this register and get [`txefs::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct TxefsSpec;
 impl crate::RegisterSpec for TxefsSpec {

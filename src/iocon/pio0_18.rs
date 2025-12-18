@@ -3,6 +3,7 @@ pub type R = crate::R<Pio0_18Spec>;
 #[doc = "Register `PIO0_18` writer"]
 pub type W = crate::W<Pio0_18Spec>;
 #[doc = "Selects pin function.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Func {
@@ -141,6 +142,7 @@ where
     }
 }
 #[doc = "Selects function mode (on-chip pull-up/pull-down resistor control).\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Mode {
@@ -227,6 +229,7 @@ where
     }
 }
 #[doc = "Driver slew rate.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Slew {
     #[doc = "0: Standard-mode, output slew rate is slower. More outputs can be switched simultaneously."]
@@ -280,6 +283,7 @@ where
     }
 }
 #[doc = "Input polarity.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Invert {
     #[doc = "0: Disabled. Input function is not inverted."]
@@ -333,6 +337,7 @@ where
     }
 }
 #[doc = "Select Digital mode.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Digimode {
     #[doc = "0: Disable digital mode. Digital input set to 0."]
@@ -386,6 +391,7 @@ where
     }
 }
 #[doc = "Controls open-drain mode.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Od {
     #[doc = "0: Normal. Normal push-pull output"]
@@ -439,6 +445,7 @@ where
     }
 }
 #[doc = "Analog switch input control.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Asw {
     #[doc = "0: Analog switch is open. (disable)"]
@@ -526,6 +533,19 @@ impl R {
     #[inline(always)]
     pub fn asw(&self) -> AswR {
         AswR::new(((self.bits >> 10) & 1) != 0)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PIO0_18")
+            .field("func", &self.func())
+            .field("mode", &self.mode())
+            .field("slew", &self.slew())
+            .field("invert", &self.invert())
+            .field("digimode", &self.digimode())
+            .field("od", &self.od())
+            .field("asw", &self.asw())
+            .finish()
     }
 }
 impl W {

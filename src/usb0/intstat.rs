@@ -112,6 +112,24 @@ impl R {
         DevIntR::new(((self.bits >> 31) & 1) != 0)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("INTSTAT")
+            .field("ep0out", &self.ep0out())
+            .field("ep0in", &self.ep0in())
+            .field("ep1out", &self.ep1out())
+            .field("ep1in", &self.ep1in())
+            .field("ep2out", &self.ep2out())
+            .field("ep2in", &self.ep2in())
+            .field("ep3out", &self.ep3out())
+            .field("ep3in", &self.ep3in())
+            .field("ep4out", &self.ep4out())
+            .field("ep4in", &self.ep4in())
+            .field("frame_int", &self.frame_int())
+            .field("dev_int", &self.dev_int())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Interrupt status register bit for the Control EP0 OUT direction. This bit will be set if NBytes transitions to zero or the skip bit is set by software or a SETUP packet is successfully received for the control EP0. If the IntOnNAK_CO is set, this bit will also be set when a NAK is transmitted for the Control EP0 OUT direction. Software can clear this bit by writing a one to it."]
     #[inline(always)]

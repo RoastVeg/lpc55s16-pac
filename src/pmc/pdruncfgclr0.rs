@@ -2,6 +2,11 @@
 pub type W = crate::W<Pdruncfgclr0Spec>;
 #[doc = "Field `PDRUNCFGCLR0` writer - Writing ones to this register clears the corresponding bit or bits in the PDRUNCFG0 register, if they are implemented."]
 pub type Pdruncfgclr0W<'a, REG> = crate::FieldWriter<'a, REG, 32, u32>;
+impl core::fmt::Debug for crate::generic::Reg<Pdruncfgclr0Spec> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "(not readable)")
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - Writing ones to this register clears the corresponding bit or bits in the PDRUNCFG0 register, if they are implemented."]
     #[inline(always)]

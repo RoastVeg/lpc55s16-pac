@@ -19,6 +19,7 @@ pub type Osc32kpdR = crate::BitReader;
 #[doc = "Field `OSC32KPD` writer - Oscilator 32KHz (either FRO32KHz or XTAL32KHz according to RTCOSC32K."]
 pub type Osc32kpdW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "OS event timer clock select.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Ostimerclksel {
@@ -129,6 +130,17 @@ impl R {
     #[inline(always)]
     pub fn ostimerclksel(&self) -> OstimerclkselR {
         OstimerclkselR::new(((self.bits >> 4) & 3) as u8)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("OSTIMER")
+            .field("softreset", &self.softreset())
+            .field("clockenable", &self.clockenable())
+            .field("dpdwakeupenable", &self.dpdwakeupenable())
+            .field("osc32kpd", &self.osc32kpd())
+            .field("ostimerclksel", &self.ostimerclksel())
+            .finish()
     }
 }
 impl W {

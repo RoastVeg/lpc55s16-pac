@@ -3,6 +3,7 @@ pub type R = crate::R<Usb1needclkctrlSpec>;
 #[doc = "Register `USB1NEEDCLKCTRL` writer"]
 pub type W = crate::W<Usb1needclkctrlSpec>;
 #[doc = "USB1-HS Device need_clock signal control:\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum ApHsDevNeedclk {
     #[doc = "0: HOST_NEEDCLK is under hardware control."]
@@ -56,6 +57,7 @@ where
     }
 }
 #[doc = "USB1-HS device need clock polarity for triggering the USB1_NEEDCLK wake-up interrupt:\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum PolHsDevNeedclk {
     #[doc = "0: Falling edge of DEV_NEEDCLK triggers wake-up."]
@@ -109,6 +111,7 @@ where
     }
 }
 #[doc = "USB1-HS Host need clock signal control:\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum ApHsHostNeedclk {
     #[doc = "0: HOST_NEEDCLK is under hardware control."]
@@ -162,6 +165,7 @@ where
     }
 }
 #[doc = "USB1-HS host need clock polarity for triggering the USB1_NEEDCLK wake-up interrupt.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum PolHsHostNeedclk {
     #[doc = "0: Falling edge of HOST_NEEDCLK triggers wake-up."]
@@ -215,6 +219,7 @@ where
     }
 }
 #[doc = "Software override of device controller PHY wake up logic.\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum HsDevWakeupN {
     #[doc = "0: Forces USB1_PHY to wake-up."]
@@ -292,6 +297,17 @@ impl R {
     #[inline(always)]
     pub fn hs_dev_wakeup_n(&self) -> HsDevWakeupNR {
         HsDevWakeupNR::new(((self.bits >> 4) & 1) != 0)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("USB1NEEDCLKCTRL")
+            .field("ap_hs_dev_needclk", &self.ap_hs_dev_needclk())
+            .field("pol_hs_dev_needclk", &self.pol_hs_dev_needclk())
+            .field("ap_hs_host_needclk", &self.ap_hs_host_needclk())
+            .field("pol_hs_host_needclk", &self.pol_hs_host_needclk())
+            .field("hs_dev_wakeup_n", &self.hs_dev_wakeup_n())
+            .finish()
     }
 }
 impl W {

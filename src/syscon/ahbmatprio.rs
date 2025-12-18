@@ -76,6 +76,20 @@ impl R {
         PriCanfdR::new(((self.bits >> 18) & 3) as u8)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("AHBMATPRIO")
+            .field("pri_cpu0_cbus", &self.pri_cpu0_cbus())
+            .field("pri_cpu0_sbus", &self.pri_cpu0_sbus())
+            .field("pri_sdma0", &self.pri_sdma0())
+            .field("pri_sdma1", &self.pri_sdma1())
+            .field("pri_usb_fsd", &self.pri_usb_fsd())
+            .field("pri_usb_fsh", &self.pri_usb_fsh())
+            .field("pri_hash_aes", &self.pri_hash_aes())
+            .field("pri_canfd", &self.pri_canfd())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1 - CPU0 C-AHB bus."]
     #[inline(always)]

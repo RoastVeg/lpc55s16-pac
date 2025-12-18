@@ -9,6 +9,11 @@ impl R {
         IdR::new(self.bits)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("ID").field("id", &self.id()).finish()
+    }
+}
 #[doc = "Identification register\n\nYou can [`read`](crate::Reg::read) this register and get [`id::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct IdSpec;
 impl crate::RegisterSpec for IdSpec {

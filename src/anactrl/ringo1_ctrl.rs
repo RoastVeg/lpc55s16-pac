@@ -3,6 +3,7 @@ pub type R = crate::R<Ringo1CtrlSpec>;
 #[doc = "Register `RINGO1_CTRL` writer"]
 pub type W = crate::W<Ringo1CtrlSpec>;
 #[doc = "Select short or long ringo (for all ringos types).\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum S {
     #[doc = "0: Select short ringo (few elements)."]
@@ -56,6 +57,7 @@ where
     }
 }
 #[doc = "Ringo frequency output divider.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Fs {
     #[doc = "0: High frequency output (frequency lower than 100 MHz)."]
@@ -109,6 +111,7 @@ where
     }
 }
 #[doc = "Ringo module Power control.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Pd {
     #[doc = "0: The Ringo module is enabled."]
@@ -162,6 +165,7 @@ where
     }
 }
 #[doc = ".\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum ER24 {
     #[doc = "0: Ringo is disabled."]
@@ -215,6 +219,7 @@ where
     }
 }
 #[doc = ".\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum ER35 {
     #[doc = "0: Ringo is disabled."]
@@ -268,6 +273,7 @@ where
     }
 }
 #[doc = "Metal 2 (M2) monitor control.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum EM2 {
     #[doc = "0: Ringo is disabled."]
@@ -321,6 +327,7 @@ where
     }
 }
 #[doc = "Metal 3 (M3) monitor control.\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum EM3 {
     #[doc = "0: Ringo is disabled."]
@@ -374,6 +381,7 @@ where
     }
 }
 #[doc = "Metal 4 (M4) monitor control.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum EM4 {
     #[doc = "0: Ringo is disabled."]
@@ -427,6 +435,7 @@ where
     }
 }
 #[doc = "Metal 5 (M5) monitor control.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum EM5 {
     #[doc = "0: Ringo is disabled."]
@@ -540,6 +549,23 @@ impl R {
     #[inline(always)]
     pub fn div_update_req(&self) -> DivUpdateReqR {
         DivUpdateReqR::new(((self.bits >> 31) & 1) != 0)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RINGO1_CTRL")
+            .field("s", &self.s())
+            .field("fs", &self.fs())
+            .field("pd", &self.pd())
+            .field("e_r24", &self.e_r24())
+            .field("e_r35", &self.e_r35())
+            .field("e_m2", &self.e_m2())
+            .field("e_m3", &self.e_m3())
+            .field("e_m4", &self.e_m4())
+            .field("e_m5", &self.e_m5())
+            .field("divisor", &self.divisor())
+            .field("div_update_req", &self.div_update_req())
+            .finish()
     }
 }
 impl W {

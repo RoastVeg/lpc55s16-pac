@@ -9,6 +9,13 @@ impl R {
         CodeoutR::new(self.bits)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("CODEOUTPUT")
+            .field("codeout", &self.codeout())
+            .finish()
+    }
+}
 #[doc = "PUF Code Output register\n\nYou can [`read`](crate::Reg::read) this register and get [`codeoutput::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct CodeoutputSpec;
 impl crate::RegisterSpec for CodeoutputSpec {

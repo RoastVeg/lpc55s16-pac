@@ -13,6 +13,13 @@ impl R {
         ReqEnaR::new(self.bits & 0x007f_ffff)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DMA0_REQ_ENA")
+            .field("req_ena", &self.req_ena())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:22 - Controls the 23 request inputs of DMA0. If bit i is '1' the DMA request input #i is enabled."]
     #[inline(always)]

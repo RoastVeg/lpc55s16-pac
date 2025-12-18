@@ -3,6 +3,7 @@ pub type R = crate::R<MemoryremapSpec>;
 #[doc = "Register `MEMORYREMAP` writer"]
 pub type W = crate::W<MemoryremapSpec>;
 #[doc = "Select the location of the vector table :.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Map {
@@ -93,6 +94,13 @@ impl R {
     #[inline(always)]
     pub fn map(&self) -> MapR {
         MapR::new((self.bits & 3) as u8)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("MEMORYREMAP")
+            .field("map", &self.map())
+            .finish()
     }
 }
 impl W {

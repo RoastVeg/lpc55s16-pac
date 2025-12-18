@@ -13,6 +13,11 @@ impl R {
         TcvalR::new(self.bits)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("TC").field("tcval", &self.tcval()).finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - Timer counter value."]
     #[inline(always)]

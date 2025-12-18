@@ -13,6 +13,11 @@ impl R {
         BufR::new(((self.bits >> 2) & 0xff) as u8)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EPINUSE").field("buf", &self.buf()).finish()
+    }
+}
 impl W {
     #[doc = "Bits 2:9 - Buffer in use: This register has one bit per physical endpoint. 0: HW is accessing buffer 0. 1: HW is accessing buffer 1."]
     #[inline(always)]

@@ -40,6 +40,16 @@ impl R {
         TfqmR::new(((self.bits >> 30) & 1) != 0)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("TXBC")
+            .field("tbsa", &self.tbsa())
+            .field("ndtb", &self.ndtb())
+            .field("tfqs", &self.tfqs())
+            .field("tfqm", &self.tfqm())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 2:15 - Tx buffers start address."]
     #[inline(always)]

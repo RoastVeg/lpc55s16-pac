@@ -22,6 +22,14 @@ impl R {
         Nmiencpu0R::new(((self.bits >> 31) & 1) != 0)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("NMISRC")
+            .field("irqcpu0", &self.irqcpu0())
+            .field("nmiencpu0", &self.nmiencpu0())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:5 - The IRQ number of the interrupt that acts as the Non-Maskable Interrupt (NMI) for the CPU0, if enabled by NMIENCPU0."]
     #[inline(always)]

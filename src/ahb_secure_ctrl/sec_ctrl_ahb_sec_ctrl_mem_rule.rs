@@ -3,6 +3,7 @@ pub type R = crate::R<SecCtrlAhbSecCtrlMemRuleSpec>;
 #[doc = "Register `SEC_CTRL_AHB_SEC_CTRL_MEM_RULE` writer"]
 pub type W = crate::W<SecCtrlAhbSecCtrlMemRuleSpec>;
 #[doc = "Address space: 0x400A_0000 - 0x400A_CFFF\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum AhbSecCtrlSect0Rule {
@@ -90,6 +91,7 @@ where
     }
 }
 #[doc = "Address space: 0x400A_D000 - 0x400A_DFFF\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum AhbSecCtrlSect1Rule {
@@ -177,6 +179,7 @@ where
     }
 }
 #[doc = "Address space: 0x400A_E000 - 0x400A_EFFF\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum AhbSecCtrlSect2Rule {
@@ -264,6 +267,7 @@ where
     }
 }
 #[doc = "Address space: 0x400A_F000 - 0x400A_FFFF\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum AhbSecCtrlSect3Rule {
@@ -370,6 +374,16 @@ impl R {
     #[inline(always)]
     pub fn ahb_sec_ctrl_sect_3_rule(&self) -> AhbSecCtrlSect3RuleR {
         AhbSecCtrlSect3RuleR::new(((self.bits >> 12) & 3) as u8)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SEC_CTRL_AHB_SEC_CTRL_MEM_RULE")
+            .field("ahb_sec_ctrl_sect_0_rule", &self.ahb_sec_ctrl_sect_0_rule())
+            .field("ahb_sec_ctrl_sect_1_rule", &self.ahb_sec_ctrl_sect_1_rule())
+            .field("ahb_sec_ctrl_sect_2_rule", &self.ahb_sec_ctrl_sect_2_rule())
+            .field("ahb_sec_ctrl_sect_3_rule", &self.ahb_sec_ctrl_sect_3_rule())
+            .finish()
     }
 }
 impl W {

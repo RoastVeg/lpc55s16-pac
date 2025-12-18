@@ -40,6 +40,16 @@ impl R {
         Delay2R::new(((self.bits >> 21) & 0x03ff) as u16)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PVT_MONITOR_1_PVT_MONITOR_1_DELAYS_LSB")
+            .field("delay_valid", &self.delay_valid())
+            .field("delay_0", &self.delay_0())
+            .field("delay_1", &self.delay_1())
+            .field("delay_2", &self.delay_2())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - no description available"]
     #[inline(always)]

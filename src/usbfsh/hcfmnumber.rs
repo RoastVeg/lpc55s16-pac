@@ -11,6 +11,13 @@ impl R {
         FnR::new((self.bits & 0xffff) as u16)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("HCFMNUMBER")
+            .field("fn_", &self.fn_())
+            .finish()
+    }
+}
 impl W {}
 #[doc = "Contains a 16-bit counter and provides the timing reference among events happening in the HC and the HCD\n\nYou can [`read`](crate::Reg::read) this register and get [`hcfmnumber::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`hcfmnumber::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct HcfmnumberSpec;

@@ -22,6 +22,14 @@ impl R {
         Vbe8R::new(((self.bits >> 16) & 0xffff) as u16)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("TEMP_SENS_VBE1VBE8_REF_1")
+            .field("vbe1", &self.vbe1())
+            .field("vbe8", &self.vbe8())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:15 - no description available"]
     #[inline(always)]

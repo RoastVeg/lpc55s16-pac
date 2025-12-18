@@ -13,6 +13,11 @@ impl R {
         IaR::new(self.bits)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("INTA0").field("ia", &self.ia()).finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - Interrupt A status for DMA channel n. Bit n corresponds to DMA channel n. The number of bits = number of DMA channels in this device. Other bits are reserved. 0 = the DMA channel interrupt A is not active. 1 = the DMA channel interrupt A is active."]
     #[inline(always)]

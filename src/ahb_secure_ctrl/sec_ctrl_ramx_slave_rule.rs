@@ -3,6 +3,7 @@ pub type R = crate::R<SecCtrlRamxSlaveRuleSpec>;
 #[doc = "Register `SEC_CTRL_RAMX_SLAVE_RULE` writer"]
 pub type W = crate::W<SecCtrlRamxSlaveRuleSpec>;
 #[doc = "Security access rules for the whole RAMX : 0x0400_0000 - 0x0400_7FFF\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum RamxRule {
@@ -93,6 +94,13 @@ impl R {
     #[inline(always)]
     pub fn ramx_rule(&self) -> RamxRuleR {
         RamxRuleR::new((self.bits & 3) as u8)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SEC_CTRL_RAMX_SLAVE_RULE")
+            .field("ramx_rule", &self.ramx_rule())
+            .finish()
     }
 }
 impl W {

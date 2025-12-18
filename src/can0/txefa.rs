@@ -13,6 +13,11 @@ impl R {
         EfaiR::new((self.bits & 0x1f) as u8)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("TXEFA").field("efai", &self.efai()).finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:4 - Event FIFO acknowledge index."]
     #[inline(always)]

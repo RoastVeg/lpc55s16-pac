@@ -13,6 +13,13 @@ impl R {
         HccaR::new((self.bits >> 8) & 0x00ff_ffff)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("HCHCCA")
+            .field("hcca", &self.hcca())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 8:31 - Base address of the Host Controller Communication Area."]
     #[inline(always)]

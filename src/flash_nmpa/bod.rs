@@ -58,6 +58,18 @@ impl R {
         BodCoreHystR::new(((self.bits >> 21) & 3) as u8)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("BOD")
+            .field("bod_vbat_trim_valid", &self.bod_vbat_trim_valid())
+            .field("bod_vbat_triglvl", &self.bod_vbat_triglvl())
+            .field("bod_vbat_hyst", &self.bod_vbat_hyst())
+            .field("bod_core_trim_valid", &self.bod_core_trim_valid())
+            .field("bod_core_triglvl", &self.bod_core_triglvl())
+            .field("bod_core_hyst", &self.bod_core_hyst())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - no description available"]
     #[inline(always)]

@@ -3,6 +3,7 @@ pub type R = crate::R<IntensetSpec>;
 #[doc = "Register `INTENSET` writer"]
 pub type W = crate::W<IntensetSpec>;
 #[doc = "Set if the accelerator should interrupt when done.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Done {
     #[doc = "0: Do not interrupt when done"]
@@ -60,6 +61,13 @@ impl R {
     #[inline(always)]
     pub fn done(&self) -> DoneR {
         DoneR::new((self.bits & 1) != 0)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("INTENSET")
+            .field("done", &self.done())
+            .finish()
     }
 }
 impl W {

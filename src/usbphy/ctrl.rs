@@ -15,6 +15,7 @@ pub type HostdiscondetectIrqR = crate::BitReader;
 #[doc = "Field `HOSTDISCONDETECT_IRQ` writer - Indicates that the device has disconnected in High-Speed mode"]
 pub type HostdiscondetectIrqW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Enables non-standard resistive plugged-in detection This bit field controls connection of nominal 200kohm resistors to both the USB_DP and USB_DM pins as one method of detecting when a USB cable is attached in device mode\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Endevplugindet {
     #[doc = "0: Disables 200kohm pullup resistors on USB_DP and USB_DM pins (Default)"]
@@ -267,6 +268,36 @@ impl R {
     #[inline(always)]
     pub fn sftrst(&self) -> SftrstR {
         SftrstR::new(((self.bits >> 31) & 1) != 0)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("CTRL")
+            .field("enhostdiscondetect", &self.enhostdiscondetect())
+            .field("enirqhostdiscon", &self.enirqhostdiscon())
+            .field("hostdiscondetect_irq", &self.hostdiscondetect_irq())
+            .field("endevplugindet", &self.endevplugindet())
+            .field("devplugin_polarity", &self.devplugin_polarity())
+            .field("resumeirqsticky", &self.resumeirqsticky())
+            .field("enirqresumedetect", &self.enirqresumedetect())
+            .field("resume_irq", &self.resume_irq())
+            .field("devplugin_irq", &self.devplugin_irq())
+            .field("enutmilevel2", &self.enutmilevel2())
+            .field("enutmilevel3", &self.enutmilevel3())
+            .field("enirqwakeup", &self.enirqwakeup())
+            .field("wakeup_irq", &self.wakeup_irq())
+            .field("autoresume_en", &self.autoresume_en())
+            .field("enautoclr_clkgate", &self.enautoclr_clkgate())
+            .field("enautoclr_phy_pwd", &self.enautoclr_phy_pwd())
+            .field("endpdmchg_wkup", &self.endpdmchg_wkup())
+            .field("envbuschg_wkup", &self.envbuschg_wkup())
+            .field("enautoclr_usbclkgate", &self.enautoclr_usbclkgate())
+            .field("enautoset_usbclks", &self.enautoset_usbclks())
+            .field("host_force_ls_se0", &self.host_force_ls_se0())
+            .field("utmi_suspendm", &self.utmi_suspendm())
+            .field("clkgate", &self.clkgate())
+            .field("sftrst", &self.sftrst())
+            .finish()
     }
 }
 impl W {

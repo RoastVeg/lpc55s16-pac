@@ -3,6 +3,7 @@ pub type R = crate::R<Xtal16mhzCapabankTrimSpec>;
 #[doc = "Register `XTAL_16MHZ_CAPABANK_TRIM` writer"]
 pub type W = crate::W<Xtal16mhzCapabankTrimSpec>;
 #[doc = "XTAL 16MHz capa bank trimmings\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum TrimValid {
     #[doc = "0: Capa Bank trimmings not valid. Default trimmings value are used"]
@@ -87,6 +88,22 @@ impl R {
     #[inline(always)]
     pub fn pcb_xout_para_cap_pf_x100(&self) -> PcbXoutParaCapPfX100R {
         PcbXoutParaCapPfX100R::new(((self.bits >> 21) & 0x03ff) as u16)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("XTAL_16MHZ_CAPABANK_TRIM")
+            .field("trim_valid", &self.trim_valid())
+            .field(
+                "xtal_load_cap_iec_pf_x100",
+                &self.xtal_load_cap_iec_pf_x100(),
+            )
+            .field("pcb_xin_para_cap_pf_x100", &self.pcb_xin_para_cap_pf_x100())
+            .field(
+                "pcb_xout_para_cap_pf_x100",
+                &self.pcb_xout_para_cap_pf_x100(),
+            )
+            .finish()
     }
 }
 impl W {

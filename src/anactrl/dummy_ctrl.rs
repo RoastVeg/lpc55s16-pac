@@ -3,6 +3,7 @@ pub type R = crate::R<DummyCtrlSpec>;
 #[doc = "Register `DUMMY_CTRL` writer"]
 pub type W = crate::W<DummyCtrlSpec>;
 #[doc = "Control High speed Crystal oscillator mode of the ADC clock.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Xo32mAdcClkMode {
@@ -67,6 +68,13 @@ impl R {
     #[inline(always)]
     pub fn xo32m_adc_clk_mode(&self) -> Xo32mAdcClkModeR {
         Xo32mAdcClkModeR::new(((self.bits >> 10) & 3) as u8)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DUMMY_CTRL")
+            .field("xo32m_adc_clk_mode", &self.xo32m_adc_clk_mode())
+            .finish()
     }
 }
 impl W {

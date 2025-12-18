@@ -3,6 +3,7 @@ pub type R = crate::R<SecCtrlRomMemRule3Spec>;
 #[doc = "Register `SEC_CTRL_ROM_MEM_RULE3` writer"]
 pub type W = crate::W<SecCtrlRomMemRule3Spec>;
 #[doc = "secure control rule0. it can be set when check_reg's write_lock is '0'\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Rule0 {
@@ -89,6 +90,7 @@ where
     }
 }
 #[doc = "secure control rule1. it can be set when check_reg's write_lock is '0'\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Rule1 {
@@ -175,6 +177,7 @@ where
     }
 }
 #[doc = "secure control rule2. it can be set when check_reg's write_lock is '0'\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Rule2 {
@@ -261,6 +264,7 @@ where
     }
 }
 #[doc = "secure control rule3. it can be set when check_reg's write_lock is '0'\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Rule3 {
@@ -347,6 +351,7 @@ where
     }
 }
 #[doc = "secure control rule4. it can be set when check_reg's write_lock is '0'\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Rule4 {
@@ -433,6 +438,7 @@ where
     }
 }
 #[doc = "secure control rule5. it can be set when check_reg's write_lock is '0'\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Rule5 {
@@ -519,6 +525,7 @@ where
     }
 }
 #[doc = "secure control rule6. it can be set when check_reg's write_lock is '0'\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Rule6 {
@@ -605,6 +612,7 @@ where
     }
 }
 #[doc = "secure control rule7. it can be set when check_reg's write_lock is '0'\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Rule7 {
@@ -730,6 +738,20 @@ impl R {
     #[inline(always)]
     pub fn rule7(&self) -> Rule7R {
         Rule7R::new(((self.bits >> 28) & 3) as u8)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SEC_CTRL_ROM_MEM_RULE3")
+            .field("rule0", &self.rule0())
+            .field("rule1", &self.rule1())
+            .field("rule2", &self.rule2())
+            .field("rule3", &self.rule3())
+            .field("rule4", &self.rule4())
+            .field("rule5", &self.rule5())
+            .field("rule6", &self.rule6())
+            .field("rule7", &self.rule7())
+            .finish()
     }
 }
 impl W {

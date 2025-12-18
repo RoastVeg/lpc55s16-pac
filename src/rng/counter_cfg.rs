@@ -31,6 +31,15 @@ impl R {
         Shift4xR::new(((self.bits >> 5) & 7) as u8)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("COUNTER_CFG")
+            .field("mode", &self.mode())
+            .field("clock_sel", &self.clock_sel())
+            .field("shift4x", &self.shift4x())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1 - 00: disabled 01: update once."]
     #[inline(always)]

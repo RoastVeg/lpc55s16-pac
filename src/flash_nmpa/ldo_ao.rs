@@ -76,6 +76,20 @@ impl R {
         DpdwTrimR::new(((self.bits >> 25) & 0x1f) as u8)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LDO_AO")
+            .field("active_trim_valid", &self.active_trim_valid())
+            .field("active_trim", &self.active_trim())
+            .field("dslp_trim_valid", &self.dslp_trim_valid())
+            .field("dslp_trim", &self.dslp_trim())
+            .field("pdwn_trim_valid", &self.pdwn_trim_valid())
+            .field("pdwn_trim", &self.pdwn_trim())
+            .field("dpdw_trim_valid", &self.dpdw_trim_valid())
+            .field("dpdw_trim", &self.dpdw_trim())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - no description available"]
     #[inline(always)]

@@ -13,6 +13,13 @@ impl R {
         StopaR::new(self.bits & 0x0003_ffff)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("STOPA")
+            .field("stopa", &self.stopa())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:17 - Stop address for commands that take an address range as a parameter (the word specified by STOPA is included in the address range)."]
     #[inline(always)]

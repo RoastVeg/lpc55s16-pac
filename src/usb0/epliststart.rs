@@ -13,6 +13,13 @@ impl R {
         EpListR::new((self.bits >> 8) & 0x00ff_ffff)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EPLISTSTART")
+            .field("ep_list", &self.ep_list())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 8:31 - Start address of the USB EP Command/Status List."]
     #[inline(always)]

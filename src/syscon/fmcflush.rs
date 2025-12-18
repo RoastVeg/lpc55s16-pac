@@ -1,6 +1,7 @@
 #[doc = "Register `FMCFLUSH` writer"]
 pub type W = crate::W<FmcflushSpec>;
 #[doc = "Flush control\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Flush {
     #[doc = "0: No action is performed."]
@@ -29,6 +30,11 @@ where
     #[inline(always)]
     pub fn flush(self) -> &'a mut crate::W<REG> {
         self.variant(Flush::Flush)
+    }
+}
+impl core::fmt::Debug for crate::generic::Reg<FmcflushSpec> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "(not readable)")
     }
 }
 impl W {

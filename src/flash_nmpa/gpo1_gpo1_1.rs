@@ -31,6 +31,15 @@ impl R {
         FieldR::new((self.bits >> 8) & 0x00ff_ffff)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("GPO1_GPO1_1")
+            .field("rom_patch_version", &self.rom_patch_version())
+            .field("customer_revision_id", &self.customer_revision_id())
+            .field("field", &self.field())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:3 - ROM Patch Version \\[3:0\\]"]
     #[inline(always)]

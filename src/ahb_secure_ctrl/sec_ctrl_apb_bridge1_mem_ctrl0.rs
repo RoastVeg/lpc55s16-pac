@@ -3,6 +3,7 @@ pub type R = crate::R<SecCtrlApbBridge1MemCtrl0Spec>;
 #[doc = "Register `SEC_CTRL_APB_BRIDGE1_MEM_CTRL0` writer"]
 pub type W = crate::W<SecCtrlApbBridge1MemCtrl0Spec>;
 #[doc = "Power Management Controller\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum PmcRule {
@@ -89,6 +90,7 @@ where
     }
 }
 #[doc = "System Controller\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum SysctrlRule {
@@ -175,6 +177,7 @@ where
     }
 }
 #[doc = "SPI FILTER control\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum SpiFilterRule {
@@ -275,6 +278,15 @@ impl R {
     #[inline(always)]
     pub fn spi_filter_rule(&self) -> SpiFilterRuleR {
         SpiFilterRuleR::new(((self.bits >> 16) & 3) as u8)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SEC_CTRL_APB_BRIDGE1_MEM_CTRL0")
+            .field("pmc_rule", &self.pmc_rule())
+            .field("sysctrl_rule", &self.sysctrl_rule())
+            .field("spi_filter_rule", &self.spi_filter_rule())
+            .finish()
     }
 }
 impl W {

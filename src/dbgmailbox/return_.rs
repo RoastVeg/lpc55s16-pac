@@ -13,6 +13,11 @@ impl R {
         RetR::new(self.bits)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RETURN").field("ret", &self.ret()).finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - The Return value from ROM."]
     #[inline(always)]

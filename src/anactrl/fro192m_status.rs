@@ -3,6 +3,7 @@ pub type R = crate::R<Fro192mStatusSpec>;
 #[doc = "Register `FRO192M_STATUS` writer"]
 pub type W = crate::W<Fro192mStatusSpec>;
 #[doc = "Output clock valid signal. Indicates that CCO clock has settled.\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum ClkValid {
     #[doc = "0: No output clock present (None of 12 MHz, 48 MHz or 96 MHz clock is available)."]
@@ -50,6 +51,14 @@ impl R {
     #[inline(always)]
     pub fn atb_vctrl(&self) -> AtbVctrlR {
         AtbVctrlR::new(((self.bits >> 1) & 1) != 0)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("FRO192M_STATUS")
+            .field("clk_valid", &self.clk_valid())
+            .field("atb_vctrl", &self.atb_vctrl())
+            .finish()
     }
 }
 impl W {}

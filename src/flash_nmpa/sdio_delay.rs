@@ -22,6 +22,14 @@ impl R {
         Sdio0DelayR::new(((self.bits >> 1) & 0x03ff) as u16)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SDIO_DELAY")
+            .field("sdio_0_valid", &self.sdio_0_valid())
+            .field("sdio_0_delay", &self.sdio_0_delay())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - no description available"]
     #[inline(always)]

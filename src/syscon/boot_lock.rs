@@ -3,6 +3,7 @@ pub type R = crate::R<BootLockSpec>;
 #[doc = "Register `BOOT_LOCK` writer"]
 pub type W = crate::W<BootLockSpec>;
 #[doc = "Control write access to BOOT_SEED_REG registers.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum LockBootSeed {
     #[doc = "1: write access to all 8 registers BOOT_SEED_REG is locked. This register is write once."]
@@ -44,6 +45,7 @@ where
     }
 }
 #[doc = "Control write access to HMAC_REG registers.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum LockHmac {
     #[doc = "1: write access to all 8 registers HMAC_REG is locked. This register is write once."]
@@ -94,6 +96,14 @@ impl R {
     #[inline(always)]
     pub fn lock_hmac(&self) -> LockHmacR {
         LockHmacR::new(((self.bits >> 1) & 1) != 0)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("BOOT_LOCK")
+            .field("lock_boot_seed", &self.lock_boot_seed())
+            .field("lock_hmac", &self.lock_hmac())
+            .finish()
     }
 }
 impl W {

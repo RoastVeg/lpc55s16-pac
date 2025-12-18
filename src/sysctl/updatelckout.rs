@@ -3,6 +3,7 @@ pub type R = crate::R<UpdatelckoutSpec>;
 #[doc = "Register `UPDATELCKOUT` writer"]
 pub type W = crate::W<UpdatelckoutSpec>;
 #[doc = "All Registers\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Updatelckout {
     #[doc = "0: Normal Mode. Can be written to."]
@@ -60,6 +61,13 @@ impl R {
     #[inline(always)]
     pub fn updatelckout(&self) -> UpdatelckoutR {
         UpdatelckoutR::new((self.bits & 1) != 0)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("UPDATELCKOUT")
+            .field("updatelckout", &self.updatelckout())
+            .finish()
     }
 }
 impl W {

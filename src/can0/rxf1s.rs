@@ -37,6 +37,17 @@ impl R {
         Rf1lR::new(((self.bits >> 25) & 1) != 0)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RXF1S")
+            .field("f1fl", &self.f1fl())
+            .field("f1gi", &self.f1gi())
+            .field("f1pi", &self.f1pi())
+            .field("f1f", &self.f1f())
+            .field("rf1l", &self.rf1l())
+            .finish()
+    }
+}
 #[doc = "Rx FIFO 1 Status\n\nYou can [`read`](crate::Reg::read) this register and get [`rxf1s::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct Rxf1sSpec;
 impl crate::RegisterSpec for Rxf1sSpec {

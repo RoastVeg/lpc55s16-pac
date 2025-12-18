@@ -13,6 +13,13 @@ impl R {
         PsR::new((self.bits & 0x3fff) as u16)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("HCPERIODICSTART")
+            .field("ps", &self.ps())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:13 - PeriodicStart After a hardware reset, this field is cleared and then set by HCD during the HC initialization."]
     #[inline(always)]

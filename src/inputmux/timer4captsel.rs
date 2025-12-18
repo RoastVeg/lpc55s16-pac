@@ -3,6 +3,7 @@ pub type R = crate::R<Timer4captselSpec>;
 #[doc = "Register `TIMER4CAPTSEL[%s]` writer"]
 pub type W = crate::W<Timer4captselSpec>;
 #[doc = "Input number to TIMER4 capture inputs 0 to 4\n\nValue on reset: 31"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Captsel {
@@ -457,6 +458,13 @@ impl R {
     #[inline(always)]
     pub fn captsel(&self) -> CaptselR {
         CaptselR::new((self.bits & 0x1f) as u8)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("TIMER4CAPTSEL")
+            .field("captsel", &self.captsel())
+            .finish()
     }
 }
 impl W {

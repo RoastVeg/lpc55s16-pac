@@ -31,6 +31,15 @@ impl R {
         RxR::new(((self.bits >> 7) & 1) != 0)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("TEST")
+            .field("lbck", &self.lbck())
+            .field("tx", &self.tx())
+            .field("rx", &self.rx())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 4 - Loop back mode."]
     #[inline(always)]

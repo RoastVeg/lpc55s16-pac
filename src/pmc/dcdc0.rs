@@ -27,6 +27,7 @@ pub type DisableisenseR = crate::BitReader;
 #[doc = "Field `DISABLEISENSE` writer - Disable Current sensing."]
 pub type DisableisenseW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Set output regulation voltage.\n\nValue on reset: 6"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Vout {
@@ -265,6 +266,22 @@ impl R {
     #[inline(always)]
     pub fn vout_pwd(&self) -> VoutPwdR {
         VoutPwdR::new(((self.bits >> 23) & 0x0f) as u8)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DCDC0")
+            .field("rc", &self.rc())
+            .field("icomp", &self.icomp())
+            .field("isel", &self.isel())
+            .field("icenable", &self.icenable())
+            .field("tmos", &self.tmos())
+            .field("disableisense", &self.disableisense())
+            .field("vout", &self.vout())
+            .field("slicingenable", &self.slicingenable())
+            .field("inductorclampenable", &self.inductorclampenable())
+            .field("vout_pwd", &self.vout_pwd())
+            .finish()
     }
 }
 impl W {

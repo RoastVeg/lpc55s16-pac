@@ -22,6 +22,14 @@ impl R {
         TdcoR::new(((self.bits >> 8) & 0x7f) as u8)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("TDCR")
+            .field("tdcf", &self.tdcf())
+            .field("tdco", &self.tdco())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:6 - Transmitter delay compensation filter window length."]
     #[inline(always)]

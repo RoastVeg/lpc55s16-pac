@@ -274,6 +274,42 @@ impl R {
         AraR::new(((self.bits >> 29) & 1) != 0)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("IR")
+            .field("rf0n", &self.rf0n())
+            .field("rf0w", &self.rf0w())
+            .field("rf0f", &self.rf0f())
+            .field("rf0l", &self.rf0l())
+            .field("rf1n", &self.rf1n())
+            .field("rf1w", &self.rf1w())
+            .field("rf1f", &self.rf1f())
+            .field("rf1l", &self.rf1l())
+            .field("hpm", &self.hpm())
+            .field("tc", &self.tc())
+            .field("tcf", &self.tcf())
+            .field("tfe", &self.tfe())
+            .field("tefn", &self.tefn())
+            .field("tefw", &self.tefw())
+            .field("teff", &self.teff())
+            .field("tefl", &self.tefl())
+            .field("tsw", &self.tsw())
+            .field("mraf", &self.mraf())
+            .field("too", &self.too())
+            .field("drx", &self.drx())
+            .field("bec", &self.bec())
+            .field("beu", &self.beu())
+            .field("elo", &self.elo())
+            .field("ep", &self.ep())
+            .field("ew", &self.ew())
+            .field("bo", &self.bo())
+            .field("wdi", &self.wdi())
+            .field("pea", &self.pea())
+            .field("ped", &self.ped())
+            .field("ara", &self.ara())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Rx FIFO 0 new message."]
     #[inline(always)]

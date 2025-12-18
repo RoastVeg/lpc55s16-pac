@@ -67,6 +67,19 @@ impl R {
         PorFlagR::new(((self.bits >> 16) & 1) != 0)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("FLAGS")
+            .field("to_flag", &self.to_flag())
+            .field("miscom_flag", &self.miscom_flag())
+            .field("seq_flag", &self.seq_flag())
+            .field("cnt_flag", &self.cnt_flag())
+            .field("state_flag", &self.state_flag())
+            .field("addr_flag", &self.addr_flag())
+            .field("por_flag", &self.por_flag())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Timeout flag"]
     #[inline(always)]

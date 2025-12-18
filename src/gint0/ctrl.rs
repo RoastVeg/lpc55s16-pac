@@ -3,6 +3,7 @@ pub type R = crate::R<CtrlSpec>;
 #[doc = "Register `CTRL` writer"]
 pub type W = crate::W<CtrlSpec>;
 #[doc = "Group interrupt status. This bit is cleared by writing a one to it. Writing zero has no effect.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Int {
     #[doc = "0: No request. No interrupt request is pending."]
@@ -56,6 +57,7 @@ where
     }
 }
 #[doc = "Combine enabled inputs for group interrupt\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Comb {
     #[doc = "0: Or. OR functionality: A grouped interrupt is generated when any one of the enabled inputs is active (based on its programmed polarity)."]
@@ -109,6 +111,7 @@ where
     }
 }
 #[doc = "Group interrupt trigger\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Trig {
     #[doc = "0: Edge-triggered."]
@@ -176,6 +179,15 @@ impl R {
     #[inline(always)]
     pub fn trig(&self) -> TrigR {
         TrigR::new(((self.bits >> 2) & 1) != 0)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("CTRL")
+            .field("int", &self.int())
+            .field("comb", &self.comb())
+            .field("trig", &self.trig())
+            .finish()
     }
 }
 impl W {

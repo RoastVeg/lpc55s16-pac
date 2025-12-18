@@ -2,6 +2,11 @@
 pub type W = crate::W<CmdSpec>;
 #[doc = "Field `CMD` writer - command register."]
 pub type CmdW<'a, REG> = crate::FieldWriter<'a, REG, 32, u32>;
+impl core::fmt::Debug for crate::generic::Reg<CmdSpec> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "(not readable)")
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - command register."]
     #[inline(always)]

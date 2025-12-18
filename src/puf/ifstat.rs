@@ -13,6 +13,13 @@ impl R {
         ErrorR::new((self.bits & 1) != 0)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("IFSTAT")
+            .field("error", &self.error())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Indicates that an APB error has occurred,Writing logic1 clears the if_error bit"]
     #[inline(always)]

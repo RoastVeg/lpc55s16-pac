@@ -3,6 +3,7 @@ pub type R = crate::R<SecCtrlAhbPort7Slave1RuleSpec>;
 #[doc = "Register `SEC_CTRL_AHB_PORT7_SLAVE1_RULE` writer"]
 pub type W = crate::W<SecCtrlAhbPort7Slave1RuleSpec>;
 #[doc = "Flexcomm interface 2\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Flexcomm2Rule {
@@ -89,6 +90,7 @@ where
     }
 }
 #[doc = "Flexcomm interface 3\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Flexcomm3Rule {
@@ -175,6 +177,7 @@ where
     }
 }
 #[doc = "Flexcomm interface 4\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Flexcomm4Rule {
@@ -261,6 +264,7 @@ where
     }
 }
 #[doc = "High Speed GPIO\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Gpio0Rule {
@@ -366,6 +370,16 @@ impl R {
     #[inline(always)]
     pub fn gpio0_rule(&self) -> Gpio0RuleR {
         Gpio0RuleR::new(((self.bits >> 16) & 3) as u8)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SEC_CTRL_AHB_PORT7_SLAVE1_RULE")
+            .field("flexcomm2_rule", &self.flexcomm2_rule())
+            .field("flexcomm3_rule", &self.flexcomm3_rule())
+            .field("flexcomm4_rule", &self.flexcomm4_rule())
+            .field("gpio0_rule", &self.gpio0_rule())
+            .finish()
     }
 }
 impl W {

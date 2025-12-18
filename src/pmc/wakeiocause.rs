@@ -3,6 +3,7 @@ pub type R = crate::R<WakeiocauseSpec>;
 #[doc = "Register `WAKEIOCAUSE` writer"]
 pub type W = crate::W<WakeiocauseSpec>;
 #[doc = "Allows to identify Wake up I/O 0 as the wake-up source from Deep Power Down mode.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Wakeup0 {
     #[doc = "0: Last wake up from Deep Power down mode was NOT triggred by wake up I/O 0."]
@@ -39,6 +40,7 @@ impl Wakeup0R {
     }
 }
 #[doc = "Allows to identify Wake up I/O 1 as the wake-up source from Deep Power Down mode.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Wakeup1 {
     #[doc = "0: Last wake up from Deep Power down mode was NOT triggred by wake up I/O 1."]
@@ -92,6 +94,7 @@ where
     }
 }
 #[doc = "Allows to identify Wake up I/O 2 as the wake-up source from Deep Power Down mode.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Wakeup2 {
     #[doc = "0: Last wake up from Deep Power down mode was NOT triggred by wake up I/O 2."]
@@ -145,6 +148,7 @@ where
     }
 }
 #[doc = "Allows to identify Wake up I/O 3 as the wake-up source from Deep Power Down mode.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Wakeup3 {
     #[doc = "0: Last wake up from Deep Power down mode was NOT triggred by wake up I/O 3."]
@@ -217,6 +221,16 @@ impl R {
     #[inline(always)]
     pub fn wakeup3(&self) -> Wakeup3R {
         Wakeup3R::new(((self.bits >> 3) & 1) != 0)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("WAKEIOCAUSE")
+            .field("wakeup0", &self.wakeup0())
+            .field("wakeup1", &self.wakeup1())
+            .field("wakeup2", &self.wakeup2())
+            .field("wakeup3", &self.wakeup3())
+            .finish()
     }
 }
 impl W {

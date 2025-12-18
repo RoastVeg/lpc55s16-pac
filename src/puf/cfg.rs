@@ -22,6 +22,14 @@ impl R {
         BlockkeyoutputR::new(((self.bits >> 1) & 1) != 0)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("CFG")
+            .field("blockenroll_setkey", &self.blockenroll_setkey())
+            .field("blockkeyoutput", &self.blockkeyoutput())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Block enroll operation. Write 1 to set, cleared on reset."]
     #[inline(always)]

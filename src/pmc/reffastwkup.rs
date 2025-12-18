@@ -3,6 +3,7 @@ pub type R = crate::R<ReffastwkupSpec>;
 #[doc = "Register `REFFASTWKUP` writer"]
 pub type W = crate::W<ReffastwkupSpec>;
 #[doc = "Analog References fast wake-up in case of wake-up from a low power mode (DEEP SLEEP, POWER DOWN and DEEP POWER DOWN): .\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Lpwkup {
     #[doc = "0: Analog References fast wake-up feature is disabled in case of wake-up from any Low power mode."]
@@ -56,6 +57,7 @@ where
     }
 }
 #[doc = "Analog References fast wake-up in case of Hardware Pin reset: .\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Hwwkup {
     #[doc = "0: Analog References fast wake-up feature is disabled in case of Hardware Pin reset."]
@@ -118,6 +120,14 @@ impl R {
     #[inline(always)]
     pub fn hwwkup(&self) -> HwwkupR {
         HwwkupR::new(((self.bits >> 1) & 1) != 0)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("REFFASTWKUP")
+            .field("lpwkup", &self.lpwkup())
+            .field("hwwkup", &self.hwwkup())
+            .finish()
     }
 }
 impl W {

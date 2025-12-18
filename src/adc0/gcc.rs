@@ -3,6 +3,7 @@ pub type R = crate::R<GccSpec>;
 #[doc = "Field `GAIN_CAL` reader - Gain Calibration Value"]
 pub type GainCalR = crate::FieldReader<u16>;
 #[doc = "Gain Calibration Value Valid\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Rdy {
     #[doc = "0: The gain calibration value is invalid. Run the auto-calibration routine for this value to be written."]
@@ -48,6 +49,14 @@ impl R {
     #[inline(always)]
     pub fn rdy(&self) -> RdyR {
         RdyR::new(((self.bits >> 24) & 1) != 0)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("GCC")
+            .field("gain_cal", &self.gain_cal())
+            .field("rdy", &self.rdy())
+            .finish()
     }
 }
 #[doc = "Gain Calibration Control\n\nYou can [`read`](crate::Reg::read) this register and get [`gcc::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

@@ -3,6 +3,7 @@ pub type R = crate::R<FlashremapLockSpec>;
 #[doc = "Register `FLASHREMAP_LOCK` writer"]
 pub type W = crate::W<FlashremapLockSpec>;
 #[doc = "Control write access to FLASHREMAP_SIZE and FLASHREMAP_OFFSET registers. Any value other than 0xC33CA55A and 0x3CC35AA5 does not modify the state.\n\nValue on reset: 3275531610"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u32)]
 pub enum Lock {
@@ -67,6 +68,13 @@ impl R {
     #[inline(always)]
     pub fn lock(&self) -> LockR {
         LockR::new(self.bits)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("FLASHREMAP_LOCK")
+            .field("lock", &self.lock())
+            .finish()
     }
 }
 impl W {

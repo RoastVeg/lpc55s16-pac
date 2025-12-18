@@ -40,6 +40,16 @@ impl R {
         Key3R::new(((self.bits >> 6) & 3) as u8)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("KEYENABLE")
+            .field("key0", &self.key0())
+            .field("key1", &self.key1())
+            .field("key2", &self.key2())
+            .field("key3", &self.key3())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1 - \"10: Data coming out from PUF Index 0 interface are shifted in KEY0 register. 00, 01, 11 : Data coming out from PUF Index 0 interface are NOT shifted in KEY0 register.\""]
     #[inline(always)]

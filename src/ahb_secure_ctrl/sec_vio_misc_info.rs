@@ -1,6 +1,7 @@
 #[doc = "Register `sec_vio_misc_info[%s]` reader"]
 pub type R = crate::R<SecVioMiscInfoSpec>;
 #[doc = "security violation access read/write indicator.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum SecVioInfoWrite {
     #[doc = "0: Read access."]
@@ -37,6 +38,7 @@ impl SecVioInfoWriteR {
     }
 }
 #[doc = "security violation access data/code indicator.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum SecVioInfoDataAccess {
     #[doc = "0: Code access."]
@@ -75,6 +77,7 @@ impl SecVioInfoDataAccessR {
 #[doc = "Field `SEC_VIO_INFO_MASTER_SEC_LEVEL` reader - bit \\[5:4\\]: master sec level and privilege level bit \\[7:6\\]: anti-pol value for master sec level and privilege level"]
 pub type SecVioInfoMasterSecLevelR = crate::FieldReader;
 #[doc = "security violation master number\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum SecVioInfoMaster {
@@ -184,6 +187,19 @@ impl R {
     #[inline(always)]
     pub fn sec_vio_info_master(&self) -> SecVioInfoMasterR {
         SecVioInfoMasterR::new(((self.bits >> 8) & 0x0f) as u8)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("sec_vio_misc_info")
+            .field("sec_vio_info_write", &self.sec_vio_info_write())
+            .field("sec_vio_info_data_access", &self.sec_vio_info_data_access())
+            .field(
+                "sec_vio_info_master_sec_level",
+                &self.sec_vio_info_master_sec_level(),
+            )
+            .field("sec_vio_info_master", &self.sec_vio_info_master())
+            .finish()
     }
 }
 #[doc = "most recent security violation miscellaneous information for AHB layer n\n\nYou can [`read`](crate::Reg::read) this register and get [`sec_vio_misc_info::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

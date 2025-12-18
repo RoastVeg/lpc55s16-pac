@@ -22,6 +22,14 @@ impl R {
         EtceR::new(((self.bits >> 31) & 1) != 0)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("ETSCC")
+            .field("etcp", &self.etcp())
+            .field("etce", &self.etce())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:10 - External timestamp prescaler value."]
     #[inline(always)]

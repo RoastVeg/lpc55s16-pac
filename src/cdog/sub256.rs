@@ -2,6 +2,11 @@
 pub type W = crate::W<Sub256Spec>;
 #[doc = "Field `SB256` writer - Address of (you guessed it) SUB256 command."]
 pub type Sb256W<'a, REG> = crate::FieldWriter<'a, REG, 32, u32>;
+impl core::fmt::Debug for crate::generic::Reg<Sub256Spec> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "(not readable)")
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - Address of (you guessed it) SUB256 command."]
     #[inline(always)]

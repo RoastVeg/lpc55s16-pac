@@ -13,6 +13,13 @@ impl R {
         Wt1DateR::new(self.bits)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("WAFER_TEST1_DATE")
+            .field("wt1_date", &self.wt1_date())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - WT1_DATE \\[stored as : year*10000+month*100+day\\]"]
     #[inline(always)]

@@ -9,6 +9,13 @@ impl R {
         DigestR::new(self.bits)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DIGEST0")
+            .field("digest", &self.digest())
+            .finish()
+    }
+}
 #[doc = "Result digest (when status says so): Is 1st 5 words if SHA1 used Is all 8 words if SHA2 used Is all 8 words if crypto or SHA512\n\nYou can [`read`](crate::Reg::read) this register and get [`digest0::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct Digest0Spec;
 impl crate::RegisterSpec for Digest0Spec {

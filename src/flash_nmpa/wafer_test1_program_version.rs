@@ -13,6 +13,13 @@ impl R {
         Wt1ProgramVersionR::new(self.bits)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("WAFER_TEST1_PROGRAM_VERSION")
+            .field("wt1_program_version", &self.wt1_program_version())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - WT1_PROGRAM_VERSION \\[xx.yy stored as : 100*x+y\\]"]
     #[inline(always)]

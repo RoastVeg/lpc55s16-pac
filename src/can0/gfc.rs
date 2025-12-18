@@ -40,6 +40,16 @@ impl R {
         AnfsR::new(((self.bits >> 4) & 3) as u8)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("GFC")
+            .field("rrfe", &self.rrfe())
+            .field("rrfs", &self.rrfs())
+            .field("anfe", &self.anfe())
+            .field("anfs", &self.anfs())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Reject remote frames extended."]
     #[inline(always)]

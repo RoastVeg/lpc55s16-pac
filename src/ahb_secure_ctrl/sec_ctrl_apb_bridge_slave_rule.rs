@@ -3,6 +3,7 @@ pub type R = crate::R<SecCtrlApbBridgeSlaveRuleSpec>;
 #[doc = "Register `SEC_CTRL_APB_BRIDGE_SLAVE_RULE` writer"]
 pub type W = crate::W<SecCtrlApbBridgeSlaveRuleSpec>;
 #[doc = "Security access rules for the whole APB Bridge 0\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Apbbridge0Rule {
@@ -89,6 +90,7 @@ where
     }
 }
 #[doc = "Security access rules for the whole APB Bridge 1\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Apbbridge1Rule {
@@ -184,6 +186,14 @@ impl R {
     #[inline(always)]
     pub fn apbbridge1_rule(&self) -> Apbbridge1RuleR {
         Apbbridge1RuleR::new(((self.bits >> 4) & 3) as u8)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SEC_CTRL_APB_BRIDGE_SLAVE_RULE")
+            .field("apbbridge0_rule", &self.apbbridge0_rule())
+            .field("apbbridge1_rule", &self.apbbridge1_rule())
+            .finish()
     }
 }
 impl W {

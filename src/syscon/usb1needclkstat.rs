@@ -3,6 +3,7 @@ pub type R = crate::R<Usb1needclkstatSpec>;
 #[doc = "Register `USB1NEEDCLKSTAT` writer"]
 pub type W = crate::W<Usb1needclkstatSpec>;
 #[doc = "USB1-HS Device need_clock signal status:.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum DevNeedclk {
     #[doc = "0: DEV_NEEDCLK is low."]
@@ -39,6 +40,7 @@ impl DevNeedclkR {
     }
 }
 #[doc = "USB1-HS Host need_clock signal status:.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum HostNeedclk {
     #[doc = "0: HOST_NEEDCLK is low."]
@@ -84,6 +86,14 @@ impl R {
     #[inline(always)]
     pub fn host_needclk(&self) -> HostNeedclkR {
         HostNeedclkR::new(((self.bits >> 1) & 1) != 0)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("USB1NEEDCLKSTAT")
+            .field("dev_needclk", &self.dev_needclk())
+            .field("host_needclk", &self.host_needclk())
+            .finish()
     }
 }
 impl W {}

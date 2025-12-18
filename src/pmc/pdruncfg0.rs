@@ -3,6 +3,7 @@ pub type R = crate::R<Pdruncfg0Spec>;
 #[doc = "Register `PDRUNCFG0` writer"]
 pub type W = crate::W<Pdruncfg0Spec>;
 #[doc = "Controls power to VBAT Brown Out Detector (BOD).\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum PdenBodvbat {
     #[doc = "0: BOD VBAT is powered."]
@@ -56,6 +57,7 @@ where
     }
 }
 #[doc = "Controls power to the Free Running Oscillator (FRO) 32 KHz.\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum PdenFro32k {
     #[doc = "0: FRO32KHz is powered."]
@@ -109,6 +111,7 @@ where
     }
 }
 #[doc = "Controls power to crystal 32 KHz.\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum PdenXtal32k {
     #[doc = "0: Crystal 32KHz is powered."]
@@ -162,6 +165,7 @@ where
     }
 }
 #[doc = "Controls power to high speed crystal.\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum PdenXtal32m {
     #[doc = "0: High speed crystal is powered."]
@@ -215,6 +219,7 @@ where
     }
 }
 #[doc = "Controls power to System PLL (also refered as PLL0).\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum PdenPll0 {
     #[doc = "0: PLL0 is powered."]
@@ -268,6 +273,7 @@ where
     }
 }
 #[doc = "Controls power to USB PLL (also refered as PLL1).\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum PdenPll1 {
     #[doc = "0: PLL1 is powered."]
@@ -321,6 +327,7 @@ where
     }
 }
 #[doc = "Controls power to USB Full Speed phy.\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum PdenUsbfsphy {
     #[doc = "0: USB Full Speed phy is powered."]
@@ -374,6 +381,7 @@ where
     }
 }
 #[doc = "Controls power to USB High Speed Phy.\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum PdenUsbhsphy {
     #[doc = "0: USB HS phy is powered."]
@@ -427,6 +435,7 @@ where
     }
 }
 #[doc = "Controls power to Analog Comparator.\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum PdenComp {
     #[doc = "0: Analog Comparator is powered."]
@@ -480,6 +489,7 @@ where
     }
 }
 #[doc = "Controls power to USB high speed LDO.\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum PdenLdousbhs {
     #[doc = "0: USB high speed LDO is powered."]
@@ -533,6 +543,7 @@ where
     }
 }
 #[doc = "Controls power to auxiliary biasing (AUXBIAS)\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum PdenAuxbias {
     #[doc = "0: auxiliary biasing is powered."]
@@ -586,6 +597,7 @@ where
     }
 }
 #[doc = "Controls power to high speed crystal LDO.\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum PdenLdoxo32m {
     #[doc = "0: High speed crystal LDO is powered."]
@@ -639,6 +651,7 @@ where
     }
 }
 #[doc = "Controls power to all True Random Number Genetaor (TRNG) clock sources.\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum PdenRng {
     #[doc = "0: TRNG clocks are powered."]
@@ -692,6 +705,7 @@ where
     }
 }
 #[doc = "Controls power to System PLL (PLL0) Spread Spectrum module.\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum PdenPll0Sscg {
     #[doc = "0: PLL0 Sread spectrum module is powered."]
@@ -814,6 +828,26 @@ impl R {
     #[inline(always)]
     pub fn pden_pll0_sscg(&self) -> PdenPll0SscgR {
         PdenPll0SscgR::new(((self.bits >> 23) & 1) != 0)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PDRUNCFG0")
+            .field("pden_bodvbat", &self.pden_bodvbat())
+            .field("pden_fro32k", &self.pden_fro32k())
+            .field("pden_xtal32k", &self.pden_xtal32k())
+            .field("pden_xtal32m", &self.pden_xtal32m())
+            .field("pden_pll0", &self.pden_pll0())
+            .field("pden_pll1", &self.pden_pll1())
+            .field("pden_usbfsphy", &self.pden_usbfsphy())
+            .field("pden_usbhsphy", &self.pden_usbhsphy())
+            .field("pden_comp", &self.pden_comp())
+            .field("pden_ldousbhs", &self.pden_ldousbhs())
+            .field("pden_auxbias", &self.pden_auxbias())
+            .field("pden_ldoxo32m", &self.pden_ldoxo32m())
+            .field("pden_rng", &self.pden_rng())
+            .field("pden_pll0_sscg", &self.pden_pll0_sscg())
+            .finish()
     }
 }
 impl W {

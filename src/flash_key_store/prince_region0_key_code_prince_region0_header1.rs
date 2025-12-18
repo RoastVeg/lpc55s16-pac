@@ -31,6 +31,15 @@ impl R {
         SizeR::new(((self.bits >> 24) & 0x3f) as u8)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PRINCE_REGION0_KEY_CODE_PRINCE_REGION0_HEADER1")
+            .field("type_", &self.type_())
+            .field("index", &self.index())
+            .field("size", &self.size())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1 - ."]
     #[inline(always)]

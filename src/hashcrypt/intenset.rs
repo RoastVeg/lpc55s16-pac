@@ -3,6 +3,7 @@ pub type R = crate::R<IntensetSpec>;
 #[doc = "Register `INTENSET` writer"]
 pub type W = crate::W<IntensetSpec>;
 #[doc = "Indicates if should interrupt when waiting for data input.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Waiting {
     #[doc = "0: Will not interrupt when waiting."]
@@ -56,6 +57,7 @@ where
     }
 }
 #[doc = "Indicates if should interrupt when Digest (or Outdata) is ready (completed a hash/crypto or completed a full sequence).\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Digest {
     #[doc = "0: Will not interrupt when Digest is ready"]
@@ -109,6 +111,7 @@ where
     }
 }
 #[doc = "Indicates if should interrupt on an ERROR (as defined in Status)\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Error {
     #[doc = "0: Will not interrupt on Error."]
@@ -162,6 +165,7 @@ where
     }
 }
 #[doc = "Indicates if should interrupt on an AES or PRNG fault as indicated in the STATUS register\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Fault {
     #[doc = "0: No interrupt on an AES or PRNG fault"]
@@ -234,6 +238,16 @@ impl R {
     #[inline(always)]
     pub fn fault(&self) -> FaultR {
         FaultR::new(((self.bits >> 3) & 1) != 0)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("INTENSET")
+            .field("waiting", &self.waiting())
+            .field("digest", &self.digest())
+            .field("error", &self.error())
+            .field("fault", &self.fault())
+            .finish()
     }
 }
 impl W {

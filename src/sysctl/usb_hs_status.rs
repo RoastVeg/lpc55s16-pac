@@ -1,6 +1,7 @@
 #[doc = "Register `USB_HS_STATUS` reader"]
 pub type R = crate::R<UsbHsStatusSpec>;
 #[doc = "USB_HS: Low voltage detection on 3.3V supply.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Usbhs3vNok {
     #[doc = "0: 3v3 supply is good."]
@@ -41,6 +42,13 @@ impl R {
     #[inline(always)]
     pub fn usbhs_3v_nok(&self) -> Usbhs3vNokR {
         Usbhs3vNokR::new((self.bits & 1) != 0)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("USB_HS_STATUS")
+            .field("usbhs_3v_nok", &self.usbhs_3v_nok())
+            .finish()
     }
 }
 #[doc = "Status register for USB HS\n\nYou can [`read`](crate::Reg::read) this register and get [`usb_hs_status::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

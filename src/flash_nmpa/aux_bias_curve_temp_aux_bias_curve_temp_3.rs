@@ -22,6 +22,14 @@ impl R {
         Vref1vcurvetrim7R::new(((self.bits >> 16) & 0xffff) as u16)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("AUX_BIAS_CURVE_TEMP_AUX_BIAS_CURVE_TEMP_3")
+            .field("vref1vcurvetrim_6", &self.vref1vcurvetrim_6())
+            .field("vref1vcurvetrim_7", &self.vref1vcurvetrim_7())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:15 - VREF1VCURVETRIM_6 (unit: 100uV)"]
     #[inline(always)]

@@ -13,6 +13,13 @@ impl R {
         SpiRecoveryBootEnR::new((self.bits & 0x1f) as u8)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SPI_FLASH_CFG")
+            .field("spi_recovery_boot_en", &self.spi_recovery_boot_en())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:4 - SPI flash recovery boot is enabled, if non-zero value is written to this field."]
     #[inline(always)]

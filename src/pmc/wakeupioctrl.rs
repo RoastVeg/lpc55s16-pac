@@ -3,6 +3,7 @@ pub type R = crate::R<WakeupioctrlSpec>;
 #[doc = "Register `WAKEUPIOCTRL` writer"]
 pub type W = crate::W<WakeupioctrlSpec>;
 #[doc = "Enable / disable detection of rising edge events on Wake Up 0 pin in Deep Power Down modes:.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Risingedgewakeup0 {
     #[doc = "0: Rising edge detection is disable."]
@@ -56,6 +57,7 @@ where
     }
 }
 #[doc = "Enable / disable detection of falling edge events on Wake Up 0 pin in Deep Power Down modes:.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Fallingedgewakeup0 {
     #[doc = "0: Falling edge detection is disable."]
@@ -109,6 +111,7 @@ where
     }
 }
 #[doc = "Enable / disable detection of rising edge events on Wake Up 1 pin in Deep Power Down modes:.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Risingedgewakeup1 {
     #[doc = "0: Rising edge detection is disable."]
@@ -162,6 +165,7 @@ where
     }
 }
 #[doc = "Enable / disable detection of falling edge events on Wake Up 1 pin in Deep Power Down modes:.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Fallingedgewakeup1 {
     #[doc = "0: Falling edge detection is disable."]
@@ -215,6 +219,7 @@ where
     }
 }
 #[doc = "Enable / disable detection of rising edge events on Wake Up 2 pin in Deep Power Down modes:.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Risingedgewakeup2 {
     #[doc = "0: Rising edge detection is disable."]
@@ -268,6 +273,7 @@ where
     }
 }
 #[doc = "Enable / disable detection of falling edge events on Wake Up 2 pin in Deep Power Down modes:.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Fallingedgewakeup2 {
     #[doc = "0: Falling edge detection is disable."]
@@ -321,6 +327,7 @@ where
     }
 }
 #[doc = "Enable / disable detection of rising edge events on Wake Up 3 pin in Deep Power Down modes:.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Risingedgewakeup3 {
     #[doc = "0: Rising edge detection is disable."]
@@ -374,6 +381,7 @@ where
     }
 }
 #[doc = "Enable / disable detection of falling edge events on Wake Up 3 pin in Deep Power Down modes:.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Fallingedgewakeup3 {
     #[doc = "0: Falling edge detection is disable."]
@@ -427,6 +435,7 @@ where
     }
 }
 #[doc = "Selects function mode (on-chip pull-up/pull-down resistor control).\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Modewakeupiopad0 {
@@ -513,6 +522,7 @@ where
     }
 }
 #[doc = "Selects function mode (on-chip pull-up/pull-down resistor control).\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Modewakeupiopad1 {
@@ -599,6 +609,7 @@ where
     }
 }
 #[doc = "Selects function mode (on-chip pull-up/pull-down resistor control).\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Modewakeupiopad2 {
@@ -685,6 +696,7 @@ where
     }
 }
 #[doc = "Selects function mode (on-chip pull-up/pull-down resistor control).\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Modewakeupiopad3 {
@@ -771,6 +783,7 @@ where
     }
 }
 #[doc = "Enable WAKEUP IO PAD control from MODEWAKEUPIOPAD (bits 12 to 19).\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum WakeupioEnableCtrl {
     #[doc = "0: WAKEUP IO PAD mode control comes from IOCON."]
@@ -824,6 +837,7 @@ where
     }
 }
 #[doc = "WAKEUP IO event detector reset control.\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum WakeupioRstn {
     #[doc = "0: Bloc is reset."]
@@ -946,6 +960,26 @@ impl R {
     #[inline(always)]
     pub fn wakeupio_rstn(&self) -> WakeupioRstnR {
         WakeupioRstnR::new(((self.bits >> 21) & 1) != 0)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("WAKEUPIOCTRL")
+            .field("risingedgewakeup0", &self.risingedgewakeup0())
+            .field("fallingedgewakeup0", &self.fallingedgewakeup0())
+            .field("risingedgewakeup1", &self.risingedgewakeup1())
+            .field("fallingedgewakeup1", &self.fallingedgewakeup1())
+            .field("risingedgewakeup2", &self.risingedgewakeup2())
+            .field("fallingedgewakeup2", &self.fallingedgewakeup2())
+            .field("risingedgewakeup3", &self.risingedgewakeup3())
+            .field("fallingedgewakeup3", &self.fallingedgewakeup3())
+            .field("modewakeupiopad0", &self.modewakeupiopad0())
+            .field("modewakeupiopad1", &self.modewakeupiopad1())
+            .field("modewakeupiopad2", &self.modewakeupiopad2())
+            .field("modewakeupiopad3", &self.modewakeupiopad3())
+            .field("wakeupio_enable_ctrl", &self.wakeupio_enable_ctrl())
+            .field("wakeupio_rstn", &self.wakeupio_rstn())
+            .finish()
     }
 }
 impl W {

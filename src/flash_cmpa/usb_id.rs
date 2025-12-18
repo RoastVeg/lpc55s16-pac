@@ -22,6 +22,14 @@ impl R {
         UsbProductIdR::new(((self.bits >> 16) & 0xffff) as u16)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("USB_ID")
+            .field("usb_vendor_id", &self.usb_vendor_id())
+            .field("usb_product_id", &self.usb_product_id())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:15 - no description available"]
     #[inline(always)]

@@ -3,6 +3,7 @@ pub type R = crate::R<ClockgenupdatelockoutSpec>;
 #[doc = "Register `CLOCKGENUPDATELOCKOUT` writer"]
 pub type W = crate::W<ClockgenupdatelockoutSpec>;
 #[doc = "Control clock configuration registers access (for example, xxxDIV, xxxSEL).\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u32)]
 pub enum Clockgenupdatelockout {
@@ -67,6 +68,13 @@ impl R {
     #[inline(always)]
     pub fn clockgenupdatelockout(&self) -> ClockgenupdatelockoutR {
         ClockgenupdatelockoutR::new(self.bits)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("CLOCKGENUPDATELOCKOUT")
+            .field("clockgenupdatelockout", &self.clockgenupdatelockout())
+            .finish()
     }
 }
 impl W {

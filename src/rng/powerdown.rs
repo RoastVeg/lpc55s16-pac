@@ -31,6 +31,15 @@ impl R {
         PowerdownR::new(((self.bits >> 31) & 1) != 0)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("POWERDOWN")
+            .field("soft_reset", &self.soft_reset())
+            .field("force_soft_reset", &self.force_soft_reset())
+            .field("powerdown", &self.powerdown())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Request softreset that will go low automaticaly after acknowledge from CORE."]
     #[inline(always)]

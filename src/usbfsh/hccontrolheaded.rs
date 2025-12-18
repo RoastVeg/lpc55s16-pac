@@ -13,6 +13,13 @@ impl R {
         ChedR::new((self.bits >> 4) & 0x0fff_ffff)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("HCCONTROLHEADED")
+            .field("ched", &self.ched())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 4:31 - HC traverses the Control list starting with the HcControlHeadED pointer."]
     #[inline(always)]

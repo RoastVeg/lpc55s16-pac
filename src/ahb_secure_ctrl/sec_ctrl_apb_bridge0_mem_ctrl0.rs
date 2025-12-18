@@ -3,6 +3,7 @@ pub type R = crate::R<SecCtrlApbBridge0MemCtrl0Spec>;
 #[doc = "Register `SEC_CTRL_APB_BRIDGE0_MEM_CTRL0` writer"]
 pub type W = crate::W<SecCtrlApbBridge0MemCtrl0Spec>;
 #[doc = "System Configuration\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum SysconRule {
@@ -89,6 +90,7 @@ where
     }
 }
 #[doc = "I/O Configuration\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum IoconRule {
@@ -175,6 +177,7 @@ where
     }
 }
 #[doc = "GPIO input Interrupt 0\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Gint0Rule {
@@ -261,6 +264,7 @@ where
     }
 }
 #[doc = "GPIO input Interrupt 1\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Gint1Rule {
@@ -347,6 +351,7 @@ where
     }
 }
 #[doc = "Pin Interrupt and Pattern match\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum PintRule {
@@ -433,6 +438,7 @@ where
     }
 }
 #[doc = "Secure Pin Interrupt and Pattern match\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum SecPintRule {
@@ -519,6 +525,7 @@ where
     }
 }
 #[doc = "Peripheral input multiplexing\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum InputmuxRule {
@@ -639,6 +646,19 @@ impl R {
     #[inline(always)]
     pub fn inputmux_rule(&self) -> InputmuxRuleR {
         InputmuxRuleR::new(((self.bits >> 24) & 3) as u8)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SEC_CTRL_APB_BRIDGE0_MEM_CTRL0")
+            .field("syscon_rule", &self.syscon_rule())
+            .field("iocon_rule", &self.iocon_rule())
+            .field("gint0_rule", &self.gint0_rule())
+            .field("gint1_rule", &self.gint1_rule())
+            .field("pint_rule", &self.pint_rule())
+            .field("sec_pint_rule", &self.sec_pint_rule())
+            .field("inputmux_rule", &self.inputmux_rule())
+            .finish()
     }
 }
 impl W {

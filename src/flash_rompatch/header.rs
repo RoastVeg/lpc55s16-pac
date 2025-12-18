@@ -40,6 +40,16 @@ impl R {
         IdentifierR::new(((self.bits >> 24) & 0xff) as u8)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("HEADER")
+            .field("entries", &self.entries())
+            .field("sub_type", &self.sub_type())
+            .field("type_", &self.type_())
+            .field("identifier", &self.identifier())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:7 - ."]
     #[inline(always)]

@@ -13,6 +13,13 @@ impl R {
         CalGbrValR::new((self.bits & 0xffff) as u16)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("CAL_GBR")
+            .field("cal_gbr_val", &self.cal_gbr_val())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:15 - Calibration General B Side Register Element"]
     #[inline(always)]

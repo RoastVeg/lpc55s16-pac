@@ -13,6 +13,13 @@ impl R {
         DataR::new(self.bits)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("CTIMERCLKSEL_CTIMERCLKSELX2")
+            .field("data", &self.data())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - Data array value"]
     #[inline(always)]

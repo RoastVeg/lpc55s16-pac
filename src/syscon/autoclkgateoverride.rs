@@ -3,6 +3,7 @@ pub type R = crate::R<AutoclkgateoverrideSpec>;
 #[doc = "Register `AUTOCLKGATEOVERRIDE` writer"]
 pub type W = crate::W<AutoclkgateoverrideSpec>;
 #[doc = "Control automatic clock gating of ROM controller.\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Rom {
     #[doc = "0: Automatic clock gating is not overridden."]
@@ -56,6 +57,7 @@ where
     }
 }
 #[doc = "Control automatic clock gating of RAMX controller.\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum RamxCtrl {
     #[doc = "0: Automatic clock gating is not overridden."]
@@ -109,6 +111,7 @@ where
     }
 }
 #[doc = "Control automatic clock gating of RAM0 controller.\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Ram0Ctrl {
     #[doc = "0: Automatic clock gating is not overridden."]
@@ -162,6 +165,7 @@ where
     }
 }
 #[doc = "Control automatic clock gating of RAM1 controller.\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Ram1Ctrl {
     #[doc = "0: Automatic clock gating is not overridden."]
@@ -215,6 +219,7 @@ where
     }
 }
 #[doc = "Control automatic clock gating of RAM2 controller.\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Ram2Ctrl {
     #[doc = "0: Automatic clock gating is not overridden."]
@@ -268,6 +273,7 @@ where
     }
 }
 #[doc = "Control automatic clock gating of synchronous bridge controller 0.\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Sync0Apb {
     #[doc = "0: Automatic clock gating is not overridden."]
@@ -321,6 +327,7 @@ where
     }
 }
 #[doc = "Control automatic clock gating of synchronous bridge controller 1.\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Sync1Apb {
     #[doc = "0: Automatic clock gating is not overridden."]
@@ -374,6 +381,7 @@ where
     }
 }
 #[doc = "Control automatic clock gating of CRCGEN controller.\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Crcgen {
     #[doc = "0: Automatic clock gating is not overridden."]
@@ -427,6 +435,7 @@ where
     }
 }
 #[doc = "Control automatic clock gating of DMA0 controller.\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Sdma0 {
     #[doc = "0: Automatic clock gating is not overridden."]
@@ -480,6 +489,7 @@ where
     }
 }
 #[doc = "Control automatic clock gating of DMA1 controller.\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Sdma1 {
     #[doc = "0: Automatic clock gating is not overridden."]
@@ -533,6 +543,7 @@ where
     }
 }
 #[doc = "Control automatic clock gating of USB controller.\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Usb0 {
     #[doc = "0: Automatic clock gating is not overridden."]
@@ -586,6 +597,7 @@ where
     }
 }
 #[doc = "Control automatic clock gating of synchronous system controller registers bank.\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Syscon {
     #[doc = "0: Automatic clock gating is not overridden."]
@@ -639,6 +651,7 @@ where
     }
 }
 #[doc = "The value 0xC0DE must be written for AUTOCLKGATEOVERRIDE registers fields updates to have effect.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u16)]
 pub enum Enableupdate {
@@ -735,6 +748,24 @@ impl R {
     #[inline(always)]
     pub fn syscon(&self) -> SysconR {
         SysconR::new(((self.bits >> 15) & 1) != 0)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("AUTOCLKGATEOVERRIDE")
+            .field("rom", &self.rom())
+            .field("ramx_ctrl", &self.ramx_ctrl())
+            .field("ram0_ctrl", &self.ram0_ctrl())
+            .field("ram1_ctrl", &self.ram1_ctrl())
+            .field("ram2_ctrl", &self.ram2_ctrl())
+            .field("sync0_apb", &self.sync0_apb())
+            .field("sync1_apb", &self.sync1_apb())
+            .field("crcgen", &self.crcgen())
+            .field("sdma0", &self.sdma0())
+            .field("sdma1", &self.sdma1())
+            .field("usb0", &self.usb0())
+            .field("syscon", &self.syscon())
+            .finish()
     }
 }
 impl W {

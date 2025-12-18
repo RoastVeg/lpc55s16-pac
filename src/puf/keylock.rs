@@ -40,6 +40,16 @@ impl R {
         Key3R::new(((self.bits >> 6) & 3) as u8)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("KEYLOCK")
+            .field("key0", &self.key0())
+            .field("key1", &self.key1())
+            .field("key2", &self.key2())
+            .field("key3", &self.key3())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1 - \"10:Write access to KEY0MASK, KEYENABLE.KEY0 and KEYRESET.KEY0 is allowed. 00, 01, 11:Write access to KEY0MASK, KEYENABLE.KEY0 and KEYRESET.KEY0 is NOT allowed. Important Note : Once this field is written with a value different from '10', its value can no longer be modified until un Power On Reset occurs.\""]
     #[inline(always)]

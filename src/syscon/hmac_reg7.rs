@@ -13,6 +13,13 @@ impl R {
         HmacReg7R::new(self.bits)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("HMAC_REG7")
+            .field("hmac_reg7", &self.hmac_reg7())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - no description available"]
     #[inline(always)]

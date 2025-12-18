@@ -3,6 +3,7 @@ pub type R = crate::R<MclkclkselSpec>;
 #[doc = "Register `MCLKCLKSEL` writer"]
 pub type W = crate::W<MclkclkselSpec>;
 #[doc = "MCLK clock source select.\n\nValue on reset: 7"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Sel {
@@ -119,6 +120,13 @@ impl R {
     #[inline(always)]
     pub fn sel(&self) -> SelR {
         SelR::new((self.bits & 7) as u8)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("MCLKCLKSEL")
+            .field("sel", &self.sel())
+            .finish()
     }
 }
 impl W {

@@ -13,6 +13,13 @@ impl R {
         EnaR::new(self.bits)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PORT_ENA")
+            .field("ena", &self.ena())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - Enable port 0 pin for group interrupt. Bit n corresponds to pin Pm_n of port m. 0 = the port 0 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0 pin is enabled and contributes to the grouped interrupt."]
     #[inline(always)]

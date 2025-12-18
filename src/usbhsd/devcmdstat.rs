@@ -69,6 +69,7 @@ pub type DresCW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `VBUS_DEBOUNCED` reader - This bit indicates if VBUS is detected or not."]
 pub type VbusDebouncedR = crate::BitReader;
 #[doc = "This field is written by firmware to put the PHY into a test mode as defined by the USB2.0 specification.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum PhyTestMode {
@@ -275,6 +276,31 @@ impl R {
     #[inline(always)]
     pub fn phy_test_mode(&self) -> PhyTestModeR {
         PhyTestModeR::new(((self.bits >> 29) & 7) as u8)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DEVCMDSTAT")
+            .field("dev_addr", &self.dev_addr())
+            .field("dev_en", &self.dev_en())
+            .field("setup", &self.setup())
+            .field("force_needclk", &self.force_needclk())
+            .field("lpm_sup", &self.lpm_sup())
+            .field("intonnak_ao", &self.intonnak_ao())
+            .field("intonnak_ai", &self.intonnak_ai())
+            .field("intonnak_co", &self.intonnak_co())
+            .field("intonnak_ci", &self.intonnak_ci())
+            .field("dcon", &self.dcon())
+            .field("dsus", &self.dsus())
+            .field("lpm_sus", &self.lpm_sus())
+            .field("lpm_rewp", &self.lpm_rewp())
+            .field("speed", &self.speed())
+            .field("dcon_c", &self.dcon_c())
+            .field("dsus_c", &self.dsus_c())
+            .field("dres_c", &self.dres_c())
+            .field("vbus_debounced", &self.vbus_debounced())
+            .field("phy_test_mode", &self.phy_test_mode())
+            .finish()
     }
 }
 impl W {

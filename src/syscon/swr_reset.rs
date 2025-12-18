@@ -1,6 +1,7 @@
 #[doc = "Register `SWR_RESET` writer"]
 pub type W = crate::W<SwrResetSpec>;
 #[doc = "Write 0x5A00_0001 to generate a software_reset.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u32)]
 pub enum SwrReset {
@@ -35,6 +36,11 @@ where
     #[inline(always)]
     pub fn asserted(self) -> &'a mut crate::W<REG> {
         self.variant(SwrReset::Asserted)
+    }
+}
+impl core::fmt::Debug for crate::generic::Reg<SwrResetSpec> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "(not readable)")
     }
 }
 impl W {

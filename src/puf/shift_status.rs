@@ -30,6 +30,16 @@ impl R {
         Key3R::new(((self.bits >> 12) & 0x0f) as u8)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SHIFT_STATUS")
+            .field("key0", &self.key0())
+            .field("key1", &self.key1())
+            .field("key2", &self.key2())
+            .field("key3", &self.key3())
+            .finish()
+    }
+}
 #[doc = "no description available\n\nYou can [`read`](crate::Reg::read) this register and get [`shift_status::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct ShiftStatusSpec;
 impl crate::RegisterSpec for ShiftStatusSpec {

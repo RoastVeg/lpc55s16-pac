@@ -76,6 +76,20 @@ impl R {
         Xo32mXoAcBufStatusR::new(((self.bits >> 31) & 1) != 0)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("XO_32MHZ")
+            .field("xo32m_xin_trim_valid", &self.xo32m_xin_trim_valid())
+            .field("xo32m_xin_capcal_6pf", &self.xo32m_xin_capcal_6pf())
+            .field("xo32m_xin_capcal_8pf", &self.xo32m_xin_capcal_8pf())
+            .field("xo32m_xout_trim_valid", &self.xo32m_xout_trim_valid())
+            .field("xo32m_xout_capcal_6pf", &self.xo32m_xout_capcal_6pf())
+            .field("xo32m_xout_capcal_8pf", &self.xo32m_xout_capcal_8pf())
+            .field("xo32m_xo_slave_status", &self.xo32m_xo_slave_status())
+            .field("xo32m_xo_ac_buf_status", &self.xo32m_xo_ac_buf_status())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - no description available"]
     #[inline(always)]

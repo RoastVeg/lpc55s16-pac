@@ -3,6 +3,7 @@ pub type R = crate::R<CcSocuDfltSpec>;
 #[doc = "Register `CC_SOCU_DFLT` writer"]
 pub type W = crate::W<CcSocuDfltSpec>;
 #[doc = "Non Secure non-invasive debug fixed state\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Niden {
     #[doc = "0: Disable"]
@@ -56,6 +57,7 @@ where
     }
 }
 #[doc = "Non Secure debug fixed state\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Dbgen {
     #[doc = "0: Disable"]
@@ -109,6 +111,7 @@ where
     }
 }
 #[doc = "Secure non-invasive debug fixed state\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Spniden {
     #[doc = "0: Disable"]
@@ -162,6 +165,7 @@ where
     }
 }
 #[doc = "Secure invasive debug fixed state\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Spiden {
     #[doc = "0: Disable"]
@@ -215,6 +219,7 @@ where
     }
 }
 #[doc = "JTAG TAP fixed state\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Tapen {
     #[doc = "0: Disable"]
@@ -268,6 +273,7 @@ where
     }
 }
 #[doc = "ISP Boot Command fixed state\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum IspCmdEn {
     #[doc = "0: Disable"]
@@ -321,6 +327,7 @@ where
     }
 }
 #[doc = "FA Command fixed state\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum FaMeCmdEn {
     #[doc = "0: Disable"]
@@ -417,6 +424,20 @@ impl R {
     #[inline(always)]
     pub fn inverse_value(&self) -> InverseValueR {
         InverseValueR::new(((self.bits >> 16) & 0xffff) as u16)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("CC_SOCU_DFLT")
+            .field("niden", &self.niden())
+            .field("dbgen", &self.dbgen())
+            .field("spniden", &self.spniden())
+            .field("spiden", &self.spiden())
+            .field("tapen", &self.tapen())
+            .field("isp_cmd_en", &self.isp_cmd_en())
+            .field("fa_me_cmd_en", &self.fa_me_cmd_en())
+            .field("inverse_value", &self.inverse_value())
+            .finish()
     }
 }
 impl W {

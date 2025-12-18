@@ -22,6 +22,14 @@ impl R {
         OfstrimBR::new(((self.bits >> 16) & 0x1f) as u8)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("OFSTRIM")
+            .field("ofstrim_a", &self.ofstrim_a())
+            .field("ofstrim_b", &self.ofstrim_b())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:4 - Trim for offset"]
     #[inline(always)]

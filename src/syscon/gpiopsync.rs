@@ -3,6 +3,7 @@ pub type R = crate::R<GpiopsyncSpec>;
 #[doc = "Register `GPIOPSYNC` writer"]
 pub type W = crate::W<GpiopsyncSpec>;
 #[doc = "Enable bypass of the first stage of synchonization inside GPIO_INT module.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Psync {
     #[doc = "0: use the first stage of synchonization inside GPIO_INT module."]
@@ -60,6 +61,13 @@ impl R {
     #[inline(always)]
     pub fn psync(&self) -> PsyncR {
         PsyncR::new((self.bits & 1) != 0)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("GPIOPSYNC")
+            .field("psync", &self.psync())
+            .finish()
     }
 }
 impl W {

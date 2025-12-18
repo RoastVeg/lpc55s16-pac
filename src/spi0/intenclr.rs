@@ -6,6 +6,11 @@ pub type SsaenW<'a, REG> = crate::BitWriter<'a, REG>;
 pub type SsdenW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `MSTIDLE` writer - Writing 1 clears the corresponding bit in the INTENSET register."]
 pub type MstidleW<'a, REG> = crate::BitWriter<'a, REG>;
+impl core::fmt::Debug for crate::generic::Reg<IntenclrSpec> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "(not readable)")
+    }
+}
 impl W {
     #[doc = "Bit 4 - Writing 1 clears the corresponding bit in the INTENSET register."]
     #[inline(always)]

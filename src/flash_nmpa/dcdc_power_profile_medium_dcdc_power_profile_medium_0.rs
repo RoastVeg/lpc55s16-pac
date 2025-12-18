@@ -103,6 +103,23 @@ impl R {
         VoutPwdR::new(((self.bits >> 24) & 0x0f) as u8)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DCDC_POWER_PROFILE_MEDIUM_DCDC_POWER_PROFILE_MEDIUM_0")
+            .field("dcdc_trim_valid", &self.dcdc_trim_valid())
+            .field("rc", &self.rc())
+            .field("icomp", &self.icomp())
+            .field("isel", &self.isel())
+            .field("icenable", &self.icenable())
+            .field("tmos", &self.tmos())
+            .field("disableisense", &self.disableisense())
+            .field("vout", &self.vout())
+            .field("slicingenable", &self.slicingenable())
+            .field("inductorclampenable", &self.inductorclampenable())
+            .field("vout_pwd", &self.vout_pwd())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - DCDC is trimed."]
     #[inline(always)]

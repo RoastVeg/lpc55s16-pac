@@ -1,4 +1,5 @@
 #[repr(C)]
+#[derive(Debug)]
 #[doc = "Register block"]
 pub struct RegisterBlock {
     ctrl: Ctrl,
@@ -29,7 +30,7 @@ pub struct RegisterBlock {
     _reserved14: [u8; 0x04],
     abort0: Abort0,
     _reserved15: [u8; 0x0384],
-    channel: [Channel; 23],
+    channel: (),
 }
 impl RegisterBlock {
     #[doc = "0x00 - DMA control."]
@@ -107,16 +108,30 @@ impl RegisterBlock {
     pub const fn abort0(&self) -> &Abort0 {
         &self.abort0
     }
-    #[doc = "0x400..0x570 - no description available"]
+    #[doc = "0x400..0x514 - no description available"]
     #[inline(always)]
     pub const fn channel(&self, n: usize) -> &Channel {
-        &self.channel[n]
+        #[allow(clippy::no_effect)]
+        [(); 23][n];
+        unsafe {
+            &*core::ptr::from_ref(self)
+                .cast::<u8>()
+                .add(1024)
+                .add(16 * n)
+                .cast()
+        }
     }
     #[doc = "Iterator for array of:"]
-    #[doc = "0x400..0x570 - no description available"]
+    #[doc = "0x400..0x514 - no description available"]
     #[inline(always)]
     pub fn channel_iter(&self) -> impl Iterator<Item = &Channel> {
-        self.channel.iter()
+        (0..23).map(move |n| unsafe {
+            &*core::ptr::from_ref(self)
+                .cast::<u8>()
+                .add(1024)
+                .add(16 * n)
+                .cast()
+        })
     }
 }
 #[doc = "CTRL (rw) register accessor: DMA control.\n\nYou can [`read`](crate::Reg::read) this register and get [`ctrl::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ctrl::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@ctrl`] module"]

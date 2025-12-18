@@ -114,6 +114,28 @@ impl R {
         Idx15R::new(((self.bits >> 30) & 3) as u8)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("IDXBLK_STATUS")
+            .field("idx0", &self.idx0())
+            .field("idx1", &self.idx1())
+            .field("idx2", &self.idx2())
+            .field("idx3", &self.idx3())
+            .field("idx4", &self.idx4())
+            .field("idx5", &self.idx5())
+            .field("idx6", &self.idx6())
+            .field("idx7", &self.idx7())
+            .field("idx8", &self.idx8())
+            .field("idx9", &self.idx9())
+            .field("idx10", &self.idx10())
+            .field("idx11", &self.idx11())
+            .field("idx12", &self.idx12())
+            .field("idx13", &self.idx13())
+            .field("idx14", &self.idx14())
+            .field("idx15", &self.idx15())
+            .finish()
+    }
+}
 #[doc = "Index block status\n\nYou can [`read`](crate::Reg::read) this register and get [`idxblk_status::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct IdxblkStatusSpec;
 impl crate::RegisterSpec for IdxblkStatusSpec {

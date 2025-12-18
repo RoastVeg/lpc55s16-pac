@@ -15,6 +15,7 @@ pub type PllEnableR = crate::BitReader;
 #[doc = "Field `PLL_ENABLE` writer - Enables the clock output from the USB PLL"]
 pub type PllEnableW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Reference bias power down select.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum RefbiasPwdSel {
     #[doc = "0: Selects PLL_POWER to control the reference bias"]
@@ -76,6 +77,7 @@ pub type PllRegEnableR = crate::BitReader;
 #[doc = "Field `PLL_REG_ENABLE` writer - This field controls the USB PLL regulator, set to enable the regulator"]
 pub type PllRegEnableW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "This field controls the USB PLL feedback loop divider\n\nValue on reset: 3"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum PllDivSel {
@@ -218,6 +220,7 @@ pub type PllPredivR = crate::BitReader;
 #[doc = "Field `PLL_PREDIV` writer - This is selection between /1 or /2 to expand the range of ref input clock."]
 pub type PllPredivW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "USB PLL lock status indicator\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum PllLock {
     #[doc = "0: PLL is not currently locked"]
@@ -298,6 +301,21 @@ impl R {
     #[inline(always)]
     pub fn pll_lock(&self) -> PllLockR {
         PllLockR::new(((self.bits >> 31) & 1) != 0)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PLL_SIC_SET")
+            .field("pll_en_usb_clks", &self.pll_en_usb_clks())
+            .field("pll_power", &self.pll_power())
+            .field("pll_enable", &self.pll_enable())
+            .field("refbias_pwd_sel", &self.refbias_pwd_sel())
+            .field("refbias_pwd", &self.refbias_pwd())
+            .field("pll_reg_enable", &self.pll_reg_enable())
+            .field("pll_div_sel", &self.pll_div_sel())
+            .field("pll_prediv", &self.pll_prediv())
+            .field("pll_lock", &self.pll_lock())
+            .finish()
     }
 }
 impl W {

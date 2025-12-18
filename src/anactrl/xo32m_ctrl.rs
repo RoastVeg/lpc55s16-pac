@@ -15,6 +15,7 @@ pub type OscCapOutR = crate::FieldReader;
 #[doc = "Field `OSC_CAP_OUT` writer - Tune capa banks of High speed Crystal Oscillator output pin"]
 pub type OscCapOutW<'a, REG> = crate::FieldWriter<'a, REG, 7>;
 #[doc = "Bypass enable of XO AC buffer enable in pll and top level.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum AcbufPassEnable {
     #[doc = "0: XO AC buffer bypass is disabled."]
@@ -68,6 +69,7 @@ where
     }
 }
 #[doc = "Enable High speed Crystal oscillator output to USB HS PLL.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum EnablePllUsbOut {
     #[doc = "0: High speed Crystal oscillator output to USB HS PLL is disabled."]
@@ -121,6 +123,7 @@ where
     }
 }
 #[doc = "Enable High speed Crystal oscillator output to CPU system.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum EnableSystemClkOut {
     #[doc = "0: High speed Crystal oscillator output to CPU system is disabled."]
@@ -203,6 +206,18 @@ impl R {
     #[inline(always)]
     pub fn enable_system_clk_out(&self) -> EnableSystemClkOutR {
         EnableSystemClkOutR::new(((self.bits >> 24) & 1) != 0)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("XO32M_CTRL")
+            .field("slave", &self.slave())
+            .field("osc_cap_in", &self.osc_cap_in())
+            .field("osc_cap_out", &self.osc_cap_out())
+            .field("acbuf_pass_enable", &self.acbuf_pass_enable())
+            .field("enable_pll_usb_out", &self.enable_pll_usb_out())
+            .field("enable_system_clk_out", &self.enable_system_clk_out())
+            .finish()
     }
 }
 impl W {

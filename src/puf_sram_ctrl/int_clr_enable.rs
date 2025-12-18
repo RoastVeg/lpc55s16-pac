@@ -4,6 +4,11 @@ pub type W = crate::W<IntClrEnableSpec>;
 pub type ReadyW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `APB_ERR` writer - APB_ERR Interrupt Enable clear"]
 pub type ApbErrW<'a, REG> = crate::BitWriter<'a, REG>;
+impl core::fmt::Debug for crate::generic::Reg<IntClrEnableSpec> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "(not readable)")
+    }
+}
 impl W {
     #[doc = "Bit 0 - READY Interrupt Enable clear"]
     #[inline(always)]

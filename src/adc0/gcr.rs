@@ -7,6 +7,7 @@ pub type GcalrR = crate::FieldReader<u16>;
 #[doc = "Field `GCALR` writer - Gain Calculation Result"]
 pub type GcalrW<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
 #[doc = "Gain Calculation Ready\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Rdy {
     #[doc = "0: The gain offset calculation value is invalid."]
@@ -69,6 +70,14 @@ impl R {
     #[inline(always)]
     pub fn rdy(&self) -> RdyR {
         RdyR::new(((self.bits >> 24) & 1) != 0)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("GCR")
+            .field("gcalr", &self.gcalr())
+            .field("rdy", &self.rdy())
+            .finish()
     }
 }
 impl W {

@@ -13,6 +13,11 @@ impl R {
         IbR::new(self.bits)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("INTB0").field("ib", &self.ib()).finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - Interrupt B status for DMA channel n. Bit n corresponds to DMA channel n. The number of bits = number of DMA channels in this device. Other bits are reserved. 0 = the DMA channel interrupt B is not active. 1 = the DMA channel interrupt B is active."]
     #[inline(always)]

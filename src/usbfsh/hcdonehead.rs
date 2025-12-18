@@ -11,6 +11,13 @@ impl R {
         DhR::new((self.bits >> 4) & 0x0fff_ffff)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("HCDONEHEAD")
+            .field("dh", &self.dh())
+            .finish()
+    }
+}
 impl W {}
 #[doc = "Contains the physical address of the last transfer descriptor added to the 'Done' queue\n\nYou can [`read`](crate::Reg::read) this register and get [`hcdonehead::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`hcdonehead::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct HcdoneheadSpec;

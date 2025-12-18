@@ -3,6 +3,7 @@ pub type R = crate::R<ErrSpec>;
 #[doc = "Register `ERR` writer"]
 pub type W = crate::W<ErrSpec>;
 #[doc = "PRINCE Error Status. This bit is write-1 to clear.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Errstat {
     #[doc = "0: No PRINCE error."]
@@ -60,6 +61,13 @@ impl R {
     #[inline(always)]
     pub fn errstat(&self) -> ErrstatR {
         ErrstatR::new((self.bits & 1) != 0)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("ERR")
+            .field("errstat", &self.errstat())
+            .finish()
     }
 }
 impl W {

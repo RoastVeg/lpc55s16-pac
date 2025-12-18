@@ -31,6 +31,15 @@ impl R {
         FieldR::new((self.bits >> 4) & 0x0fff_ffff)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("GPO0_GPO0_2")
+            .field("system_speed_code", &self.system_speed_code())
+            .field("flash_ctrl_opmode", &self.flash_ctrl_opmode())
+            .field("field", &self.field())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1 - 00 : FRO12MHz 01 : FRO24MHz 10 : FRO48MHz 11 : FRO96MHz"]
     #[inline(always)]

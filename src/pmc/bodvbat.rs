@@ -3,6 +3,7 @@ pub type R = crate::R<BodvbatSpec>;
 #[doc = "Register `BODVBAT` writer"]
 pub type W = crate::W<BodvbatSpec>;
 #[doc = "BoD trigger level.\n\nValue on reset: 7"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Triglvl {
@@ -453,6 +454,7 @@ where
     }
 }
 #[doc = "BoD Hysteresis control.\n\nValue on reset: 2"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Hyst {
@@ -548,6 +550,14 @@ impl R {
     #[inline(always)]
     pub fn hyst(&self) -> HystR {
         HystR::new(((self.bits >> 5) & 3) as u8)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("BODVBAT")
+            .field("triglvl", &self.triglvl())
+            .field("hyst", &self.hyst())
+            .finish()
     }
 }
 impl W {

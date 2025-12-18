@@ -22,6 +22,14 @@ impl R {
         FrindexR::new(((self.bits >> 16) & 0x3fff) as u16)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("FLADJ_FRINDEX")
+            .field("fladj", &self.fladj())
+            .field("frindex", &self.frindex())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:5 - Frame Length Timing Value."]
     #[inline(always)]

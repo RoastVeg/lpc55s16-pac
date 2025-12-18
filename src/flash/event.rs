@@ -6,6 +6,11 @@ pub type RstW<'a, REG> = crate::BitWriter<'a, REG>;
 pub type WakeupW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `ABORT` writer - When bit is set, a running program/erase command is aborted."]
 pub type AbortW<'a, REG> = crate::BitWriter<'a, REG>;
+impl core::fmt::Debug for crate::generic::Reg<EventSpec> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "(not readable)")
+    }
+}
 impl W {
     #[doc = "Bit 0 - When bit is set, the controller and flash are reset."]
     #[inline(always)]

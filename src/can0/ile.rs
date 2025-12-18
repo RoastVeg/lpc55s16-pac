@@ -22,6 +22,14 @@ impl R {
         Eint1R::new(((self.bits >> 1) & 1) != 0)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("ILE")
+            .field("eint0", &self.eint0())
+            .field("eint1", &self.eint1())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Enable interrupt line 0."]
     #[inline(always)]

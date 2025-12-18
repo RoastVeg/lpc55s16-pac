@@ -16,6 +16,14 @@ impl R {
         McoNumInDieIdR::new((self.bits >> 4) & 0x000f_ffff)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DIEID")
+            .field("rev_id", &self.rev_id())
+            .field("mco_num_in_die_id", &self.mco_num_in_die_id())
+            .finish()
+    }
+}
 #[doc = "Chip revision ID and Number\n\nYou can [`read`](crate::Reg::read) this register and get [`dieid::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct DieidSpec;
 impl crate::RegisterSpec for DieidSpec {

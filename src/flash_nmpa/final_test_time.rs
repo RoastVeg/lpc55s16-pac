@@ -13,6 +13,13 @@ impl R {
         TimeR::new(self.bits)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("FINAL_TEST_TIME")
+            .field("time", &self.time())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - TIME \\[stored as : hour*10000+minute*100+seconde\\]"]
     #[inline(always)]

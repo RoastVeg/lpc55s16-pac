@@ -3,6 +3,7 @@ pub type R = crate::R<Cpu0LockRegSpec>;
 #[doc = "Register `CPU0_LOCK_REG` writer"]
 pub type W = crate::W<Cpu0LockRegSpec>;
 #[doc = "Cortex M33 (CPU0) VTOR_NS register write-lock.\n\nValue on reset: 2"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum LockNsVtor {
@@ -63,6 +64,7 @@ where
     }
 }
 #[doc = "Cortex M33 (CPU0) non-secure MPU register write-lock.\n\nValue on reset: 2"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum LockNsMpu {
@@ -123,6 +125,7 @@ where
     }
 }
 #[doc = "Cortex M33 (CPU0) VTOR_S, AIRCR.PRIS, IRCR.BFHFNMINS registers write-lock.\n\nValue on reset: 2"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum LockSVtaircr {
@@ -183,6 +186,7 @@ where
     }
 }
 #[doc = "Cortex M33 (CPU0) Secure MPU registers write-lock.\n\nValue on reset: 2"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum LockSMpu {
@@ -243,6 +247,7 @@ where
     }
 }
 #[doc = "Cortex M33 (CPU0) SAU registers write-lock.\n\nValue on reset: 2"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum LockSau {
@@ -303,6 +308,7 @@ where
     }
 }
 #[doc = "CPU0_LOCK_REG write-lock.\n\nValue on reset: 2"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Cpu0LockRegLock {
@@ -392,6 +398,18 @@ impl R {
     #[inline(always)]
     pub fn cpu0_lock_reg_lock(&self) -> Cpu0LockRegLockR {
         Cpu0LockRegLockR::new(((self.bits >> 30) & 3) as u8)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("CPU0_LOCK_REG")
+            .field("lock_ns_vtor", &self.lock_ns_vtor())
+            .field("lock_ns_mpu", &self.lock_ns_mpu())
+            .field("lock_s_vtaircr", &self.lock_s_vtaircr())
+            .field("lock_s_mpu", &self.lock_s_mpu())
+            .field("lock_sau", &self.lock_sau())
+            .field("cpu0_lock_reg_lock", &self.cpu0_lock_reg_lock())
+            .finish()
     }
 }
 impl W {

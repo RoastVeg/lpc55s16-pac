@@ -49,6 +49,17 @@ impl R {
         FieldR::new(((self.bits >> 16) & 0xffff) as u16)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("GPO0_GPO0_0")
+            .field("fro_trim_valid", &self.fro_trim_valid())
+            .field("fro32k_ntat", &self.fro32k_ntat())
+            .field("fro32k_ptat", &self.fro32k_ptat())
+            .field("fro32k_capcal", &self.fro32k_capcal())
+            .field("field", &self.field())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - no description available"]
     #[inline(always)]

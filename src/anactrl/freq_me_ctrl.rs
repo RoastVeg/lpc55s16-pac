@@ -22,6 +22,14 @@ impl R {
         ProgR::new(((self.bits >> 31) & 1) != 0)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("FREQ_ME_CTRL")
+            .field("capval_scale", &self.capval_scale())
+            .field("prog", &self.prog())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:30 - Frequency measure result /Frequency measur scale"]
     #[inline(always)]

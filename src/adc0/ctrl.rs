@@ -3,6 +3,7 @@ pub type R = crate::R<CtrlSpec>;
 #[doc = "Register `CTRL` writer"]
 pub type W = crate::W<CtrlSpec>;
 #[doc = "ADC Enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Adcen {
     #[doc = "0: ADC is disabled."]
@@ -56,6 +57,7 @@ where
     }
 }
 #[doc = "Software Reset\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Rst {
     #[doc = "0: ADC logic is not reset."]
@@ -109,6 +111,7 @@ where
     }
 }
 #[doc = "Doze Enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Dozen {
     #[doc = "0: ADC is enabled in Doze mode."]
@@ -162,6 +165,7 @@ where
     }
 }
 #[doc = "Auto-Calibration Request\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum CalReq {
     #[doc = "0: No request for auto-calibration has been made."]
@@ -215,6 +219,7 @@ where
     }
 }
 #[doc = "Configure for offset calibration function\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Calofs {
     #[doc = "0: Calibration function disabled"]
@@ -268,6 +273,7 @@ where
     }
 }
 #[doc = "Reset FIFO 0\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Rstfifo0 {
     #[doc = "0: No effect."]
@@ -321,6 +327,7 @@ where
     }
 }
 #[doc = "Reset FIFO 1\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Rstfifo1 {
     #[doc = "0: No effect."]
@@ -374,6 +381,7 @@ where
     }
 }
 #[doc = "Auto-Calibration Averages\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum CalAvgs {
@@ -551,6 +559,20 @@ impl R {
     #[inline(always)]
     pub fn cal_avgs(&self) -> CalAvgsR {
         CalAvgsR::new(((self.bits >> 16) & 7) as u8)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("CTRL")
+            .field("adcen", &self.adcen())
+            .field("rst", &self.rst())
+            .field("dozen", &self.dozen())
+            .field("cal_req", &self.cal_req())
+            .field("calofs", &self.calofs())
+            .field("rstfifo0", &self.rstfifo0())
+            .field("rstfifo1", &self.rstfifo1())
+            .field("cal_avgs", &self.cal_avgs())
+            .finish()
     }
 }
 impl W {

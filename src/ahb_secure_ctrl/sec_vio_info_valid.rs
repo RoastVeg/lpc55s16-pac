@@ -3,6 +3,7 @@ pub type R = crate::R<SecVioInfoValidSpec>;
 #[doc = "Register `SEC_VIO_INFO_VALID` writer"]
 pub type W = crate::W<SecVioInfoValidSpec>;
 #[doc = "violation information valid flag for AHB port 0. Write 1 to clear.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum VioInfoValid0 {
     #[doc = "0: Not valid."]
@@ -56,6 +57,7 @@ where
     }
 }
 #[doc = "violation information valid flag for AHB port 1. Write 1 to clear.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum VioInfoValid1 {
     #[doc = "0: Not valid."]
@@ -109,6 +111,7 @@ where
     }
 }
 #[doc = "violation information valid flag for AHB port 2. Write 1 to clear.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum VioInfoValid2 {
     #[doc = "0: Not valid."]
@@ -162,6 +165,7 @@ where
     }
 }
 #[doc = "violation information valid flag for AHB port 3. Write 1 to clear.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum VioInfoValid3 {
     #[doc = "0: Not valid."]
@@ -215,6 +219,7 @@ where
     }
 }
 #[doc = "violation information valid flag for AHB port 4. Write 1 to clear.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum VioInfoValid4 {
     #[doc = "0: Not valid."]
@@ -268,6 +273,7 @@ where
     }
 }
 #[doc = "violation information valid flag for AHB port 5. Write 1 to clear.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum VioInfoValid5 {
     #[doc = "0: Not valid."]
@@ -321,6 +327,7 @@ where
     }
 }
 #[doc = "violation information valid flag for AHB port 6. Write 1 to clear.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum VioInfoValid6 {
     #[doc = "0: Not valid."]
@@ -374,6 +381,7 @@ where
     }
 }
 #[doc = "violation information valid flag for AHB port 7. Write 1 to clear.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum VioInfoValid7 {
     #[doc = "0: Not valid."]
@@ -427,6 +435,7 @@ where
     }
 }
 #[doc = "violation information valid flag for AHB port 8. Write 1 to clear.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum VioInfoValid8 {
     #[doc = "0: Not valid."]
@@ -480,6 +489,7 @@ where
     }
 }
 #[doc = "violation information valid flag for AHB port 9. Write 1 to clear.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum VioInfoValid9 {
     #[doc = "0: Not valid."]
@@ -582,6 +592,22 @@ impl R {
     #[inline(always)]
     pub fn vio_info_valid9(&self) -> VioInfoValid9R {
         VioInfoValid9R::new(((self.bits >> 9) & 1) != 0)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SEC_VIO_INFO_VALID")
+            .field("vio_info_valid0", &self.vio_info_valid0())
+            .field("vio_info_valid1", &self.vio_info_valid1())
+            .field("vio_info_valid2", &self.vio_info_valid2())
+            .field("vio_info_valid3", &self.vio_info_valid3())
+            .field("vio_info_valid4", &self.vio_info_valid4())
+            .field("vio_info_valid5", &self.vio_info_valid5())
+            .field("vio_info_valid6", &self.vio_info_valid6())
+            .field("vio_info_valid7", &self.vio_info_valid7())
+            .field("vio_info_valid8", &self.vio_info_valid8())
+            .field("vio_info_valid9", &self.vio_info_valid9())
+            .finish()
     }
 }
 impl W {

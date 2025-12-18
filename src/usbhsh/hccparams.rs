@@ -9,6 +9,13 @@ impl R {
         LpmcR::new(((self.bits >> 17) & 1) != 0)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("HCCPARAMS")
+            .field("lpmc", &self.lpmc())
+            .finish()
+    }
+}
 #[doc = "Host Controller Capability Parameters\n\nYou can [`read`](crate::Reg::read) this register and get [`hccparams::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct HccparamsSpec;
 impl crate::RegisterSpec for HccparamsSpec {

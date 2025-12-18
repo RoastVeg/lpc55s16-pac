@@ -22,6 +22,14 @@ impl R {
         DataSelR::new(((self.bits >> 1) & 3) as u8)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("ONLINE_TEST_CFG")
+            .field("activate", &self.activate())
+            .field("data_sel", &self.data_sel())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - 0: disabled 1: activated Update rythm for VAL depends on COUNTER_CFG if data_sel is set to COUNTER."]
     #[inline(always)]

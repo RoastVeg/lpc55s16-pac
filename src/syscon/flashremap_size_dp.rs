@@ -13,6 +13,13 @@ impl R {
         FlashremapSizeR::new(self.bits)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("FLASHREMAP_SIZE_DP")
+            .field("flashremap_size", &self.flashremap_size())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - no description available"]
     #[inline(always)]

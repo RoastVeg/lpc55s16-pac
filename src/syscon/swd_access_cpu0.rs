@@ -3,6 +3,7 @@ pub type R = crate::R<SwdAccessCpu0Spec>;
 #[doc = "Register `SWD_ACCESS_CPU0` writer"]
 pub type W = crate::W<SwdAccessCpu0Spec>;
 #[doc = "CPU0 SWD-AP: 0x12345678.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u32)]
 pub enum SecCode {
@@ -67,6 +68,13 @@ impl R {
     #[inline(always)]
     pub fn sec_code(&self) -> SecCodeR {
         SecCodeR::new(self.bits)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SWD_ACCESS_CPU0")
+            .field("sec_code", &self.sec_code())
+            .finish()
     }
 }
 impl W {

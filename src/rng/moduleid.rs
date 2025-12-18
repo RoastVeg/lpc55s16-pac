@@ -30,6 +30,16 @@ impl R {
         IdR::new(((self.bits >> 16) & 0xffff) as u16)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("MODULEID")
+            .field("aperture", &self.aperture())
+            .field("min_rev", &self.min_rev())
+            .field("maj_rev", &self.maj_rev())
+            .field("id", &self.id())
+            .finish()
+    }
+}
 #[doc = "IP identifier\n\nYou can [`read`](crate::Reg::read) this register and get [`moduleid::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct ModuleidSpec;
 impl crate::RegisterSpec for ModuleidSpec {

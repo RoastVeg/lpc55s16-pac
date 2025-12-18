@@ -3,6 +3,7 @@ pub type R = crate::R<SecCtrlFlashRomSlaveRuleSpec>;
 #[doc = "Register `SEC_CTRL_FLASH_ROM_SLAVE_RULE` writer"]
 pub type W = crate::W<SecCtrlFlashRomSlaveRuleSpec>;
 #[doc = "Security access rules for the whole FLASH : 0x0000_0000 - 0x0003_FFFF\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum FlashRule {
@@ -89,6 +90,7 @@ where
     }
 }
 #[doc = "Security access rules for the whole ROM : 0x0300_0000 - 0x0301_FFFF\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum RomRule {
@@ -184,6 +186,14 @@ impl R {
     #[inline(always)]
     pub fn rom_rule(&self) -> RomRuleR {
         RomRuleR::new(((self.bits >> 4) & 3) as u8)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SEC_CTRL_FLASH_ROM_SLAVE_RULE")
+            .field("flash_rule", &self.flash_rule())
+            .field("rom_rule", &self.rom_rule())
+            .finish()
     }
 }
 impl W {

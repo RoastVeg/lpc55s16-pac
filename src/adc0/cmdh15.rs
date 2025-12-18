@@ -3,6 +3,7 @@ pub type R = crate::R<Cmdh15Spec>;
 #[doc = "Register `CMDH15` writer"]
 pub type W = crate::W<Cmdh15Spec>;
 #[doc = "Wait for trigger assertion before execution.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum WaitTrig {
     #[doc = "0: This command will be automatically executed."]
@@ -56,6 +57,7 @@ where
     }
 }
 #[doc = "Loop with Increment\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Lwi {
     #[doc = "0: Auto channel increment disabled"]
@@ -109,6 +111,7 @@ where
     }
 }
 #[doc = "Sample Time Select\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Sts {
@@ -247,6 +250,7 @@ where
     }
 }
 #[doc = "Hardware Average Select\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Avgs {
@@ -385,6 +389,7 @@ where
     }
 }
 #[doc = "Loop Count Select\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Loop {
@@ -562,6 +567,7 @@ where
     }
 }
 #[doc = "Next Command Select\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Next {
@@ -768,6 +774,18 @@ impl R {
     #[inline(always)]
     pub fn next(&self) -> NextR {
         NextR::new(((self.bits >> 24) & 0x0f) as u8)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("CMDH15")
+            .field("wait_trig", &self.wait_trig())
+            .field("lwi", &self.lwi())
+            .field("sts", &self.sts())
+            .field("avgs", &self.avgs())
+            .field("loop_", &self.loop_())
+            .field("next", &self.next())
+            .finish()
     }
 }
 impl W {

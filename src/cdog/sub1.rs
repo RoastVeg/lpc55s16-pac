@@ -2,6 +2,11 @@
 pub type W = crate::W<Sub1Spec>;
 #[doc = "Field `S1B` writer - Address of SUB1 command."]
 pub type S1bW<'a, REG> = crate::FieldWriter<'a, REG, 32, u32>;
+impl core::fmt::Debug for crate::generic::Reg<Sub1Spec> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "(not readable)")
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - Address of SUB1 command."]
     #[inline(always)]

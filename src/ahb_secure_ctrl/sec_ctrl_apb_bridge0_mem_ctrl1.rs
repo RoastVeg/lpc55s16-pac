@@ -3,6 +3,7 @@ pub type R = crate::R<SecCtrlApbBridge0MemCtrl1Spec>;
 #[doc = "Register `SEC_CTRL_APB_BRIDGE0_MEM_CTRL1` writer"]
 pub type W = crate::W<SecCtrlApbBridge0MemCtrl1Spec>;
 #[doc = "Standard counter/Timer 0\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Ctimer0Rule {
@@ -89,6 +90,7 @@ where
     }
 }
 #[doc = "Standard counter/Timer 1\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Ctimer1Rule {
@@ -175,6 +177,7 @@ where
     }
 }
 #[doc = "Windiwed wtachdog Timer\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum WwdtRule {
@@ -261,6 +264,7 @@ where
     }
 }
 #[doc = "Multi-rate Timer\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum MrtRule {
@@ -347,6 +351,7 @@ where
     }
 }
 #[doc = "Micro-Timer\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum UtickRule {
@@ -457,6 +462,17 @@ impl R {
     #[inline(always)]
     pub fn utick_rule(&self) -> UtickRuleR {
         UtickRuleR::new(((self.bits >> 24) & 3) as u8)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SEC_CTRL_APB_BRIDGE0_MEM_CTRL1")
+            .field("ctimer0_rule", &self.ctimer0_rule())
+            .field("ctimer1_rule", &self.ctimer1_rule())
+            .field("wwdt_rule", &self.wwdt_rule())
+            .field("mrt_rule", &self.mrt_rule())
+            .field("utick_rule", &self.utick_rule())
+            .finish()
     }
 }
 impl W {

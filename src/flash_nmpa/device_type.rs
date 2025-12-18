@@ -40,6 +40,16 @@ impl R {
         DeviceTypePinR::new(((self.bits >> 24) & 0xff) as u8)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DEVICE_TYPE")
+            .field("device_type_num", &self.device_type_num())
+            .field("device_type_sec", &self.device_type_sec())
+            .field("device_type_pkg", &self.device_type_pkg())
+            .field("device_type_pin", &self.device_type_pin())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:15 - Device type number. (E.g : LPC5569 stored as 5569 decimal)"]
     #[inline(always)]

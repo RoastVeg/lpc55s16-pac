@@ -22,6 +22,14 @@ impl R {
         PreqR::new(((self.bits >> 5) & 1) != 0)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PLL0PDEC")
+            .field("pdiv", &self.pdiv())
+            .field("preq", &self.preq())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:4 - post-divider divider ratio (P-divider)"]
     #[inline(always)]

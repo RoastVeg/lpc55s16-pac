@@ -3,6 +3,7 @@ pub type R = crate::R<DebugLockEnSpec>;
 #[doc = "Register `DEBUG_LOCK_EN` writer"]
 pub type W = crate::W<DebugLockEnSpec>;
 #[doc = "Control write access to security registers.\n\nValue on reset: 5"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum LockAll {
@@ -67,6 +68,13 @@ impl R {
     #[inline(always)]
     pub fn lock_all(&self) -> LockAllR {
         LockAllR::new((self.bits & 0x0f) as u8)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DEBUG_LOCK_EN")
+            .field("lock_all", &self.lock_all())
+            .finish()
     }
 }
 impl W {

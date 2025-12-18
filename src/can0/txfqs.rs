@@ -31,6 +31,15 @@ impl R {
         TfqfR::new(((self.bits >> 21) & 1) != 0)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("TXFQS")
+            .field("tfgi", &self.tfgi())
+            .field("tfqpi", &self.tfqpi())
+            .field("tfqf", &self.tfqf())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 8:12 - Tx FIFO get index."]
     #[inline(always)]

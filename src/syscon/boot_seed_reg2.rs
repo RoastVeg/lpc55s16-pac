@@ -13,6 +13,13 @@ impl R {
         BootSeedReg2R::new(self.bits)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("BOOT_SEED_REG2")
+            .field("boot_seed_reg2", &self.boot_seed_reg2())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - no description available"]
     #[inline(always)]

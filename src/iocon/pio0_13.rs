@@ -3,6 +3,7 @@ pub type R = crate::R<Pio0_13Spec>;
 #[doc = "Register `PIO0_13` writer"]
 pub type W = crate::W<Pio0_13Spec>;
 #[doc = "Selects pin function.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Func {
@@ -141,6 +142,7 @@ where
     }
 }
 #[doc = "Selects function mode (on-chip pull-up/pull-down resistor control).\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Mode {
@@ -227,6 +229,7 @@ where
     }
 }
 #[doc = "Driver slew rate.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Slew {
     #[doc = "0: Standard-mode, output slew rate is slower. More outputs can be switched simultaneously."]
@@ -280,6 +283,7 @@ where
     }
 }
 #[doc = "Input polarity.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Invert {
     #[doc = "0: Disabled. Input function is not inverted."]
@@ -333,6 +337,7 @@ where
     }
 }
 #[doc = "Select Digital mode.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Digimode {
     #[doc = "0: Disable digital mode. Digital input set to 0."]
@@ -386,6 +391,7 @@ where
     }
 }
 #[doc = "Controls open-drain mode in standard GPIO mode (EGP = 1). This bit has no effect in I2C mode (EGP=0).\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Od {
     #[doc = "0: Normal. Normal push-pull output"]
@@ -439,6 +445,7 @@ where
     }
 }
 #[doc = "Supply Selection bit.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Ssel {
     #[doc = "0: 3V3 Signaling in I2C Mode."]
@@ -492,6 +499,7 @@ where
     }
 }
 #[doc = "Controls input glitch filter.\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Filteroff {
     #[doc = "0: Filter enabled."]
@@ -545,6 +553,7 @@ where
     }
 }
 #[doc = "Pull-up current source enable in I2C mode.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Ecs {
     #[doc = "0: Disabled. IO is in open drain cell."]
@@ -598,6 +607,7 @@ where
     }
 }
 #[doc = "Switch between GPIO mode and I2C mode.\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Egp {
     #[doc = "0: I2C mode."]
@@ -651,6 +661,7 @@ where
     }
 }
 #[doc = "Configures I2C features for standard mode, fast mode, and Fast Mode Plus operation and High-Speed mode operation.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum I2cfilter {
     #[doc = "0: I2C 50 ns glitch filter enabled. Typically used for Standard-mode, Fast-mode and Fast-mode Plus I2C."]
@@ -758,6 +769,23 @@ impl R {
     #[inline(always)]
     pub fn i2cfilter(&self) -> I2cfilterR {
         I2cfilterR::new(((self.bits >> 15) & 1) != 0)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PIO0_13")
+            .field("func", &self.func())
+            .field("mode", &self.mode())
+            .field("slew", &self.slew())
+            .field("invert", &self.invert())
+            .field("digimode", &self.digimode())
+            .field("od", &self.od())
+            .field("ssel", &self.ssel())
+            .field("filteroff", &self.filteroff())
+            .field("ecs", &self.ecs())
+            .field("egp", &self.egp())
+            .field("i2cfilter", &self.i2cfilter())
+            .finish()
     }
 }
 impl W {

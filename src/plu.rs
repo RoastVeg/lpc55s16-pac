@@ -1,8 +1,9 @@
 #[repr(C)]
+#[derive(Debug)]
 #[doc = "Register block"]
 pub struct RegisterBlock {
-    lut: [Lut; 26],
-    _reserved1: [u8; 0x04c0],
+    lut: (),
+    _reserved1: [u8; 0x0800],
     lut_truth: [LutTruth; 26],
     _reserved2: [u8; 0x98],
     outputs: Outputs,
@@ -11,16 +12,18 @@ pub struct RegisterBlock {
     output_mux: [OutputMux; 8],
 }
 impl RegisterBlock {
-    #[doc = "0x00..0x340 - no description available"]
+    #[doc = "0x00..0x208 - no description available"]
     #[inline(always)]
     pub const fn lut(&self, n: usize) -> &Lut {
-        &self.lut[n]
+        #[allow(clippy::no_effect)]
+        [(); 26][n];
+        unsafe { &*core::ptr::from_ref(self).cast::<u8>().add(32 * n).cast() }
     }
     #[doc = "Iterator for array of:"]
-    #[doc = "0x00..0x340 - no description available"]
+    #[doc = "0x00..0x208 - no description available"]
     #[inline(always)]
     pub fn lut_iter(&self) -> impl Iterator<Item = &Lut> {
-        self.lut.iter()
+        (0..26).map(move |n| unsafe { &*core::ptr::from_ref(self).cast::<u8>().add(32 * n).cast() })
     }
     #[doc = "0x800..0x868 - Specifies the Truth Table contents for LUTLUTn"]
     #[inline(always)]

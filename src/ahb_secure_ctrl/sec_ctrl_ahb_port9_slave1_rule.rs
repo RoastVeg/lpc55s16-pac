@@ -3,6 +3,7 @@ pub type R = crate::R<SecCtrlAhbPort9Slave1RuleSpec>;
 #[doc = "Register `SEC_CTRL_AHB_PORT9_SLAVE1_RULE` writer"]
 pub type W = crate::W<SecCtrlAhbPort9Slave1RuleSpec>;
 #[doc = "Secure High Speed GPIO\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Gpio1Rule {
@@ -89,6 +90,7 @@ where
     }
 }
 #[doc = "AHB Secure Controller\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum AhbSecCtrlRule {
@@ -184,6 +186,14 @@ impl R {
     #[inline(always)]
     pub fn ahb_sec_ctrl_rule(&self) -> AhbSecCtrlRuleR {
         AhbSecCtrlRuleR::new(((self.bits >> 4) & 3) as u8)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SEC_CTRL_AHB_PORT9_SLAVE1_RULE")
+            .field("gpio1_rule", &self.gpio1_rule())
+            .field("ahb_sec_ctrl_rule", &self.ahb_sec_ctrl_rule())
+            .finish()
     }
 }
 impl W {

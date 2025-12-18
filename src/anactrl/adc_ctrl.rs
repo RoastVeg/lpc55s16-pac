@@ -3,6 +3,7 @@ pub type R = crate::R<AdcCtrlSpec>;
 #[doc = "Register `ADC_CTRL` writer"]
 pub type W = crate::W<AdcCtrlSpec>;
 #[doc = "Switch On/Off VBAT divider branch.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Vbatdivenable {
     #[doc = "0: VBAT divider branch is disabled."]
@@ -60,6 +61,13 @@ impl R {
     #[inline(always)]
     pub fn vbatdivenable(&self) -> VbatdivenableR {
         VbatdivenableR::new((self.bits & 1) != 0)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("ADC_CTRL")
+            .field("vbatdivenable", &self.vbatdivenable())
+            .finish()
     }
 }
 impl W {

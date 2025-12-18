@@ -3,6 +3,7 @@ pub type R = crate::R<AhbclkctrlAhbclkctrl1Spec>;
 #[doc = "Register `AHBCLKCTRL1` writer"]
 pub type W = crate::W<AhbclkctrlAhbclkctrl1Spec>;
 #[doc = "Enables the clock for the MRT.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Mrt {
     #[doc = "0: Disable Clock."]
@@ -56,6 +57,7 @@ where
     }
 }
 #[doc = "Enables the clock for the OS Event Timer.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Ostimer {
     #[doc = "0: Disable Clock."]
@@ -109,6 +111,7 @@ where
     }
 }
 #[doc = "Enables the clock for the SCT.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Sct {
     #[doc = "0: Disable Clock."]
@@ -162,6 +165,7 @@ where
     }
 }
 #[doc = "Enables the clock for the CAN.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Can {
     #[doc = "0: Disable Clock."]
@@ -215,6 +219,7 @@ where
     }
 }
 #[doc = "Enables the clock for the UTICK.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Utick {
     #[doc = "0: Disable Clock."]
@@ -268,6 +273,7 @@ where
     }
 }
 #[doc = "Enables the clock for the FC0.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Fc0 {
     #[doc = "0: Disable Clock."]
@@ -321,6 +327,7 @@ where
     }
 }
 #[doc = "Enables the clock for the FC1.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Fc1 {
     #[doc = "0: Disable Clock."]
@@ -374,6 +381,7 @@ where
     }
 }
 #[doc = "Enables the clock for the FC2.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Fc2 {
     #[doc = "0: Disable Clock."]
@@ -427,6 +435,7 @@ where
     }
 }
 #[doc = "Enables the clock for the FC3.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Fc3 {
     #[doc = "0: Disable Clock."]
@@ -480,6 +489,7 @@ where
     }
 }
 #[doc = "Enables the clock for the FC4.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Fc4 {
     #[doc = "0: Disable Clock."]
@@ -533,6 +543,7 @@ where
     }
 }
 #[doc = "Enables the clock for the FC5.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Fc5 {
     #[doc = "0: Disable Clock."]
@@ -586,6 +597,7 @@ where
     }
 }
 #[doc = "Enables the clock for the FC6.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Fc6 {
     #[doc = "0: Disable Clock."]
@@ -639,6 +651,7 @@ where
     }
 }
 #[doc = "Enables the clock for the FC7.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Fc7 {
     #[doc = "0: Disable Clock."]
@@ -692,6 +705,7 @@ where
     }
 }
 #[doc = "Enables the clock for the Timer 2.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Timer2 {
     #[doc = "0: Disable Clock."]
@@ -745,6 +759,7 @@ where
     }
 }
 #[doc = "Enables the clock for the USB0-FS device.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Usb0Dev {
     #[doc = "0: Disable Clock."]
@@ -798,6 +813,7 @@ where
     }
 }
 #[doc = "Enables the clock for the Timer 0.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Timer0 {
     #[doc = "0: Disable Clock."]
@@ -851,6 +867,7 @@ where
     }
 }
 #[doc = "Enables the clock for the Timer 1.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Timer1 {
     #[doc = "0: Disable Clock."]
@@ -988,6 +1005,29 @@ impl R {
     #[inline(always)]
     pub fn timer1(&self) -> Timer1R {
         Timer1R::new(((self.bits >> 27) & 1) != 0)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("AHBCLKCTRL_AHBCLKCTRL1")
+            .field("mrt", &self.mrt())
+            .field("ostimer", &self.ostimer())
+            .field("sct", &self.sct())
+            .field("can", &self.can())
+            .field("utick", &self.utick())
+            .field("fc0", &self.fc0())
+            .field("fc1", &self.fc1())
+            .field("fc2", &self.fc2())
+            .field("fc3", &self.fc3())
+            .field("fc4", &self.fc4())
+            .field("fc5", &self.fc5())
+            .field("fc6", &self.fc6())
+            .field("fc7", &self.fc7())
+            .field("timer2", &self.timer2())
+            .field("usb0_dev", &self.usb0_dev())
+            .field("timer0", &self.timer0())
+            .field("timer1", &self.timer1())
+            .finish()
     }
 }
 impl W {

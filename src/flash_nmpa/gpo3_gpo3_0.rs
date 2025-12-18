@@ -76,6 +76,23 @@ impl R {
         FinalTestNotDoneR::new(((self.bits >> 28) & 0x0f) as u8)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("GPO3_GPO3_0")
+            .field("aux_bias_trim_valid", &self.aux_bias_trim_valid())
+            .field("aux_bias_itrim", &self.aux_bias_itrim())
+            .field("aux_bias_ptat_itrim", &self.aux_bias_ptat_itrim())
+            .field("aux_bias_vref1_vtrim", &self.aux_bias_vref1_vtrim())
+            .field(
+                "aux_bias_vref1_vcurve_trim",
+                &self.aux_bias_vref1_vcurve_trim(),
+            )
+            .field("field", &self.field())
+            .field("modelnum_extension", &self.modelnum_extension())
+            .field("final_test_not_done", &self.final_test_not_done())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - no description available"]
     #[inline(always)]

@@ -1,4 +1,5 @@
 #[repr(C)]
+#[derive(Debug)]
 #[doc = "Register block"]
 pub struct RegisterBlock {
     sec_ctrl_flash_rom_slave_rule: SecCtrlFlashRomSlaveRule,

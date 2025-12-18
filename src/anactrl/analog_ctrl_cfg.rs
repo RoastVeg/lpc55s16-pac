@@ -3,6 +3,7 @@ pub type R = crate::R<AnalogCtrlCfgSpec>;
 #[doc = "Register `ANALOG_CTRL_CFG` writer"]
 pub type W = crate::W<AnalogCtrlCfgSpec>;
 #[doc = "FRO192M trimming and 'Enable' source.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Fro192mTrimSrc {
     #[doc = "0: FRO192M trimming and 'Enable' comes from eFUSE."]
@@ -60,6 +61,13 @@ impl R {
     #[inline(always)]
     pub fn fro192m_trim_src(&self) -> Fro192mTrimSrcR {
         Fro192mTrimSrcR::new((self.bits & 1) != 0)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("ANALOG_CTRL_CFG")
+            .field("fro192m_trim_src", &self.fro192m_trim_src())
+            .finish()
     }
 }
 impl W {

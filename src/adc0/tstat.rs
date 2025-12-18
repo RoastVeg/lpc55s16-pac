@@ -3,6 +3,7 @@ pub type R = crate::R<TstatSpec>;
 #[doc = "Register `TSTAT` writer"]
 pub type W = crate::W<TstatSpec>;
 #[doc = "Trigger Exception Number\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u16)]
 pub enum TexcNum {
@@ -180,6 +181,7 @@ where
     }
 }
 #[doc = "Trigger Completion Flag\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u16)]
 pub enum TcompFlag {
@@ -366,6 +368,14 @@ impl R {
     #[inline(always)]
     pub fn tcomp_flag(&self) -> TcompFlagR {
         TcompFlagR::new(((self.bits >> 16) & 0xffff) as u16)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("TSTAT")
+            .field("texc_num", &self.texc_num())
+            .field("tcomp_flag", &self.tcomp_flag())
+            .finish()
     }
 }
 impl W {

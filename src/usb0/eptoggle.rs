@@ -13,6 +13,13 @@ impl R {
         ToggleR::new((self.bits & 0x03ff) as u16)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EPTOGGLE")
+            .field("toggle", &self.toggle())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:9 - Endpoint data toggle: This field indicates the current value of the data toggle for the corresponding endpoint."]
     #[inline(always)]

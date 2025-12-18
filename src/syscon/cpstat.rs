@@ -3,6 +3,7 @@ pub type R = crate::R<CpstatSpec>;
 #[doc = "Register `CPSTAT` writer"]
 pub type W = crate::W<CpstatSpec>;
 #[doc = "The CPU0 sleeping state.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Cpu0sleeping {
     #[doc = "0: the CPU is not sleeping."]
@@ -39,6 +40,7 @@ impl Cpu0sleepingR {
     }
 }
 #[doc = "The CPU0 lockup state.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Cpu0lockup {
     #[doc = "0: the CPU is not in lockup."]
@@ -84,6 +86,14 @@ impl R {
     #[inline(always)]
     pub fn cpu0lockup(&self) -> Cpu0lockupR {
         Cpu0lockupR::new(((self.bits >> 2) & 1) != 0)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("CPSTAT")
+            .field("cpu0sleeping", &self.cpu0sleeping())
+            .field("cpu0lockup", &self.cpu0lockup())
+            .finish()
     }
 }
 impl W {}

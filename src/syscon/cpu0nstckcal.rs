@@ -31,6 +31,15 @@ impl R {
         NorefR::new(((self.bits >> 25) & 1) != 0)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("CPU0NSTCKCAL")
+            .field("tenms", &self.tenms())
+            .field("skew", &self.skew())
+            .field("noref", &self.noref())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:23 - Reload value for 10 ms (100 Hz) timing, subject to system clock skew errors. If the value reads as zero, the calibration value is not known."]
     #[inline(always)]

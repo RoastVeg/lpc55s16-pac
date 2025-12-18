@@ -13,6 +13,13 @@ impl R {
         PolR::new(self.bits)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PORT_POL")
+            .field("pol", &self.pol())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - Configure pin polarity of port m pins for group interrupt. Bit n corresponds to pin PIOm_n of port m. 0 = the pin is active LOW. If the level on this pin is LOW, the pin contributes to the group interrupt. 1 = the pin is active HIGH. If the level on this pin is HIGH, the pin contributes to the group interrupt."]
     #[inline(always)]

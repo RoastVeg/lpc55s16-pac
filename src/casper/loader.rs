@@ -7,6 +7,7 @@ pub type CountR = crate::FieldReader;
 #[doc = "Field `COUNT` writer - Number of control pairs to load 0 relative (so 1 means load 1). write 1 means Does one op - does not iterate, write N means N control pairs to load"]
 pub type CountW<'a, REG> = crate::FieldWriter<'a, REG, 8>;
 #[doc = "Which bank-pair the offset CTRLOFF is within. This must be 0 if only 2-up. Does not matter which bank is used as this is loaded when not performing an operation.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Ctrlbpair {
     #[doc = "0: Bank-pair 0 (1st)"]
@@ -78,6 +79,15 @@ impl R {
     #[inline(always)]
     pub fn ctrloff(&self) -> CtrloffR {
         CtrloffR::new(((self.bits >> 18) & 0x07ff) as u16)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LOADER")
+            .field("count", &self.count())
+            .field("ctrlbpair", &self.ctrlbpair())
+            .field("ctrloff", &self.ctrloff())
+            .finish()
     }
 }
 impl W {

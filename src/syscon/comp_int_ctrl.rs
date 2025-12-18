@@ -3,6 +3,7 @@ pub type R = crate::R<CompIntCtrlSpec>;
 #[doc = "Register `COMP_INT_CTRL` writer"]
 pub type W = crate::W<CompIntCtrlSpec>;
 #[doc = "Analog Comparator interrupt enable control:.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum IntEnable {
     #[doc = "0: interrupt disable."]
@@ -56,6 +57,7 @@ where
     }
 }
 #[doc = "Analog Comparator interrupt clear.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum IntClear {
     #[doc = "0: No effect."]
@@ -109,6 +111,7 @@ where
     }
 }
 #[doc = "Comparator interrupt type selector:.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum IntCtrl {
@@ -247,6 +250,7 @@ where
     }
 }
 #[doc = "Select which Analog comparator output (filtered our un-filtered) is used for interrupt detection.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum IntSource {
     #[doc = "0: Select Analog Comparator filtered output as input for interrupt detection."]
@@ -319,6 +323,16 @@ impl R {
     #[inline(always)]
     pub fn int_source(&self) -> IntSourceR {
         IntSourceR::new(((self.bits >> 5) & 1) != 0)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("COMP_INT_CTRL")
+            .field("int_enable", &self.int_enable())
+            .field("int_clear", &self.int_clear())
+            .field("int_ctrl", &self.int_ctrl())
+            .field("int_source", &self.int_source())
+            .finish()
     }
 }
 impl W {

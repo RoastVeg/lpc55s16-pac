@@ -79,6 +79,23 @@ impl R {
         TdcvR::new(((self.bits >> 16) & 0x7f) as u8)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PSR")
+            .field("lec", &self.lec())
+            .field("act", &self.act())
+            .field("ep", &self.ep())
+            .field("ew", &self.ew())
+            .field("bo", &self.bo())
+            .field("dlec", &self.dlec())
+            .field("resi", &self.resi())
+            .field("rbrs", &self.rbrs())
+            .field("rfdf", &self.rfdf())
+            .field("pxe", &self.pxe())
+            .field("tdcv", &self.tdcv())
+            .finish()
+    }
+}
 #[doc = "Protocol Status Register\n\nYou can [`read`](crate::Reg::read) this register and get [`psr::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct PsrSpec;
 impl crate::RegisterSpec for PsrSpec {

@@ -3,6 +3,7 @@ pub type R = crate::R<DebugFeaturesSpec>;
 #[doc = "Register `DEBUG_FEATURES` writer"]
 pub type W = crate::W<DebugFeaturesSpec>;
 #[doc = "CPU0 Invasive debug control:.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Cpu0Dbgen {
@@ -63,6 +64,7 @@ where
     }
 }
 #[doc = "CPU0 Non Invasive debug control:.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Cpu0Niden {
@@ -123,6 +125,7 @@ where
     }
 }
 #[doc = "CPU0 Secure Invasive debug control:.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Cpu0Spiden {
@@ -183,6 +186,7 @@ where
     }
 }
 #[doc = "CPU0 Secure Non Invasive debug control:.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Cpu0Spniden {
@@ -262,6 +266,16 @@ impl R {
     #[inline(always)]
     pub fn cpu0_spniden(&self) -> Cpu0SpnidenR {
         Cpu0SpnidenR::new(((self.bits >> 6) & 3) as u8)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DEBUG_FEATURES")
+            .field("cpu0_dbgen", &self.cpu0_dbgen())
+            .field("cpu0_niden", &self.cpu0_niden())
+            .field("cpu0_spiden", &self.cpu0_spiden())
+            .field("cpu0_spniden", &self.cpu0_spniden())
+            .finish()
     }
 }
 impl W {

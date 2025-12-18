@@ -40,6 +40,16 @@ impl R {
         F1omR::new(((self.bits >> 31) & 1) != 0)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RXF1C")
+            .field("f1sa", &self.f1sa())
+            .field("f1s", &self.f1s())
+            .field("f1wm", &self.f1wm())
+            .field("f1om", &self.f1om())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 2:15 - Rx FIFO 1 start address."]
     #[inline(always)]

@@ -3,6 +3,7 @@ pub type R = crate::R<SecCtrlAhbPort8Slave1RuleSpec>;
 #[doc = "Register `SEC_CTRL_AHB_PORT8_SLAVE1_RULE` writer"]
 pub type W = crate::W<SecCtrlAhbPort8Slave1RuleSpec>;
 #[doc = "Flexcomm interface 7\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Flexcomm7Rule {
@@ -89,6 +90,7 @@ where
     }
 }
 #[doc = "Debug mailbox (aka ISP-AP)\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum DbgMailboxRule {
@@ -175,6 +177,7 @@ where
     }
 }
 #[doc = "CAN-FD\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Can0Rule {
@@ -261,6 +264,7 @@ where
     }
 }
 #[doc = "High Speed SPI\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum HsLspiRule {
@@ -366,6 +370,16 @@ impl R {
     #[inline(always)]
     pub fn hs_lspi_rule(&self) -> HsLspiRuleR {
         HsLspiRuleR::new(((self.bits >> 28) & 3) as u8)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SEC_CTRL_AHB_PORT8_SLAVE1_RULE")
+            .field("flexcomm7_rule", &self.flexcomm7_rule())
+            .field("dbg_mailbox_rule", &self.dbg_mailbox_rule())
+            .field("can0_rule", &self.can0_rule())
+            .field("hs_lspi_rule", &self.hs_lspi_rule())
+            .finish()
     }
 }
 impl W {

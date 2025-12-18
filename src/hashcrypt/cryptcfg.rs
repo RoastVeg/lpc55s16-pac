@@ -19,6 +19,7 @@ pub type Msw1stR = crate::BitReader;
 #[doc = "Field `MSW1ST` writer - If 1, load of key, IV, and data is MSW 1st for AES. Else, the words are little endian. Note: only if allowed by configuration."]
 pub type Msw1stW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "AES Cipher mode to use if plain AES\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Aesmode {
@@ -92,6 +93,7 @@ where
     }
 }
 #[doc = "AES ECB direction. Only encryption used if CTR mode or manual modes such as CFB\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Aesdecrypt {
     #[doc = "0: Encrypt"]
@@ -145,6 +147,7 @@ where
     }
 }
 #[doc = "Selects the Hidden Secret key vs. User key, if provided. If security levels are used, only the highest level is permitted to select this.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Aessecret {
     #[doc = "0: User key provided in normal way"]
@@ -198,6 +201,7 @@ where
     }
 }
 #[doc = "Sets the AES key size\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Aeskeysz {
@@ -328,6 +332,22 @@ impl R {
     #[inline(always)]
     pub fn streamlast(&self) -> StreamlastR {
         StreamlastR::new(((self.bits >> 16) & 1) != 0)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("CRYPTCFG")
+            .field("msw1st_out", &self.msw1st_out())
+            .field("swapkey", &self.swapkey())
+            .field("swapdat", &self.swapdat())
+            .field("msw1st", &self.msw1st())
+            .field("aesmode", &self.aesmode())
+            .field("aesdecrypt", &self.aesdecrypt())
+            .field("aessecret", &self.aessecret())
+            .field("aeskeysz", &self.aeskeysz())
+            .field("aesctrpos", &self.aesctrpos())
+            .field("streamlast", &self.streamlast())
+            .finish()
     }
 }
 impl W {

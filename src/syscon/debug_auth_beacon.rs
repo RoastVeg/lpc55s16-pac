@@ -13,6 +13,13 @@ impl R {
         BeaconR::new(self.bits)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DEBUG_AUTH_BEACON")
+            .field("beacon", &self.beacon())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - Set by the debug authentication code in ROM to pass the debug beacons (Credential Beacon and Authentication Beacon) to application code."]
     #[inline(always)]

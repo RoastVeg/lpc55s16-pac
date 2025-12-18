@@ -3,6 +3,7 @@ pub type R = crate::R<CompIntStatusSpec>;
 #[doc = "Register `COMP_INT_STATUS` writer"]
 pub type W = crate::W<CompIntStatusSpec>;
 #[doc = "Interrupt status BEFORE Interrupt Enable.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Status {
     #[doc = "0: no interrupt pending."]
@@ -39,6 +40,7 @@ impl StatusR {
     }
 }
 #[doc = "Interrupt status AFTER Interrupt Enable.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum IntStatus {
     #[doc = "0: no interrupt pending."]
@@ -75,6 +77,7 @@ impl IntStatusR {
     }
 }
 #[doc = "comparator analog output.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Val {
     #[doc = "0: P+ is smaller than P-."]
@@ -125,6 +128,15 @@ impl R {
     #[inline(always)]
     pub fn val(&self) -> ValR {
         ValR::new(((self.bits >> 2) & 1) != 0)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("COMP_INT_STATUS")
+            .field("status", &self.status())
+            .field("int_status", &self.int_status())
+            .field("val", &self.val())
+            .finish()
     }
 }
 impl W {}

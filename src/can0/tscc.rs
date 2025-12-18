@@ -22,6 +22,14 @@ impl R {
         TcpR::new(((self.bits >> 16) & 0x0f) as u8)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("TSCC")
+            .field("tss", &self.tss())
+            .field("tcp", &self.tcp())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1 - Timestamp select."]
     #[inline(always)]

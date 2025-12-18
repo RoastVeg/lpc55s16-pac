@@ -3,6 +3,7 @@ pub type R = crate::R<SecCtrlRamxMemRule0Spec>;
 #[doc = "Register `SEC_CTRL_RAMX_MEM_RULE0` writer"]
 pub type W = crate::W<SecCtrlRamxMemRule0Spec>;
 #[doc = "secure control rule0. it can be set when check_reg's write_lock is '0'\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Rule0 {
@@ -89,6 +90,7 @@ where
     }
 }
 #[doc = "secure control rule1. it can be set when check_reg's write_lock is '0'\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Rule1 {
@@ -175,6 +177,7 @@ where
     }
 }
 #[doc = "secure control rule2. it can be set when check_reg's write_lock is '0'\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Rule2 {
@@ -261,6 +264,7 @@ where
     }
 }
 #[doc = "secure control rule3. it can be set when check_reg's write_lock is '0'\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Rule3 {
@@ -366,6 +370,16 @@ impl R {
     #[inline(always)]
     pub fn rule3(&self) -> Rule3R {
         Rule3R::new(((self.bits >> 12) & 3) as u8)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SEC_CTRL_RAMX_MEM_RULE0")
+            .field("rule0", &self.rule0())
+            .field("rule1", &self.rule1())
+            .field("rule2", &self.rule2())
+            .field("rule3", &self.rule3())
+            .finish()
     }
 }
 impl W {

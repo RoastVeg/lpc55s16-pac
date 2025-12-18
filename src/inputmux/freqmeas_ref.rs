@@ -3,6 +3,7 @@ pub type R = crate::R<FreqmeasRefSpec>;
 #[doc = "Register `FREQMEAS_REF` writer"]
 pub type W = crate::W<FreqmeasRefSpec>;
 #[doc = "Clock source number (decimal value) for frequency measure function reference clock:\n\nValue on reset: 31"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Clkin {
@@ -145,6 +146,13 @@ impl R {
     #[inline(always)]
     pub fn clkin(&self) -> ClkinR {
         ClkinR::new((self.bits & 0x1f) as u8)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("FREQMEAS_REF")
+            .field("clkin", &self.clkin())
+            .finish()
     }
 }
 impl W {

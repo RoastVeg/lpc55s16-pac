@@ -67,6 +67,19 @@ impl R {
         PotpgtR::new(((self.bits >> 24) & 0xff) as u8)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("HCRHDESCRIPTORA")
+            .field("ndp", &self.ndp())
+            .field("psm", &self.psm())
+            .field("nps", &self.nps())
+            .field("dt", &self.dt())
+            .field("ocpm", &self.ocpm())
+            .field("nocp", &self.nocp())
+            .field("potpgt", &self.potpgt())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:7 - NumberDownstreamPorts These bits specify the number of downstream ports supported by the root hub."]
     #[inline(always)]

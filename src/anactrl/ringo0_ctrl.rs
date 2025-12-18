@@ -3,6 +3,7 @@ pub type R = crate::R<Ringo0CtrlSpec>;
 #[doc = "Register `RINGO0_CTRL` writer"]
 pub type W = crate::W<Ringo0CtrlSpec>;
 #[doc = "Select short or long ringo (for all ringos types).\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Sl {
     #[doc = "0: Select short ringo (few elements)."]
@@ -56,6 +57,7 @@ where
     }
 }
 #[doc = "Ringo frequency output divider.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Fs {
     #[doc = "0: High frequency output (frequency lower than 100 MHz)."]
@@ -109,6 +111,7 @@ where
     }
 }
 #[doc = "PN-Ringos (P-Transistor and N-Transistor processing) control.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum SwnSwp {
@@ -195,6 +198,7 @@ where
     }
 }
 #[doc = "Ringo module Power control.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Pd {
     #[doc = "0: The Ringo module is enabled."]
@@ -248,6 +252,7 @@ where
     }
 }
 #[doc = "First NAND2-based ringo control.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum ENd0 {
     #[doc = "0: First NAND2-based ringo is disabled."]
@@ -301,6 +306,7 @@ where
     }
 }
 #[doc = "Second NAND2-based ringo control.\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum ENd1 {
     #[doc = "0: Second NAND2-based ringo is disabled."]
@@ -354,6 +360,7 @@ where
     }
 }
 #[doc = "First NOR2-based ringo control.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum ENr0 {
     #[doc = "0: First NOR2-based ringo is disabled."]
@@ -407,6 +414,7 @@ where
     }
 }
 #[doc = "Second NOR2-based ringo control.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum ENr1 {
     #[doc = "0: Second NORD2-based ringo is disabled."]
@@ -460,6 +468,7 @@ where
     }
 }
 #[doc = "First Inverter-based ringo control.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum EIv0 {
     #[doc = "0: First INV-based ringo is disabled."]
@@ -513,6 +522,7 @@ where
     }
 }
 #[doc = "Second Inverter-based ringo control.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum EIv1 {
     #[doc = "0: Second INV-based ringo is disabled."]
@@ -566,6 +576,7 @@ where
     }
 }
 #[doc = "First PN (P-Transistor and N-Transistor processing) monitor control.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum EPn0 {
     #[doc = "0: First PN-based ringo is disabled."]
@@ -619,6 +630,7 @@ where
     }
 }
 #[doc = "Second PN (P-Transistor and N-Transistor processing) monitor control.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum EPn1 {
     #[doc = "0: Second PN-based ringo is disabled."]
@@ -747,6 +759,26 @@ impl R {
     #[inline(always)]
     pub fn div_update_req(&self) -> DivUpdateReqR {
         DivUpdateReqR::new(((self.bits >> 31) & 1) != 0)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RINGO0_CTRL")
+            .field("sl", &self.sl())
+            .field("fs", &self.fs())
+            .field("swn_swp", &self.swn_swp())
+            .field("pd", &self.pd())
+            .field("e_nd0", &self.e_nd0())
+            .field("e_nd1", &self.e_nd1())
+            .field("e_nr0", &self.e_nr0())
+            .field("e_nr1", &self.e_nr1())
+            .field("e_iv0", &self.e_iv0())
+            .field("e_iv1", &self.e_iv1())
+            .field("e_pn0", &self.e_pn0())
+            .field("e_pn1", &self.e_pn1())
+            .field("divisor", &self.divisor())
+            .field("div_update_req", &self.div_update_req())
+            .finish()
     }
 }
 impl W {

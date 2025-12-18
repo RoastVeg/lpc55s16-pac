@@ -13,6 +13,13 @@ impl R {
         RloadR::new(self.bits)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RELOAD")
+            .field("rload", &self.rload())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - Inst. Timer reload value"]
     #[inline(always)]

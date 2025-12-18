@@ -9,6 +9,13 @@ impl R {
         CodeBinMsbR::new((self.bits & 0x03ff) as u16)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("CODE_BIN_MSB")
+            .field("code_bin_msb", &self.code_bin_msb())
+            .finish()
+    }
+}
 #[doc = "CODE_BIN MSB output Register\n\nYou can [`read`](crate::Reg::read) this register and get [`code_bin_msb::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct CodeBinMsbSpec;
 impl crate::RegisterSpec for CodeBinMsbSpec {

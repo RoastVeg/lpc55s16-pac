@@ -13,6 +13,11 @@ impl R {
         TbdsR::new((self.bits & 7) as u8)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("TXESC").field("tbds", &self.tbds()).finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:2 - Tx buffer data field size."]
     #[inline(always)]

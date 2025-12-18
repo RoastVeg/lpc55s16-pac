@@ -49,6 +49,17 @@ impl R {
         TdcR::new(((self.bits >> 23) & 1) != 0)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DBTP")
+            .field("dsjw", &self.dsjw())
+            .field("dtseg2", &self.dtseg2())
+            .field("dtseg1", &self.dtseg1())
+            .field("dbrp", &self.dbrp())
+            .field("tdc", &self.tdc())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:3 - Data (re)synchronization jump width."]
     #[inline(always)]

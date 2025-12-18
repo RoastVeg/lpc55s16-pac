@@ -3,6 +3,7 @@ pub type R = crate::R<SecGpioMask0Spec>;
 #[doc = "Register `SEC_GPIO_MASK0` writer"]
 pub type W = crate::W<SecGpioMask0Spec>;
 #[doc = "Secure mask for pin P0_0\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Pio0Pin0SecMask {
     #[doc = "0: Pin state is blocked to non-secure world."]
@@ -56,6 +57,7 @@ where
     }
 }
 #[doc = "Secure mask for pin P0_1\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Pio0Pin1SecMask {
     #[doc = "0: Pin state is blocked to non-secure world."]
@@ -109,6 +111,7 @@ where
     }
 }
 #[doc = "Secure mask for pin P0_2\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Pio0Pin2SecMask {
     #[doc = "0: Pin state is blocked to non-secure world."]
@@ -162,6 +165,7 @@ where
     }
 }
 #[doc = "Secure mask for pin P0_3\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Pio0Pin3SecMask {
     #[doc = "0: Pin state is blocked to non-secure world."]
@@ -215,6 +219,7 @@ where
     }
 }
 #[doc = "Secure mask for pin P0_4\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Pio0Pin4SecMask {
     #[doc = "0: Pin state is blocked to non-secure world."]
@@ -268,6 +273,7 @@ where
     }
 }
 #[doc = "Secure mask for pin P0_5\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Pio0Pin5SecMask {
     #[doc = "0: Pin state is blocked to non-secure world."]
@@ -321,6 +327,7 @@ where
     }
 }
 #[doc = "Secure mask for pin P0_6\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Pio0Pin6SecMask {
     #[doc = "0: Pin state is blocked to non-secure world."]
@@ -374,6 +381,7 @@ where
     }
 }
 #[doc = "Secure mask for pin P0_7\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Pio0Pin7SecMask {
     #[doc = "0: Pin state is blocked to non-secure world."]
@@ -427,6 +435,7 @@ where
     }
 }
 #[doc = "Secure mask for pin P0_8\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Pio0Pin8SecMask {
     #[doc = "0: Pin state is blocked to non-secure world."]
@@ -480,6 +489,7 @@ where
     }
 }
 #[doc = "Secure mask for pin P0_9\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Pio0Pin9SecMask {
     #[doc = "0: Pin state is blocked to non-secure world."]
@@ -533,6 +543,7 @@ where
     }
 }
 #[doc = "Secure mask for pin P0_10\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Pio0Pin10SecMask {
     #[doc = "0: Pin state is blocked to non-secure world."]
@@ -586,6 +597,7 @@ where
     }
 }
 #[doc = "Secure mask for pin P0_11\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Pio0Pin11SecMask {
     #[doc = "0: Pin state is blocked to non-secure world."]
@@ -639,6 +651,7 @@ where
     }
 }
 #[doc = "Secure mask for pin P0_12\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Pio0Pin12SecMask {
     #[doc = "0: Pin state is blocked to non-secure world."]
@@ -692,6 +705,7 @@ where
     }
 }
 #[doc = "Secure mask for pin P0_13\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Pio0Pin13SecMask {
     #[doc = "0: Pin state is blocked to non-secure world."]
@@ -745,6 +759,7 @@ where
     }
 }
 #[doc = "Secure mask for pin P0_14\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Pio0Pin14SecMask {
     #[doc = "0: Pin state is blocked to non-secure world."]
@@ -798,6 +813,7 @@ where
     }
 }
 #[doc = "Secure mask for pin P0_15\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Pio0Pin15SecMask {
     #[doc = "0: Pin state is blocked to non-secure world."]
@@ -851,6 +867,7 @@ where
     }
 }
 #[doc = "Secure mask for pin P0_16\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Pio0Pin16SecMask {
     #[doc = "0: Pin state is blocked to non-secure world."]
@@ -904,6 +921,7 @@ where
     }
 }
 #[doc = "Secure mask for pin P0_17\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Pio0Pin17SecMask {
     #[doc = "0: Pin state is blocked to non-secure world."]
@@ -957,6 +975,7 @@ where
     }
 }
 #[doc = "Secure mask for pin P0_18\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Pio0Pin18SecMask {
     #[doc = "0: Pin state is blocked to non-secure world."]
@@ -1010,6 +1029,7 @@ where
     }
 }
 #[doc = "Secure mask for pin P0_19\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Pio0Pin19SecMask {
     #[doc = "0: Pin state is blocked to non-secure world."]
@@ -1063,6 +1083,7 @@ where
     }
 }
 #[doc = "Secure mask for pin P0_20\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Pio0Pin20SecMask {
     #[doc = "0: Pin state is blocked to non-secure world."]
@@ -1116,6 +1137,7 @@ where
     }
 }
 #[doc = "Secure mask for pin P0_21\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Pio0Pin21SecMask {
     #[doc = "0: Pin state is blocked to non-secure world."]
@@ -1169,6 +1191,7 @@ where
     }
 }
 #[doc = "Secure mask for pin P0_22\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Pio0Pin22SecMask {
     #[doc = "0: Pin state is blocked to non-secure world."]
@@ -1222,6 +1245,7 @@ where
     }
 }
 #[doc = "Secure mask for pin P0_23\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Pio0Pin23SecMask {
     #[doc = "0: Pin state is blocked to non-secure world."]
@@ -1275,6 +1299,7 @@ where
     }
 }
 #[doc = "Secure mask for pin P0_24\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Pio0Pin24SecMask {
     #[doc = "0: Pin state is blocked to non-secure world."]
@@ -1328,6 +1353,7 @@ where
     }
 }
 #[doc = "Secure mask for pin P0_25\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Pio0Pin25SecMask {
     #[doc = "0: Pin state is blocked to non-secure world."]
@@ -1381,6 +1407,7 @@ where
     }
 }
 #[doc = "Secure mask for pin P0_26\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Pio0Pin26SecMask {
     #[doc = "0: Pin state is blocked to non-secure world."]
@@ -1434,6 +1461,7 @@ where
     }
 }
 #[doc = "Secure mask for pin P0_27\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Pio0Pin27SecMask {
     #[doc = "0: Pin state is blocked to non-secure world."]
@@ -1487,6 +1515,7 @@ where
     }
 }
 #[doc = "Secure mask for pin P0_28\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Pio0Pin28SecMask {
     #[doc = "0: Pin state is blocked to non-secure world."]
@@ -1540,6 +1569,7 @@ where
     }
 }
 #[doc = "Secure mask for pin P0_29\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Pio0Pin29SecMask {
     #[doc = "0: Pin state is blocked to non-secure world."]
@@ -1593,6 +1623,7 @@ where
     }
 }
 #[doc = "Secure mask for pin P0_30\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Pio0Pin30SecMask {
     #[doc = "0: Pin state is blocked to non-secure world."]
@@ -1646,6 +1677,7 @@ where
     }
 }
 #[doc = "Secure mask for pin P0_31\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Pio0Pin31SecMask {
     #[doc = "0: Pin state is blocked to non-secure world."]
@@ -1858,6 +1890,44 @@ impl R {
     #[inline(always)]
     pub fn pio0_pin31_sec_mask(&self) -> Pio0Pin31SecMaskR {
         Pio0Pin31SecMaskR::new(((self.bits >> 31) & 1) != 0)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SEC_GPIO_MASK0")
+            .field("pio0_pin0_sec_mask", &self.pio0_pin0_sec_mask())
+            .field("pio0_pin1_sec_mask", &self.pio0_pin1_sec_mask())
+            .field("pio0_pin2_sec_mask", &self.pio0_pin2_sec_mask())
+            .field("pio0_pin3_sec_mask", &self.pio0_pin3_sec_mask())
+            .field("pio0_pin4_sec_mask", &self.pio0_pin4_sec_mask())
+            .field("pio0_pin5_sec_mask", &self.pio0_pin5_sec_mask())
+            .field("pio0_pin6_sec_mask", &self.pio0_pin6_sec_mask())
+            .field("pio0_pin7_sec_mask", &self.pio0_pin7_sec_mask())
+            .field("pio0_pin8_sec_mask", &self.pio0_pin8_sec_mask())
+            .field("pio0_pin9_sec_mask", &self.pio0_pin9_sec_mask())
+            .field("pio0_pin10_sec_mask", &self.pio0_pin10_sec_mask())
+            .field("pio0_pin11_sec_mask", &self.pio0_pin11_sec_mask())
+            .field("pio0_pin12_sec_mask", &self.pio0_pin12_sec_mask())
+            .field("pio0_pin13_sec_mask", &self.pio0_pin13_sec_mask())
+            .field("pio0_pin14_sec_mask", &self.pio0_pin14_sec_mask())
+            .field("pio0_pin15_sec_mask", &self.pio0_pin15_sec_mask())
+            .field("pio0_pin16_sec_mask", &self.pio0_pin16_sec_mask())
+            .field("pio0_pin17_sec_mask", &self.pio0_pin17_sec_mask())
+            .field("pio0_pin18_sec_mask", &self.pio0_pin18_sec_mask())
+            .field("pio0_pin19_sec_mask", &self.pio0_pin19_sec_mask())
+            .field("pio0_pin20_sec_mask", &self.pio0_pin20_sec_mask())
+            .field("pio0_pin21_sec_mask", &self.pio0_pin21_sec_mask())
+            .field("pio0_pin22_sec_mask", &self.pio0_pin22_sec_mask())
+            .field("pio0_pin23_sec_mask", &self.pio0_pin23_sec_mask())
+            .field("pio0_pin24_sec_mask", &self.pio0_pin24_sec_mask())
+            .field("pio0_pin25_sec_mask", &self.pio0_pin25_sec_mask())
+            .field("pio0_pin26_sec_mask", &self.pio0_pin26_sec_mask())
+            .field("pio0_pin27_sec_mask", &self.pio0_pin27_sec_mask())
+            .field("pio0_pin28_sec_mask", &self.pio0_pin28_sec_mask())
+            .field("pio0_pin29_sec_mask", &self.pio0_pin29_sec_mask())
+            .field("pio0_pin30_sec_mask", &self.pio0_pin30_sec_mask())
+            .field("pio0_pin31_sec_mask", &self.pio0_pin31_sec_mask())
+            .finish()
     }
 }
 impl W {

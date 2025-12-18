@@ -3,6 +3,7 @@ pub type R = crate::R<CasperCtrlSpec>;
 #[doc = "Register `CASPER_CTRL` writer"]
 pub type W = crate::W<CasperCtrlSpec>;
 #[doc = "Control RAM access for RAMX0 and RAMX1.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Interleave {
     #[doc = "0: RAM access to RAMX0 and RAMX1 is consecutive."]
@@ -60,6 +61,13 @@ impl R {
     #[inline(always)]
     pub fn interleave(&self) -> InterleaveR {
         InterleaveR::new((self.bits & 1) != 0)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("CASPER_CTRL")
+            .field("interleave", &self.interleave())
+            .finish()
     }
 }
 impl W {

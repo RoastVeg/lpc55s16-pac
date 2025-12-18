@@ -13,6 +13,11 @@ impl R {
         TieR::new(self.bits)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("TXBTIE").field("tie", &self.tie()).finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - Transmission interrupt enable."]
     #[inline(always)]

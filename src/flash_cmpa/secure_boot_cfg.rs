@@ -3,6 +3,7 @@ pub type R = crate::R<SecureBootCfgSpec>;
 #[doc = "Register `SECURE_BOOT_CFG` writer"]
 pub type W = crate::W<SecureBootCfgSpec>;
 #[doc = "Use RSA4096 keys only.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Rsa4k {
@@ -89,6 +90,7 @@ where
     }
 }
 #[doc = "Include NXP area in DICE computation.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum DiceIncNxpCfg {
@@ -175,6 +177,7 @@ where
     }
 }
 #[doc = "Include Customer factory area (including keys) in DICE computation.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum DiceCustCfg {
@@ -261,6 +264,7 @@ where
     }
 }
 #[doc = "Skip DICE computation\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum SkipDice {
@@ -347,6 +351,7 @@ where
     }
 }
 #[doc = "TrustZone-M mode\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum TzmImageType {
@@ -433,6 +438,7 @@ where
     }
 }
 #[doc = "Block PUF key code generation\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum BlockSetKey {
@@ -519,6 +525,7 @@ where
     }
 }
 #[doc = "Block PUF enrollement\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum BlockEnroll {
@@ -605,6 +612,7 @@ where
     }
 }
 #[doc = "Include security EPOCH in DICE\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum DiceIncSecEpoch {
@@ -691,6 +699,7 @@ where
     }
 }
 #[doc = "Skip boot seed computation\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum SkipBootSeed {
@@ -777,6 +786,7 @@ where
     }
 }
 #[doc = "Include NXP area in BOOT SEED computation\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum BootSeedIncNxpCfg {
@@ -864,6 +874,7 @@ where
     }
 }
 #[doc = "Include CMPA area in BOOT SEED computation\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum BootSeedCustCfg {
@@ -950,6 +961,7 @@ where
     }
 }
 #[doc = "Include security epoch area in BOOT_SEED computation.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum BootSeedIncEpoch {
@@ -1036,6 +1048,7 @@ where
     }
 }
 #[doc = "Secure boot enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum SecBootEn {
@@ -1186,6 +1199,25 @@ impl R {
     #[inline(always)]
     pub fn sec_boot_en(&self) -> SecBootEnR {
         SecBootEnR::new(((self.bits >> 30) & 3) as u8)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SECURE_BOOT_CFG")
+            .field("rsa4k", &self.rsa4k())
+            .field("dice_inc_nxp_cfg", &self.dice_inc_nxp_cfg())
+            .field("dice_cust_cfg", &self.dice_cust_cfg())
+            .field("skip_dice", &self.skip_dice())
+            .field("tzm_image_type", &self.tzm_image_type())
+            .field("block_set_key", &self.block_set_key())
+            .field("block_enroll", &self.block_enroll())
+            .field("dice_inc_sec_epoch", &self.dice_inc_sec_epoch())
+            .field("skip_boot_seed", &self.skip_boot_seed())
+            .field("boot_seed_inc_nxp_cfg", &self.boot_seed_inc_nxp_cfg())
+            .field("boot_seed_cust_cfg", &self.boot_seed_cust_cfg())
+            .field("boot_seed_inc_epoch", &self.boot_seed_inc_epoch())
+            .field("sec_boot_en", &self.sec_boot_en())
+            .finish()
     }
 }
 impl W {

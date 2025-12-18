@@ -3,6 +3,7 @@ pub type R = crate::R<SecCtrlAhbPort9Slave0RuleSpec>;
 #[doc = "Register `SEC_CTRL_AHB_PORT9_SLAVE0_RULE` writer"]
 pub type W = crate::W<SecCtrlAhbPort9Slave0RuleSpec>;
 #[doc = "ADC\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum AdcRule {
@@ -89,6 +90,7 @@ where
     }
 }
 #[doc = "USB Full Speed Host registers.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum UsbFsHostRule {
@@ -175,6 +177,7 @@ where
     }
 }
 #[doc = "USB High speed host registers\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum UsbHsHostRule {
@@ -261,6 +264,7 @@ where
     }
 }
 #[doc = "SHA-2 crypto registers\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum HashRule {
@@ -347,6 +351,7 @@ where
     }
 }
 #[doc = "RSA/ECC crypto accelerator\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum CasperRule {
@@ -433,6 +438,7 @@ where
     }
 }
 #[doc = "DMA Controller (Secure)\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Dma1Rule {
@@ -548,6 +554,18 @@ impl R {
     #[inline(always)]
     pub fn dma1_rule(&self) -> Dma1RuleR {
         Dma1RuleR::new(((self.bits >> 28) & 3) as u8)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SEC_CTRL_AHB_PORT9_SLAVE0_RULE")
+            .field("adc_rule", &self.adc_rule())
+            .field("usb_fs_host_rule", &self.usb_fs_host_rule())
+            .field("usb_hs_host_rule", &self.usb_hs_host_rule())
+            .field("hash_rule", &self.hash_rule())
+            .field("casper_rule", &self.casper_rule())
+            .field("dma1_rule", &self.dma1_rule())
+            .finish()
     }
 }
 impl W {

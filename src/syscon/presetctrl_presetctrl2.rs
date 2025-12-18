@@ -3,6 +3,7 @@ pub type R = crate::R<PresetctrlPresetctrl2Spec>;
 #[doc = "Register `PRESETCTRL2` writer"]
 pub type W = crate::W<PresetctrlPresetctrl2Spec>;
 #[doc = "DMA1 reset control.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Dma1Rst {
     #[doc = "0: Bloc is not reset."]
@@ -56,6 +57,7 @@ where
     }
 }
 #[doc = "Comparator reset control.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum CompRst {
     #[doc = "0: Bloc is not reset."]
@@ -109,6 +111,7 @@ where
     }
 }
 #[doc = "USB1-HS Host reset control.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Usb1HostRst {
     #[doc = "0: Bloc is not reset."]
@@ -162,6 +165,7 @@ where
     }
 }
 #[doc = "USB1-HS dev reset control.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Usb1DevRst {
     #[doc = "0: Bloc is not reset."]
@@ -215,6 +219,7 @@ where
     }
 }
 #[doc = "USB1-HS RAM reset control.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Usb1RamRst {
     #[doc = "0: Bloc is not reset."]
@@ -268,6 +273,7 @@ where
     }
 }
 #[doc = "USB1-HS PHY reset control.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Usb1PhyRst {
     #[doc = "0: Bloc is not reset."]
@@ -321,6 +327,7 @@ where
     }
 }
 #[doc = "Frequency meter reset control.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum FreqmeRst {
     #[doc = "0: Bloc is not reset."]
@@ -374,6 +381,7 @@ where
     }
 }
 #[doc = "Code Watchdog reset control.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum CdogRst {
     #[doc = "0: Bloc is not reset."]
@@ -427,6 +435,7 @@ where
     }
 }
 #[doc = "RNG reset control.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum RngRst {
     #[doc = "0: Bloc is not reset."]
@@ -480,6 +489,7 @@ where
     }
 }
 #[doc = "SYSCTL Block reset.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum SysctlRst {
     #[doc = "0: Bloc is not reset."]
@@ -533,6 +543,7 @@ where
     }
 }
 #[doc = "USB0-FS Host Master reset control.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Usb0HostmRst {
     #[doc = "0: Bloc is not reset."]
@@ -586,6 +597,7 @@ where
     }
 }
 #[doc = "USB0-FS Host Slave reset control.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Usb0HostsRst {
     #[doc = "0: Bloc is not reset."]
@@ -639,6 +651,7 @@ where
     }
 }
 #[doc = "HASH_AES reset control.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum HashAesRst {
     #[doc = "0: Bloc is not reset."]
@@ -692,6 +705,7 @@ where
     }
 }
 #[doc = "PLU LUT reset control.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum PlulutRst {
     #[doc = "0: Bloc is not reset."]
@@ -745,6 +759,7 @@ where
     }
 }
 #[doc = "Timer 3 reset control.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Timer3Rst {
     #[doc = "0: Bloc is not reset."]
@@ -798,6 +813,7 @@ where
     }
 }
 #[doc = "Timer 4 reset control.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Timer4Rst {
     #[doc = "0: Bloc is not reset."]
@@ -851,6 +867,7 @@ where
     }
 }
 #[doc = "PUF reset control reset control.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum PufRst {
     #[doc = "0: Bloc is not reset."]
@@ -904,6 +921,7 @@ where
     }
 }
 #[doc = "Casper reset control.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum CasperRst {
     #[doc = "0: Bloc is not reset."]
@@ -957,6 +975,7 @@ where
     }
 }
 #[doc = "analog control reset control.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum AnalogCtrlRst {
     #[doc = "0: Bloc is not reset."]
@@ -1010,6 +1029,7 @@ where
     }
 }
 #[doc = "HS LSPI reset control.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum HsLspiRst {
     #[doc = "0: Bloc is not reset."]
@@ -1063,6 +1083,7 @@ where
     }
 }
 #[doc = "GPIO secure reset control.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum GpioSecRst {
     #[doc = "0: Bloc is not reset."]
@@ -1116,6 +1137,7 @@ where
     }
 }
 #[doc = "GPIO secure int reset control.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum GpioSecIntRst {
     #[doc = "0: Bloc is not reset."]
@@ -1278,6 +1300,34 @@ impl R {
     #[inline(always)]
     pub fn gpio_sec_int_rst(&self) -> GpioSecIntRstR {
         GpioSecIntRstR::new(((self.bits >> 30) & 1) != 0)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PRESETCTRL_PRESETCTRL2")
+            .field("dma1_rst", &self.dma1_rst())
+            .field("comp_rst", &self.comp_rst())
+            .field("usb1_host_rst", &self.usb1_host_rst())
+            .field("usb1_dev_rst", &self.usb1_dev_rst())
+            .field("usb1_ram_rst", &self.usb1_ram_rst())
+            .field("usb1_phy_rst", &self.usb1_phy_rst())
+            .field("freqme_rst", &self.freqme_rst())
+            .field("cdog_rst", &self.cdog_rst())
+            .field("rng_rst", &self.rng_rst())
+            .field("sysctl_rst", &self.sysctl_rst())
+            .field("usb0_hostm_rst", &self.usb0_hostm_rst())
+            .field("usb0_hosts_rst", &self.usb0_hosts_rst())
+            .field("hash_aes_rst", &self.hash_aes_rst())
+            .field("plulut_rst", &self.plulut_rst())
+            .field("timer3_rst", &self.timer3_rst())
+            .field("timer4_rst", &self.timer4_rst())
+            .field("puf_rst", &self.puf_rst())
+            .field("casper_rst", &self.casper_rst())
+            .field("analog_ctrl_rst", &self.analog_ctrl_rst())
+            .field("hs_lspi_rst", &self.hs_lspi_rst())
+            .field("gpio_sec_rst", &self.gpio_sec_rst())
+            .field("gpio_sec_int_rst", &self.gpio_sec_int_rst())
+            .finish()
     }
 }
 impl W {

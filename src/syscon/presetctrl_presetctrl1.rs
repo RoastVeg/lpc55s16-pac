@@ -3,6 +3,7 @@ pub type R = crate::R<PresetctrlPresetctrl1Spec>;
 #[doc = "Register `PRESETCTRL1` writer"]
 pub type W = crate::W<PresetctrlPresetctrl1Spec>;
 #[doc = "MRT reset control.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum MrtRst {
     #[doc = "0: Bloc is not reset."]
@@ -56,6 +57,7 @@ where
     }
 }
 #[doc = "OS Event Timer reset control.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum OstimerRst {
     #[doc = "0: Bloc is not reset."]
@@ -109,6 +111,7 @@ where
     }
 }
 #[doc = "SCT reset control.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum SctRst {
     #[doc = "0: Bloc is not reset."]
@@ -162,6 +165,7 @@ where
     }
 }
 #[doc = "CAN reset control.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum CanRst {
     #[doc = "0: Bloc is not reset."]
@@ -215,6 +219,7 @@ where
     }
 }
 #[doc = "UTICK reset control.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum UtickRst {
     #[doc = "0: Bloc is not reset."]
@@ -268,6 +273,7 @@ where
     }
 }
 #[doc = "FC0 reset control.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Fc0Rst {
     #[doc = "0: Bloc is not reset."]
@@ -321,6 +327,7 @@ where
     }
 }
 #[doc = "FC1 reset control.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Fc1Rst {
     #[doc = "0: Bloc is not reset."]
@@ -374,6 +381,7 @@ where
     }
 }
 #[doc = "FC2 reset control.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Fc2Rst {
     #[doc = "0: Bloc is not reset."]
@@ -427,6 +435,7 @@ where
     }
 }
 #[doc = "FC3 reset control.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Fc3Rst {
     #[doc = "0: Bloc is not reset."]
@@ -480,6 +489,7 @@ where
     }
 }
 #[doc = "FC4 reset control.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Fc4Rst {
     #[doc = "0: Bloc is not reset."]
@@ -533,6 +543,7 @@ where
     }
 }
 #[doc = "FC5 reset control.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Fc5Rst {
     #[doc = "0: Bloc is not reset."]
@@ -586,6 +597,7 @@ where
     }
 }
 #[doc = "FC6 reset control.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Fc6Rst {
     #[doc = "0: Bloc is not reset."]
@@ -639,6 +651,7 @@ where
     }
 }
 #[doc = "FC7 reset control.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Fc7Rst {
     #[doc = "0: Bloc is not reset."]
@@ -692,6 +705,7 @@ where
     }
 }
 #[doc = "Timer 2 reset control.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Timer2Rst {
     #[doc = "0: Bloc is not reset."]
@@ -745,6 +759,7 @@ where
     }
 }
 #[doc = "USB0-FS DEV reset control.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Usb0DevRst {
     #[doc = "0: Bloc is not reset."]
@@ -798,6 +813,7 @@ where
     }
 }
 #[doc = "Timer 0 reset control.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Timer0Rst {
     #[doc = "0: Bloc is not reset."]
@@ -851,6 +867,7 @@ where
     }
 }
 #[doc = "Timer 1 reset control.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Timer1Rst {
     #[doc = "0: Bloc is not reset."]
@@ -988,6 +1005,29 @@ impl R {
     #[inline(always)]
     pub fn timer1_rst(&self) -> Timer1RstR {
         Timer1RstR::new(((self.bits >> 27) & 1) != 0)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PRESETCTRL_PRESETCTRL1")
+            .field("mrt_rst", &self.mrt_rst())
+            .field("ostimer_rst", &self.ostimer_rst())
+            .field("sct_rst", &self.sct_rst())
+            .field("can_rst", &self.can_rst())
+            .field("utick_rst", &self.utick_rst())
+            .field("fc0_rst", &self.fc0_rst())
+            .field("fc1_rst", &self.fc1_rst())
+            .field("fc2_rst", &self.fc2_rst())
+            .field("fc3_rst", &self.fc3_rst())
+            .field("fc4_rst", &self.fc4_rst())
+            .field("fc5_rst", &self.fc5_rst())
+            .field("fc6_rst", &self.fc6_rst())
+            .field("fc7_rst", &self.fc7_rst())
+            .field("timer2_rst", &self.timer2_rst())
+            .field("usb0_dev_rst", &self.usb0_dev_rst())
+            .field("timer0_rst", &self.timer0_rst())
+            .field("timer1_rst", &self.timer1_rst())
+            .finish()
     }
 }
 impl W {

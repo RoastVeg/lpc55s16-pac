@@ -3,6 +3,7 @@ pub type R = crate::R<AhbclkctrlAhbclkctrl0Spec>;
 #[doc = "Register `AHBCLKCTRL0` writer"]
 pub type W = crate::W<AhbclkctrlAhbclkctrl0Spec>;
 #[doc = "Enables the clock for the ROM.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Rom {
     #[doc = "0: Disable Clock."]
@@ -56,6 +57,7 @@ where
     }
 }
 #[doc = "Enables the clock for the SRAM Controller 1.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum SramCtrl1 {
     #[doc = "0: Disable Clock."]
@@ -109,6 +111,7 @@ where
     }
 }
 #[doc = "Enables the clock for the SRAM Controller 2.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum SramCtrl2 {
     #[doc = "0: Disable Clock."]
@@ -162,6 +165,7 @@ where
     }
 }
 #[doc = "Enables the clock for the Flash controller.\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Flash {
     #[doc = "0: Disable Clock."]
@@ -215,6 +219,7 @@ where
     }
 }
 #[doc = "Enables the clock for the FMC controller.\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Fmc {
     #[doc = "0: Disable Clock."]
@@ -268,6 +273,7 @@ where
     }
 }
 #[doc = "Enables the clock for the Input Mux.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Mux {
     #[doc = "0: Disable Clock."]
@@ -321,6 +327,7 @@ where
     }
 }
 #[doc = "Enables the clock for the I/O controller.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Iocon {
     #[doc = "0: Disable Clock."]
@@ -374,6 +381,7 @@ where
     }
 }
 #[doc = "Enables the clock for the GPIO0.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Gpio0 {
     #[doc = "0: Disable Clock."]
@@ -427,6 +435,7 @@ where
     }
 }
 #[doc = "Enables the clock for the GPIO1.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Gpio1 {
     #[doc = "0: Disable Clock."]
@@ -480,6 +489,7 @@ where
     }
 }
 #[doc = "Enables the clock for the Pin interrupt (PINT).\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Pint {
     #[doc = "0: Disable Clock."]
@@ -533,6 +543,7 @@ where
     }
 }
 #[doc = "Enables the clock for the Group interrupt (GINT).\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Gint {
     #[doc = "0: Disable Clock."]
@@ -586,6 +597,7 @@ where
     }
 }
 #[doc = "Enables the clock for the DMA0.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Dma0 {
     #[doc = "0: Disable Clock."]
@@ -639,6 +651,7 @@ where
     }
 }
 #[doc = "Enables the clock for the CRCGEN.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Crcgen {
     #[doc = "0: Disable Clock."]
@@ -692,6 +705,7 @@ where
     }
 }
 #[doc = "Enables the clock for the Watchdog Timer.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Wwdt {
     #[doc = "0: Disable Clock."]
@@ -745,6 +759,7 @@ where
     }
 }
 #[doc = "Enables the clock for the Real Time Clock (RTC).\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Rtc {
     #[doc = "0: Disable Clock."]
@@ -798,6 +813,7 @@ where
     }
 }
 #[doc = "Enables the clock for the Inter CPU communication Mailbox.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Mailbox {
     #[doc = "0: Disable Clock."]
@@ -851,6 +867,7 @@ where
     }
 }
 #[doc = "Enables the clock for the ADC.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Adc {
     #[doc = "0: Disable Clock."]
@@ -988,6 +1005,29 @@ impl R {
     #[inline(always)]
     pub fn adc(&self) -> AdcR {
         AdcR::new(((self.bits >> 27) & 1) != 0)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("AHBCLKCTRL_AHBCLKCTRL0")
+            .field("rom", &self.rom())
+            .field("sram_ctrl1", &self.sram_ctrl1())
+            .field("sram_ctrl2", &self.sram_ctrl2())
+            .field("flash", &self.flash())
+            .field("fmc", &self.fmc())
+            .field("mux", &self.mux())
+            .field("iocon", &self.iocon())
+            .field("gpio0", &self.gpio0())
+            .field("gpio1", &self.gpio1())
+            .field("pint", &self.pint())
+            .field("gint", &self.gint())
+            .field("dma0", &self.dma0())
+            .field("crcgen", &self.crcgen())
+            .field("wwdt", &self.wwdt())
+            .field("rtc", &self.rtc())
+            .field("mailbox", &self.mailbox())
+            .field("adc", &self.adc())
+            .finish()
     }
 }
 impl W {

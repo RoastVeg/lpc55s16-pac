@@ -32,6 +32,11 @@ pub type Idx13W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 pub type Idx14W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 #[doc = "Field `IDX15` writer - Use to block PUF index 15"]
 pub type Idx15W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+impl core::fmt::Debug for crate::generic::Reg<IdxblkDpSpec> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "(not readable)")
+    }
+}
 impl W {
     #[doc = "Bits 0:1 - Use to block PUF index 0"]
     #[inline(always)]

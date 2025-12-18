@@ -13,6 +13,13 @@ impl R {
         DaBufR::new(self.bits)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DATABUFSTART")
+            .field("da_buf", &self.da_buf())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - Start address of the memory page where all endpoint data buffers are located."]
     #[inline(always)]

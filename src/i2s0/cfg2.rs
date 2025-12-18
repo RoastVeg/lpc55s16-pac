@@ -22,6 +22,14 @@ impl R {
         PositionR::new(((self.bits >> 16) & 0x01ff) as u16)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("CFG2")
+            .field("framelen", &self.framelen())
+            .field("position", &self.position())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:10 - Frame Length, minus 1 encoded, defines the number of clocks and data bits in the frames that this channel pair participates in. See Frame format. 0x000 to 0x002 = not supported 0x003 = frame is 4 bits in total length 0x004 = frame is 5 bits in total length 0x7FF = frame is 2048 bits in total length if FRAMELEN is an defines an odd length frame (e.g. 33 clocks) in mode 0 or 1, the extra clock appears in the right half. When MODE = 3, FRAMELEN must be larger than DATALEN in order for the WS pulse to be generated correctly."]
     #[inline(always)]

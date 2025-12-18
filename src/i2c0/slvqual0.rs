@@ -3,6 +3,7 @@ pub type R = crate::R<Slvqual0Spec>;
 #[doc = "Register `SLVQUAL0` writer"]
 pub type W = crate::W<Slvqual0Spec>;
 #[doc = "Qualify mode for slave address 0.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Qualmode0 {
     #[doc = "0: Mask. The SLVQUAL0 field is used as a logical mask for matching address 0."]
@@ -69,6 +70,14 @@ impl R {
     #[inline(always)]
     pub fn slvqual0(&self) -> Slvqual0R {
         Slvqual0R::new(((self.bits >> 1) & 0x7f) as u8)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SLVQUAL0")
+            .field("qualmode0", &self.qualmode0())
+            .field("slvqual0", &self.slvqual0())
+            .finish()
     }
 }
 impl W {

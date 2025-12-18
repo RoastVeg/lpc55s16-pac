@@ -22,6 +22,14 @@ impl R {
         LseR::new(((self.bits >> 16) & 0xff) as u8)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("XIDFC")
+            .field("flesa", &self.flesa())
+            .field("lse", &self.lse())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 2:15 - Filter list extended start address."]
     #[inline(always)]

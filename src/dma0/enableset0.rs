@@ -13,6 +13,13 @@ impl R {
         EnaR::new(self.bits)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("ENABLESET0")
+            .field("ena", &self.ena())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - Enable for DMA channels. Bit n enables or disables DMA channel n. The number of bits = number of DMA channels in this device. Other bits are reserved. 0 = disabled. 1 = enabled."]
     #[inline(always)]

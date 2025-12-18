@@ -13,6 +13,13 @@ impl R {
         ItrigEnaR::new(self.bits & 0x003f_ffff)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DMA0_ITRIG_ENA")
+            .field("itrig_ena", &self.itrig_ena())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:21 - Controls the 22 trigger inputs of DMA0. If bit i is '1' the DMA trigger input #i is enabled."]
     #[inline(always)]

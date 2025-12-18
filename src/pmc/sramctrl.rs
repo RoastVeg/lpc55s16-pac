@@ -3,6 +3,7 @@ pub type R = crate::R<SramctrlSpec>;
 #[doc = "Register `SRAMCTRL` writer"]
 pub type W = crate::W<SramctrlSpec>;
 #[doc = "Source Biasing voltage.\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Smb {
@@ -120,6 +121,16 @@ impl R {
     #[inline(always)]
     pub fn wrme(&self) -> WrmeR {
         WrmeR::new(((self.bits >> 8) & 1) != 0)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SRAMCTRL")
+            .field("smb", &self.smb())
+            .field("rm", &self.rm())
+            .field("wm", &self.wm())
+            .field("wrme", &self.wrme())
+            .finish()
     }
 }
 impl W {

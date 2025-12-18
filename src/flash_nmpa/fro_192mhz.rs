@@ -40,6 +40,16 @@ impl R {
         Fro192mDactrimR::new(((self.bits >> 17) & 0xff) as u8)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("FRO_192MHZ")
+            .field("fro192m_trim_valid", &self.fro192m_trim_valid())
+            .field("fro192m_biastrim", &self.fro192m_biastrim())
+            .field("fro192m_temptrim", &self.fro192m_temptrim())
+            .field("fro192m_dactrim", &self.fro192m_dactrim())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - no description available"]
     #[inline(always)]

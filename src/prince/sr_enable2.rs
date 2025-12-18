@@ -13,6 +13,13 @@ impl R {
         EnR::new(self.bits)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SR_ENABLE2")
+            .field("en", &self.en())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - Each bit in this field enables an 8KB subregion for encryption at offset 8KB*bitnum of region 2."]
     #[inline(always)]

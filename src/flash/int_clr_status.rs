@@ -8,6 +8,11 @@ pub type ErrW<'a, REG> = crate::BitWriter<'a, REG>;
 pub type DoneW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `ECC_ERR` writer - When a CLR_STATUS bit is written to 1, the corresponding INT_STATUS bit is cleared."]
 pub type EccErrW<'a, REG> = crate::BitWriter<'a, REG>;
+impl core::fmt::Debug for crate::generic::Reg<IntClrStatusSpec> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "(not readable)")
+    }
+}
 impl W {
     #[doc = "Bit 0 - When a CLR_STATUS bit is written to 1, the corresponding INT_STATUS bit is cleared."]
     #[inline(always)]

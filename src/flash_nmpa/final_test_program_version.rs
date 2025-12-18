@@ -13,6 +13,13 @@ impl R {
         ProgramVersionR::new(self.bits)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("FINAL_TEST_PROGRAM_VERSION")
+            .field("program_version", &self.program_version())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - PROGRAM_VERSION \\[xx.yy stored as : 100*x+y\\]"]
     #[inline(always)]

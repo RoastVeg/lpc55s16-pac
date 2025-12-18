@@ -27,6 +27,7 @@ pub type CapbankoutR = crate::FieldReader;
 #[doc = "Field `CAPBANKOUT` writer - Capa bank setting output."]
 pub type CapbankoutW<'a, REG> = crate::FieldWriter<'a, REG, 7>;
 #[doc = "Source selection for xo32k_captest_start_ao_set.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Capteststartsrcsel {
     #[doc = "0: Sourced from CAPTESTSTART."]
@@ -88,6 +89,7 @@ pub type CaptestenableR = crate::BitReader;
 #[doc = "Field `CAPTESTENABLE` writer - Enable signal for cap test."]
 pub type CaptestenableW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Select the input for test.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Captestoscinsel {
     #[doc = "0: Oscillator output pin (osc_out)."]
@@ -190,6 +192,22 @@ impl R {
     #[inline(always)]
     pub fn captestoscinsel(&self) -> CaptestoscinselR {
         CaptestoscinselR::new(((self.bits >> 25) & 1) != 0)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("XTAL32K")
+            .field("iref", &self.iref())
+            .field("test", &self.test())
+            .field("ibias", &self.ibias())
+            .field("ampl", &self.ampl())
+            .field("capbankin", &self.capbankin())
+            .field("capbankout", &self.capbankout())
+            .field("capteststartsrcsel", &self.capteststartsrcsel())
+            .field("capteststart", &self.capteststart())
+            .field("captestenable", &self.captestenable())
+            .field("captestoscinsel", &self.captestoscinsel())
+            .finish()
     }
 }
 impl W {

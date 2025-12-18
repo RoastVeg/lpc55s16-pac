@@ -40,6 +40,16 @@ impl R {
         RoTk3EnR::new(((self.bits >> 6) & 3) as u8)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("ROTKH_REVOKE")
+            .field("ro_tk0_en", &self.ro_tk0_en())
+            .field("ro_tk1_en", &self.ro_tk1_en())
+            .field("ro_tk2_en", &self.ro_tk2_en())
+            .field("ro_tk3_en", &self.ro_tk3_en())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1 - RoT Key 0 enable. 00 - Invalid 01 - Enabled 10, 11 - Key revoked"]
     #[inline(always)]

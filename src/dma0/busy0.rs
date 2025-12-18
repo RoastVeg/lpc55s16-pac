@@ -9,6 +9,11 @@ impl R {
         BsyR::new(self.bits)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("BUSY0").field("bsy", &self.bsy()).finish()
+    }
+}
 #[doc = "Channel Busy status for all DMA channels.\n\nYou can [`read`](crate::Reg::read) this register and get [`busy0::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct Busy0Spec;
 impl crate::RegisterSpec for Busy0Spec {

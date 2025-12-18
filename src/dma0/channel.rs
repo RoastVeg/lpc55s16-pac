@@ -1,11 +1,11 @@
 #[repr(C)]
+#[derive(Debug)]
 #[doc = "no description available"]
 #[doc(alias = "CHANNEL")]
 pub struct Channel {
     cfg: Cfg,
     ctlstat: Ctlstat,
     xfercfg: Xfercfg,
-    _reserved_end: [u8; 0x04],
 }
 impl Channel {
     #[doc = "0x00 - Configuration register for DMA channel ."]

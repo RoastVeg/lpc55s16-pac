@@ -3,6 +3,7 @@ pub type R = crate::R<SecCtrlUsbHsSlaveRuleSpec>;
 #[doc = "Register `SEC_CTRL_USB_HS_SLAVE_RULE` writer"]
 pub type W = crate::W<SecCtrlUsbHsSlaveRuleSpec>;
 #[doc = "Security access rules for the whole USB High Speed RAM : 0x2001_0000 - 0x2001_3FFF\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum RamUsbHsRule {
@@ -93,6 +94,13 @@ impl R {
     #[inline(always)]
     pub fn ram_usb_hs_rule(&self) -> RamUsbHsRuleR {
         RamUsbHsRuleR::new((self.bits & 3) as u8)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SEC_CTRL_USB_HS_SLAVE_RULE")
+            .field("ram_usb_hs_rule", &self.ram_usb_hs_rule())
+            .finish()
     }
 }
 impl W {

@@ -22,6 +22,14 @@ impl R {
         Ringo0CtrlR::new((self.bits >> 1) & 0x7fff_ffff)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RINGO_0")
+            .field("ringo_0_ctrl_valid", &self.ringo_0_ctrl_valid())
+            .field("ringo_0_ctrl", &self.ringo_0_ctrl())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - 1: RINGO_0_CTRL is valid."]
     #[inline(always)]

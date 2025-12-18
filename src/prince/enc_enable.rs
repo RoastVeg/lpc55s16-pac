@@ -3,6 +3,7 @@ pub type R = crate::R<EncEnableSpec>;
 #[doc = "Register `ENC_ENABLE` writer"]
 pub type W = crate::W<EncEnableSpec>;
 #[doc = "Enables PRINCE encryption for flash programming.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum En {
     #[doc = "0: Encryption of writes to the flash controller DATAW* registers is disabled."]
@@ -60,6 +61,13 @@ impl R {
     #[inline(always)]
     pub fn en(&self) -> EnR {
         EnR::new((self.bits & 1) != 0)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("ENC_ENABLE")
+            .field("en", &self.en())
+            .finish()
     }
 }
 impl W {

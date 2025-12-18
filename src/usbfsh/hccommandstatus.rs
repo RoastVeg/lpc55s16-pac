@@ -49,6 +49,17 @@ impl R {
         SocR::new(((self.bits >> 6) & 3) as u8)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("HCCOMMANDSTATUS")
+            .field("hcr", &self.hcr())
+            .field("clf", &self.clf())
+            .field("blf", &self.blf())
+            .field("ocr", &self.ocr())
+            .field("soc", &self.soc())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - HostControllerReset This bit is set by HCD to initiate a software reset of HC."]
     #[inline(always)]

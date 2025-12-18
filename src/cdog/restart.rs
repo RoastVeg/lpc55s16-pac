@@ -2,6 +2,11 @@
 pub type W = crate::W<RestartSpec>;
 #[doc = "Field `RSTRT` writer - Write address for issuing the RESTART command."]
 pub type RstrtW<'a, REG> = crate::FieldWriter<'a, REG, 32, u32>;
+impl core::fmt::Debug for crate::generic::Reg<RestartSpec> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "(not readable)")
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - Write address for issuing the RESTART command."]
     #[inline(always)]

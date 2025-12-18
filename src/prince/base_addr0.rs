@@ -20,6 +20,14 @@ impl R {
         AddrPrgR::new(((self.bits >> 18) & 3) as u8)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("BASE_ADDR0")
+            .field("addr_fixed", &self.addr_fixed())
+            .field("addr_prg", &self.addr_prg())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 18:19 - Programmable portion of the base address of region 0."]
     #[inline(always)]

@@ -53,6 +53,17 @@ impl R {
         RxbrkR::new(((self.bits >> 10) & 1) != 0)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("STAT")
+            .field("rxidle", &self.rxidle())
+            .field("txidle", &self.txidle())
+            .field("cts", &self.cts())
+            .field("txdisstat", &self.txdisstat())
+            .field("rxbrk", &self.rxbrk())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 5 - This bit is set when a change in the state is detected for the CTS flag above. This bit is cleared by software."]
     #[inline(always)]

@@ -31,6 +31,15 @@ impl R {
         SwPdcomR::new(((self.bits >> 19) & 1) != 0)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PORTMODE")
+            .field("dev_enable", &self.dev_enable())
+            .field("sw_ctrl_pdcom", &self.sw_ctrl_pdcom())
+            .field("sw_pdcom", &self.sw_pdcom())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 16 - If this bit is set to one, one of the ports will behave as a USB device."]
     #[inline(always)]

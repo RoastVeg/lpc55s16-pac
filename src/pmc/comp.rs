@@ -3,6 +3,7 @@ pub type R = crate::R<CompSpec>;
 #[doc = "Register `COMP` writer"]
 pub type W = crate::W<CompSpec>;
 #[doc = "Hysteris when hyst = '1'.\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Hyst {
     #[doc = "0: Hysteresis is disable."]
@@ -56,6 +57,7 @@ where
     }
 }
 #[doc = "Dedicated control bit to select between internal VREF and VDDA (for the resistive ladder).\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Vrefinput {
     #[doc = "0: Select internal VREF."]
@@ -109,6 +111,7 @@ where
     }
 }
 #[doc = "Low power mode.\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Lowpower {
     #[doc = "0: High speed mode."]
@@ -162,6 +165,7 @@ where
     }
 }
 #[doc = "Control word for P multiplexer:.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Pmux {
@@ -274,6 +278,7 @@ where
     }
 }
 #[doc = "Control word for N multiplexer:.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Nmux {
@@ -390,6 +395,7 @@ pub type VrefR = crate::FieldReader;
 #[doc = "Field `VREF` writer - Control reference voltage step, per steps of (VREFINPUT/31)."]
 pub type VrefW<'a, REG> = crate::FieldWriter<'a, REG, 5>;
 #[doc = "Control the filtering of the Analog Comparator output.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum FiltercgfSamplemode {
@@ -477,6 +483,7 @@ where
     }
 }
 #[doc = "Filter Clock divider.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum FiltercgfClkdiv {
@@ -654,6 +661,20 @@ impl R {
     #[inline(always)]
     pub fn filtercgf_clkdiv(&self) -> FiltercgfClkdivR {
         FiltercgfClkdivR::new(((self.bits >> 18) & 7) as u8)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("COMP")
+            .field("hyst", &self.hyst())
+            .field("vrefinput", &self.vrefinput())
+            .field("lowpower", &self.lowpower())
+            .field("pmux", &self.pmux())
+            .field("nmux", &self.nmux())
+            .field("vref", &self.vref())
+            .field("filtercgf_samplemode", &self.filtercgf_samplemode())
+            .field("filtercgf_clkdiv", &self.filtercgf_clkdiv())
+            .finish()
     }
 }
 impl W {

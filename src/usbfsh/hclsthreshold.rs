@@ -13,6 +13,13 @@ impl R {
         LstR::new((self.bits & 0x0fff) as u16)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("HCLSTHRESHOLD")
+            .field("lst", &self.lst())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:11 - LSThreshold This field contains a value which is compared to the FrameRemaining field prior to initiating a Low Speed transaction."]
     #[inline(always)]

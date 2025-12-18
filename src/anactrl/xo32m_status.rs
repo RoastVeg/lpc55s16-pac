@@ -1,6 +1,7 @@
 #[doc = "Register `XO32M_STATUS` reader"]
 pub type R = crate::R<Xo32mStatusSpec>;
 #[doc = "Indicates XO out frequency statibilty.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum XoReady {
     #[doc = "0: XO output frequency is not yet stable."]
@@ -41,6 +42,13 @@ impl R {
     #[inline(always)]
     pub fn xo_ready(&self) -> XoReadyR {
         XoReadyR::new((self.bits & 1) != 0)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("XO32M_STATUS")
+            .field("xo_ready", &self.xo_ready())
+            .finish()
     }
 }
 #[doc = "High speed Crystal Oscillator Status register\n\nYou can [`read`](crate::Reg::read) this register and get [`xo32m_status::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

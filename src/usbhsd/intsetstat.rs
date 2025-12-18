@@ -31,6 +31,15 @@ impl R {
         DevSetIntR::new(((self.bits >> 31) & 1) != 0)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("INTSETSTAT")
+            .field("ep_set_int", &self.ep_set_int())
+            .field("frame_set_int", &self.frame_set_int())
+            .field("dev_set_int", &self.dev_set_int())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:11 - If software writes a one to one of these bits, the corresponding USB interrupt status bit is set."]
     #[inline(always)]

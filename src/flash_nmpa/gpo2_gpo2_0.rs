@@ -94,6 +94,28 @@ impl R {
         Cpu0SecurityExtensionDisableR::new(((self.bits >> 28) & 0x0f) as u8)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("GPO2_GPO2_0")
+            .field("usbhs_phy_trim_valid", &self.usbhs_phy_trim_valid())
+            .field(
+                "trim_usb_reg_env_tail_adj_vd",
+                &self.trim_usb_reg_env_tail_adj_vd(),
+            )
+            .field("trim_usbphy_tx_d_cal", &self.trim_usbphy_tx_d_cal())
+            .field("trim_usbphy_tx_cal45dp", &self.trim_usbphy_tx_cal45dp())
+            .field("trim_usbphy_tx_cal45dn", &self.trim_usbphy_tx_cal45dn())
+            .field("trim_usb2_refbias_tst", &self.trim_usb2_refbias_tst())
+            .field("trim_usb2_refbias_vbgadj", &self.trim_usb2_refbias_vbgadj())
+            .field("trim_pll_ctrl0_div_sel", &self.trim_pll_ctrl0_div_sel())
+            .field("flash_size", &self.flash_size())
+            .field(
+                "cpu0_security_extension_disable",
+                &self.cpu0_security_extension_disable(),
+            )
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - no description available"]
     #[inline(always)]

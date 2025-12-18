@@ -3,6 +3,7 @@ pub type R = crate::R<TcrSpec>;
 #[doc = "Register `TCR` writer"]
 pub type W = crate::W<TcrSpec>;
 #[doc = "Counter enable.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Cen {
     #[doc = "0: Disabled.The counters are disabled."]
@@ -56,6 +57,7 @@ where
     }
 }
 #[doc = "Counter reset.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Crst {
     #[doc = "0: Disabled. Do nothing."]
@@ -118,6 +120,14 @@ impl R {
     #[inline(always)]
     pub fn crst(&self) -> CrstR {
         CrstR::new(((self.bits >> 1) & 1) != 0)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("TCR")
+            .field("cen", &self.cen())
+            .field("crst", &self.crst())
+            .finish()
     }
 }
 impl W {

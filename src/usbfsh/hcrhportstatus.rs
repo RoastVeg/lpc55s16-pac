@@ -112,6 +112,24 @@ impl R {
         PrscR::new(((self.bits >> 20) & 1) != 0)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("HCRHPORTSTATUS")
+            .field("ccs", &self.ccs())
+            .field("pes", &self.pes())
+            .field("pss", &self.pss())
+            .field("poci", &self.poci())
+            .field("prs", &self.prs())
+            .field("pps", &self.pps())
+            .field("lsda", &self.lsda())
+            .field("csc", &self.csc())
+            .field("pesc", &self.pesc())
+            .field("pssc", &self.pssc())
+            .field("ocic", &self.ocic())
+            .field("prsc", &self.prsc())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - (read) CurrentConnectStatus This bit reflects the current state of the downstream port."]
     #[inline(always)]

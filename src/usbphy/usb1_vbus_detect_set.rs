@@ -3,6 +3,7 @@ pub type R = crate::R<Usb1VbusDetectSetSpec>;
 #[doc = "Register `USB1_VBUS_DETECT_SET` writer"]
 pub type W = crate::W<Usb1VbusDetectSetSpec>;
 #[doc = "Sets the threshold for the VBUSVALID comparator\n\nValue on reset: 4"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum VbusvalidThresh {
@@ -141,6 +142,7 @@ where
     }
 }
 #[doc = "VBUS detect signal override enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum VbusOverrideEn {
     #[doc = "0: Use the results of the internal VBUS_VALID and Session Valid comparators for VBUS_VALID, AVALID, BVALID, and SESSEND (Default)"]
@@ -210,6 +212,7 @@ pub type VbusvalidOverrideR = crate::BitReader;
 #[doc = "Field `VBUSVALID_OVERRIDE` writer - Override value for VBUS_VALID signal sent to USB controller The bit field provides the value for VBUS_VALID reported to the USB controller if the value of USB1_VBUS_DETECT\\[3\\] is set to 1'b1"]
 pub type VbusvalidOverrideW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Selects the source of the VBUS_VALID signal reported to the USB controller This is one of the bit fields that selects the source of the VBUS_VALID signal reported to the USB controller\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum VbusvalidSel {
     #[doc = "0: Use the VBUS_VALID comparator results for signal reported to the USB controller (Default)"]
@@ -263,6 +266,7 @@ where
     }
 }
 #[doc = "Selects the source of the VBUS_VALID signal reported to the USB controller This is one of the bit fields that selects the source of the VBUS_VALID signal reported to the USB controller\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum VbusSourceSel {
@@ -344,6 +348,7 @@ pub type IdOverrideR = crate::BitReader;
 #[doc = "Field `ID_OVERRIDE` writer - ID override value."]
 pub type IdOverrideW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Enable ID override using the pinmuxed value:\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum ExtIdOverrideEn {
     #[doc = "0: Select the Muxed value chosen using ID_OVERRIDE_EN."]
@@ -397,6 +402,7 @@ where
     }
 }
 #[doc = "Enable VBUS override using the pinmuxed value.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum ExtVbusOverrideEn {
     #[doc = "0: Select the Muxed value chosen using VBUS_OVERRIDE_EN."]
@@ -450,6 +456,7 @@ where
     }
 }
 #[doc = "Selects the comparator used for VBUS_VALID This bit field controls the comparator used to report the VBUS_VALID results in USB1_VBUS_DETECT\\[3\\] between the VBUS_VALID comparator and the Session Valid comparator\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum VbusvalidToSessvalid {
     #[doc = "0: Use the VBUS_VALID comparator for VBUS_VALID results"]
@@ -503,6 +510,7 @@ where
     }
 }
 #[doc = "Enables the VBUS_VALID comparator: Powers up the comparator used for the VBUS_VALID detector\n\nValue on reset: 7"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum PwrupCmps {
@@ -563,6 +571,7 @@ where
     }
 }
 #[doc = "Controls VBUS discharge resistor This bit field controls a nominal 22kohm resistor between the USB1_VBUS pin and ground\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum DischargeVbus {
     #[doc = "0: VBUS discharge resistor is disabled (Default)"]
@@ -690,6 +699,27 @@ impl R {
     #[inline(always)]
     pub fn discharge_vbus(&self) -> DischargeVbusR {
         DischargeVbusR::new(((self.bits >> 26) & 1) != 0)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("USB1_VBUS_DETECT_SET")
+            .field("vbusvalid_thresh", &self.vbusvalid_thresh())
+            .field("vbus_override_en", &self.vbus_override_en())
+            .field("sessend_override", &self.sessend_override())
+            .field("bvalid_override", &self.bvalid_override())
+            .field("avalid_override", &self.avalid_override())
+            .field("vbusvalid_override", &self.vbusvalid_override())
+            .field("vbusvalid_sel", &self.vbusvalid_sel())
+            .field("vbus_source_sel", &self.vbus_source_sel())
+            .field("id_override_en", &self.id_override_en())
+            .field("id_override", &self.id_override())
+            .field("ext_id_override_en", &self.ext_id_override_en())
+            .field("ext_vbus_override_en", &self.ext_vbus_override_en())
+            .field("vbusvalid_to_sessvalid", &self.vbusvalid_to_sessvalid())
+            .field("pwrup_cmps", &self.pwrup_cmps())
+            .field("discharge_vbus", &self.discharge_vbus())
+            .finish()
     }
 }
 impl W {

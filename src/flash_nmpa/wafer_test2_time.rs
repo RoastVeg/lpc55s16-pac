@@ -13,6 +13,13 @@ impl R {
         Wt2TimeR::new(self.bits)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("WAFER_TEST2_TIME")
+            .field("wt2_time", &self.wt2_time())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - WT2_TIME \\[stored as : hour*10000+minute*100+seconde\\]"]
     #[inline(always)]

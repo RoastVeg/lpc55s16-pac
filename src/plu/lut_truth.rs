@@ -13,6 +13,13 @@ impl R {
         LutnTruthR::new(self.bits)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LUT_TRUTH")
+            .field("lutn_truth", &self.lutn_truth())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - Specifies the Truth Table contents for LUT0.."]
     #[inline(always)]

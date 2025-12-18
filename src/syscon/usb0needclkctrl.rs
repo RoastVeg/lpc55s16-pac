@@ -3,6 +3,7 @@ pub type R = crate::R<Usb0needclkctrlSpec>;
 #[doc = "Register `USB0NEEDCLKCTRL` writer"]
 pub type W = crate::W<Usb0needclkctrlSpec>;
 #[doc = "USB0-FS Device USB0_NEEDCLK signal control:.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum ApFsDevNeedclk {
     #[doc = "0: Under hardware control."]
@@ -56,6 +57,7 @@ where
     }
 }
 #[doc = "USB0-FS Device USB0_NEEDCLK polarity for triggering the USB0-FS wake-up interrupt:.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum PolFsDevNeedclk {
     #[doc = "0: Falling edge of device USB0_NEEDCLK triggers wake-up."]
@@ -109,6 +111,7 @@ where
     }
 }
 #[doc = "USB0-FS Host USB0_NEEDCLK signal control:.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum ApFsHostNeedclk {
     #[doc = "0: Under hardware control."]
@@ -162,6 +165,7 @@ where
     }
 }
 #[doc = "USB0-FS Host USB0_NEEDCLK polarity for triggering the USB0-FS wake-up interrupt:.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum PolFsHostNeedclk {
     #[doc = "0: Falling edge of device USB0_NEEDCLK triggers wake-up."]
@@ -234,6 +238,16 @@ impl R {
     #[inline(always)]
     pub fn pol_fs_host_needclk(&self) -> PolFsHostNeedclkR {
         PolFsHostNeedclkR::new(((self.bits >> 3) & 1) != 0)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("USB0NEEDCLKCTRL")
+            .field("ap_fs_dev_needclk", &self.ap_fs_dev_needclk())
+            .field("pol_fs_dev_needclk", &self.pol_fs_dev_needclk())
+            .field("ap_fs_host_needclk", &self.ap_fs_host_needclk())
+            .field("pol_fs_host_needclk", &self.pol_fs_host_needclk())
+            .finish()
     }
 }
 impl W {

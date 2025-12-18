@@ -3,6 +3,7 @@ pub type R = crate::R<LockSpec>;
 #[doc = "Register `LOCK` writer"]
 pub type W = crate::W<LockSpec>;
 #[doc = "Lock Region 0 registers.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Lockreg0 {
     #[doc = "0: Disabled. IV_LSB0, IV_MSB0, BASE_ADDR0, and SR_ENABLE0 are writable.."]
@@ -56,6 +57,7 @@ where
     }
 }
 #[doc = "Lock Region 1 registers.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Lockreg1 {
     #[doc = "0: Disabled. IV_LSB1, IV_MSB1, BASE_ADDR1, and SR_ENABLE1 are writable.."]
@@ -109,6 +111,7 @@ where
     }
 }
 #[doc = "Lock Region 2 registers.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Lockreg2 {
     #[doc = "0: Disabled. IV_LSB2, IV_MSB2, BASE_ADDR2, and SR_ENABLE2 are writable.."]
@@ -162,6 +165,7 @@ where
     }
 }
 #[doc = "Lock the Mask registers.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Lockmask {
     #[doc = "0: Disabled. MASK_LSB, and MASK_MSB are writable.."]
@@ -234,6 +238,16 @@ impl R {
     #[inline(always)]
     pub fn lockmask(&self) -> LockmaskR {
         LockmaskR::new(((self.bits >> 8) & 1) != 0)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LOCK")
+            .field("lockreg0", &self.lockreg0())
+            .field("lockreg1", &self.lockreg1())
+            .field("lockreg2", &self.lockreg2())
+            .field("lockmask", &self.lockmask())
+            .finish()
     }
 }
 impl W {

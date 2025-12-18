@@ -5,6 +5,12 @@
 #![cfg_attr(docsrs, feature(doc_cfg))]
 #[doc = r"Number available in the NVIC for configuring priority"]
 pub const NVIC_PRIO_BITS: u8 = 3;
+#[cfg(feature = "rt")]
+pub use self::Interrupt as interrupt;
+pub use cortex_m::peripheral::Peripherals as CorePeripherals;
+pub use cortex_m::peripheral::{CBP, CPUID, DCB, DWT, FPB, FPU, ITM, MPU, NVIC, SCB, SYST, TPIU};
+#[cfg(feature = "rt")]
+pub use cortex_m_rt::interrupt;
 #[allow(unused_imports)]
 use generic::*;
 #[doc = r"Common register and bit access and modify traits"]
@@ -170,6 +176,7 @@ pub static __INTERRUPTS: [Vector; 61] = [
     Vector { _handler: CDOG },
 ];
 #[doc = r"Enumeration of all the interrupts."]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Copy, Clone, Debug, PartialEq, Eq)]
 #[repr(u16)]
 pub enum Interrupt {
@@ -1135,6 +1142,7 @@ impl core::fmt::Debug for Sau {
 }
 #[doc = "no description available"]
 pub mod sau;
+
 static mut DEVICE_PERIPHERALS: bool = false;
 #[doc = r" All the peripherals."]
 #[allow(non_snake_case)]
@@ -1348,7 +1356,7 @@ impl Peripherals {
     #[doc = r""]
     #[doc = r" Each of the returned peripherals must be used at most once."]
     #[inline]
-    pub unsafe fn steal() -> Self {
+    pub unsafe fn steal() -> Self { unsafe {
         DEVICE_PERIPHERALS = true;
         Peripherals {
             flash_cfpa0: FlashCfpa0::steal(),
@@ -1447,5 +1455,5 @@ impl Peripherals {
             scn_scb: ScnScb::steal(),
             sau: Sau::steal(),
         }
-    }
+    }}
 }

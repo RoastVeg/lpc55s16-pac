@@ -51,6 +51,17 @@ impl R {
         SoftResetR::new(((self.bits >> 4) & 1) != 0)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("CSW")
+            .field("resynch_req", &self.resynch_req())
+            .field("req_pending", &self.req_pending())
+            .field("dbg_or_err", &self.dbg_or_err())
+            .field("ahb_or_err", &self.ahb_or_err())
+            .field("soft_reset", &self.soft_reset())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Debugger will set this bit to 1 to request a resynchronrisation"]
     #[inline(always)]

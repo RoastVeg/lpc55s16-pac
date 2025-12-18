@@ -22,6 +22,14 @@ impl R {
         InverseValueR::new(((self.bits >> 16) & 0xffff) as u16)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("VENDOR_USAGE")
+            .field("dbg_vendor_usage", &self.dbg_vendor_usage())
+            .field("inverse_value", &self.inverse_value())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:15 - DBG_VENDOR_USAGE."]
     #[inline(always)]

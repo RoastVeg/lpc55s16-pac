@@ -67,6 +67,22 @@ impl R {
         TrimPllCtrl0DivSelR::new(((self.bits >> 21) & 7) as u8)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("USBHS_PHY_TRIM")
+            .field(
+                "trim_usb_reg_env_tail_adj_vd",
+                &self.trim_usb_reg_env_tail_adj_vd(),
+            )
+            .field("trim_usbphy_tx_d_cal", &self.trim_usbphy_tx_d_cal())
+            .field("trim_usbphy_tx_cal45dp", &self.trim_usbphy_tx_cal45dp())
+            .field("trim_usbphy_tx_cal45dm", &self.trim_usbphy_tx_cal45dm())
+            .field("trim_usb2_refbias_tst", &self.trim_usb2_refbias_tst())
+            .field("trim_usb2_refbias_vbgadj", &self.trim_usb2_refbias_vbgadj())
+            .field("trim_pll_ctrl0_div_sel", &self.trim_pll_ctrl0_div_sel())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1 - Adjusts time constant of HS RX squelch (envelope) comparator."]
     #[inline(always)]

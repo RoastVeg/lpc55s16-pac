@@ -3,6 +3,7 @@ pub type R = crate::R<SecCtrlAhbPort7Slave0RuleSpec>;
 #[doc = "Register `SEC_CTRL_AHB_PORT7_SLAVE0_RULE` writer"]
 pub type W = crate::W<SecCtrlAhbPort7Slave0RuleSpec>;
 #[doc = "DMA Controller\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Dma0Rule {
@@ -89,6 +90,7 @@ where
     }
 }
 #[doc = "USB Full-speed device\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum FsUsbDevRule {
@@ -175,6 +177,7 @@ where
     }
 }
 #[doc = "SCTimer\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum SctRule {
@@ -261,6 +264,7 @@ where
     }
 }
 #[doc = "Flexcomm interface 0\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Flexcomm0Rule {
@@ -347,6 +351,7 @@ where
     }
 }
 #[doc = "Flexcomm interface 1\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Flexcomm1Rule {
@@ -457,6 +462,17 @@ impl R {
     #[inline(always)]
     pub fn flexcomm1_rule(&self) -> Flexcomm1RuleR {
         Flexcomm1RuleR::new(((self.bits >> 28) & 3) as u8)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SEC_CTRL_AHB_PORT7_SLAVE0_RULE")
+            .field("dma0_rule", &self.dma0_rule())
+            .field("fs_usb_dev_rule", &self.fs_usb_dev_rule())
+            .field("sct_rule", &self.sct_rule())
+            .field("flexcomm0_rule", &self.flexcomm0_rule())
+            .field("flexcomm1_rule", &self.flexcomm1_rule())
+            .finish()
     }
 }
 impl W {

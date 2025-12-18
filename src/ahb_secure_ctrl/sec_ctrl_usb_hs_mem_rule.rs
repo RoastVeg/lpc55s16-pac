@@ -3,6 +3,7 @@ pub type R = crate::R<SecCtrlUsbHsMemRuleSpec>;
 #[doc = "Register `SEC_CTRL_USB_HS_MEM_RULE` writer"]
 pub type W = crate::W<SecCtrlUsbHsMemRuleSpec>;
 #[doc = "Address space: 0x2001_0000 - 0x2001_0FFF\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum SramSect0Rule {
@@ -89,6 +90,7 @@ where
     }
 }
 #[doc = "Address space: 0x2001_1000 - 0x2001_1FFF\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum SramSect1Rule {
@@ -175,6 +177,7 @@ where
     }
 }
 #[doc = "Address space: 0x2001_2000 - 0x2001_2FFF\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum SramSect2Rule {
@@ -261,6 +264,7 @@ where
     }
 }
 #[doc = "Address space: 0x2001_3000 - 0x2001_3FFF\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum SramSect3Rule {
@@ -366,6 +370,16 @@ impl R {
     #[inline(always)]
     pub fn sram_sect_3_rule(&self) -> SramSect3RuleR {
         SramSect3RuleR::new(((self.bits >> 12) & 3) as u8)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SEC_CTRL_USB_HS_MEM_RULE")
+            .field("sram_sect_0_rule", &self.sram_sect_0_rule())
+            .field("sram_sect_1_rule", &self.sram_sect_1_rule())
+            .field("sram_sect_2_rule", &self.sram_sect_2_rule())
+            .field("sram_sect_3_rule", &self.sram_sect_3_rule())
+            .finish()
     }
 }
 impl W {

@@ -3,6 +3,7 @@ pub type R = crate::R<StatSpec>;
 #[doc = "Register `STAT` writer"]
 pub type W = crate::W<StatSpec>;
 #[doc = "Result FIFO 0 Ready Flag\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Rdy0 {
     #[doc = "0: Result FIFO 0 data level not above watermark level."]
@@ -39,6 +40,7 @@ impl Rdy0R {
     }
 }
 #[doc = "Result FIFO 0 Overflow Flag\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Fof0 {
     #[doc = "0: No result FIFO 0 overflow has occurred since the last time the flag was cleared."]
@@ -92,6 +94,7 @@ where
     }
 }
 #[doc = "Result FIFO1 Ready Flag\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Rdy1 {
     #[doc = "0: Result FIFO1 data level not above watermark level."]
@@ -128,6 +131,7 @@ impl Rdy1R {
     }
 }
 #[doc = "Result FIFO1 Overflow Flag\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Fof1 {
     #[doc = "0: No result FIFO1 overflow has occurred since the last time the flag was cleared."]
@@ -181,6 +185,7 @@ where
     }
 }
 #[doc = "Interrupt Flag For High Priority Trigger Exception\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum TexcInt {
     #[doc = "0: No trigger exceptions have occurred."]
@@ -234,6 +239,7 @@ where
     }
 }
 #[doc = "Interrupt Flag For Trigger Completion\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum TcompInt {
     #[doc = "0: Either IE\\[TCOMP_IE\\] is set to 0, or no trigger sequences have run to completion."]
@@ -287,6 +293,7 @@ where
     }
 }
 #[doc = "Calibration Ready\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum CalRdy {
     #[doc = "0: Calibration is incomplete or hasn't been ran."]
@@ -323,6 +330,7 @@ impl CalRdyR {
     }
 }
 #[doc = "ADC Active\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum AdcActive {
     #[doc = "0: The ADC is IDLE. There are no pending triggers to service and no active commands are being processed."]
@@ -359,6 +367,7 @@ impl AdcActiveR {
     }
 }
 #[doc = "Trigger Active\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Trgact {
@@ -465,6 +474,7 @@ impl TrgactR {
     }
 }
 #[doc = "Command Active\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Cmdact {
@@ -620,6 +630,22 @@ impl R {
     #[inline(always)]
     pub fn cmdact(&self) -> CmdactR {
         CmdactR::new(((self.bits >> 24) & 0x0f) as u8)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("STAT")
+            .field("rdy0", &self.rdy0())
+            .field("fof0", &self.fof0())
+            .field("rdy1", &self.rdy1())
+            .field("fof1", &self.fof1())
+            .field("texc_int", &self.texc_int())
+            .field("tcomp_int", &self.tcomp_int())
+            .field("cal_rdy", &self.cal_rdy())
+            .field("adc_active", &self.adc_active())
+            .field("trgact", &self.trgact())
+            .field("cmdact", &self.cmdact())
+            .finish()
     }
 }
 impl W {

@@ -13,6 +13,13 @@ impl R {
         EntropyR::new(self.bits)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("ENTROPY_INJECT")
+            .field("entropy", &self.entropy())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - Use this register to inject or restore entropy 32 bits at a time. Writing is blocking thus see to it to have analog clocks activated. Injection can be usefull to add contribution from an external source of entropy, like for example LSBs of an ADC or of a temperature sensor. Restore can be usefull to store N random numbers in central memory before going powerdown then restore this entropy to RNG IP after power-up. It is useless to inject or restore more than 1*(number of RNGs) 32b words consecutively. Recommendation is to inject 1*(number of RNGs) words, and possibly later (2*32 clock cycles of slowest analog clock) inject again 1*(number of RNGs) words. Then maximum capacity of restoration is reached: about 44 bits per RNG (not to be mistaken with maximum capacity of entropy accumulation which is about 100 bits per RNG). You can inject less than 32 bits words (let unused bits to 0). Injection cannot degrade overall performance due to the fact that some internal PRNGs are excluded on purpose from this external action."]
     #[inline(always)]

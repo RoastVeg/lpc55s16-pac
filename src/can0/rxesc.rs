@@ -31,6 +31,15 @@ impl R {
         RbdsR::new(((self.bits >> 8) & 7) as u8)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RXESC")
+            .field("f0ds", &self.f0ds())
+            .field("f1ds", &self.f1ds())
+            .field("rbds", &self.rbds())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:2 - Rx FIFO 0 data field size."]
     #[inline(always)]

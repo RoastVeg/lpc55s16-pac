@@ -3,6 +3,7 @@ pub type R = crate::R<ClockCtrlSpec>;
 #[doc = "Register `CLOCK_CTRL` writer"]
 pub type W = crate::W<ClockCtrlSpec>;
 #[doc = "Enable XTAL32MHz clock for Frequency Measure module.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Xtal32mhzFreqmEna {
     #[doc = "0: The clock is not enabled."]
@@ -56,6 +57,7 @@ where
     }
 }
 #[doc = "Enable FRO 1MHz clock for Frequency Measure module and for UTICK.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Fro1mhzUtickEna {
     #[doc = "0: The clock is not enabled."]
@@ -109,6 +111,7 @@ where
     }
 }
 #[doc = "Enable FRO 12MHz clock for Frequency Measure module.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Fro12mhzFreqmEna {
     #[doc = "0: The clock is not enabled."]
@@ -162,6 +165,7 @@ where
     }
 }
 #[doc = "Enable FRO 96MHz clock for Frequency Measure module.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum FroHfFreqmEna {
     #[doc = "0: The clock is not enabled."]
@@ -215,6 +219,7 @@ where
     }
 }
 #[doc = "Enable clock_in clock for clock module.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum ClkinEna {
     #[doc = "0: The clock is not enabled."]
@@ -268,6 +273,7 @@ where
     }
 }
 #[doc = "Enable FRO 1MHz clock for clock muxing in clock gen.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Fro1mhzClkEna {
     #[doc = "0: The clock is not enabled."]
@@ -321,6 +327,7 @@ where
     }
 }
 #[doc = "Enable FRO 12MHz clock for analog control of the FRO 192MHz.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum AnaFro12mClkEna {
     #[doc = "0: The clock is not enabled."]
@@ -374,6 +381,7 @@ where
     }
 }
 #[doc = "Enable clock for cristal oscilator calibration.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum XoCalClkEna {
     #[doc = "0: The clock is not enabled."]
@@ -427,6 +435,7 @@ where
     }
 }
 #[doc = "Enable clocks FRO_1MHz and FRO_12MHz for PLU deglitching.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum PluDeglitchClkEna {
     #[doc = "0: The clock is not enabled."]
@@ -524,6 +533,21 @@ impl R {
     #[inline(always)]
     pub fn plu_deglitch_clk_ena(&self) -> PluDeglitchClkEnaR {
         PluDeglitchClkEnaR::new(((self.bits >> 9) & 1) != 0)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("CLOCK_CTRL")
+            .field("xtal32mhz_freqm_ena", &self.xtal32mhz_freqm_ena())
+            .field("fro1mhz_utick_ena", &self.fro1mhz_utick_ena())
+            .field("fro12mhz_freqm_ena", &self.fro12mhz_freqm_ena())
+            .field("fro_hf_freqm_ena", &self.fro_hf_freqm_ena())
+            .field("clkin_ena", &self.clkin_ena())
+            .field("fro1mhz_clk_ena", &self.fro1mhz_clk_ena())
+            .field("ana_fro12m_clk_ena", &self.ana_fro12m_clk_ena())
+            .field("xo_cal_clk_ena", &self.xo_cal_clk_ena())
+            .field("plu_deglitch_clk_ena", &self.plu_deglitch_clk_ena())
+            .finish()
     }
 }
 impl W {

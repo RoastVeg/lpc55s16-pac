@@ -3,6 +3,7 @@ pub type R = crate::R<MasterSecLevelSpec>;
 #[doc = "Register `MASTER_SEC_LEVEL` writer"]
 pub type W = crate::W<MasterSecLevelSpec>;
 #[doc = "USB Full Speed Device.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Usbfsd {
@@ -89,6 +90,7 @@ where
     }
 }
 #[doc = "System DMA 0.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Sdma0 {
@@ -175,6 +177,7 @@ where
     }
 }
 #[doc = "Hash.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Hash {
@@ -261,6 +264,7 @@ where
     }
 }
 #[doc = "USB Full speed Host.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Usbfsh {
@@ -347,6 +351,7 @@ where
     }
 }
 #[doc = "System DMA 1 security level.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Sdma1 {
@@ -433,6 +438,7 @@ where
     }
 }
 #[doc = "CAN FD.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Canfd {
@@ -519,6 +525,7 @@ where
     }
 }
 #[doc = "MASTER_SEC_LEVEL write-lock.\n\nValue on reset: 2"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum MasterSecLevelLock {
@@ -613,6 +620,19 @@ impl R {
     #[inline(always)]
     pub fn master_sec_level_lock(&self) -> MasterSecLevelLockR {
         MasterSecLevelLockR::new(((self.bits >> 30) & 3) as u8)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("MASTER_SEC_LEVEL")
+            .field("usbfsd", &self.usbfsd())
+            .field("sdma0", &self.sdma0())
+            .field("hash", &self.hash())
+            .field("usbfsh", &self.usbfsh())
+            .field("sdma1", &self.sdma1())
+            .field("canfd", &self.canfd())
+            .field("master_sec_level_lock", &self.master_sec_level_lock())
+            .finish()
     }
 }
 impl W {

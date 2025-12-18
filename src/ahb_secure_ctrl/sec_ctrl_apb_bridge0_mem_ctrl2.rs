@@ -3,6 +3,7 @@ pub type R = crate::R<SecCtrlApbBridge0MemCtrl2Spec>;
 #[doc = "Register `SEC_CTRL_APB_BRIDGE0_MEM_CTRL2` writer"]
 pub type W = crate::W<SecCtrlApbBridge0MemCtrl2Spec>;
 #[doc = "Analog Modules controller\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum AnactrlRule {
@@ -93,6 +94,13 @@ impl R {
     #[inline(always)]
     pub fn anactrl_rule(&self) -> AnactrlRuleR {
         AnactrlRuleR::new(((self.bits >> 12) & 3) as u8)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SEC_CTRL_APB_BRIDGE0_MEM_CTRL2")
+            .field("anactrl_rule", &self.anactrl_rule())
+            .finish()
     }
 }
 impl W {

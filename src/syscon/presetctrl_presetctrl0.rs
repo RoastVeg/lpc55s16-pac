@@ -3,6 +3,7 @@ pub type R = crate::R<PresetctrlPresetctrl0Spec>;
 #[doc = "Register `PRESETCTRL0` writer"]
 pub type W = crate::W<PresetctrlPresetctrl0Spec>;
 #[doc = "ROM reset control.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum RomRst {
     #[doc = "0: Bloc is not reset."]
@@ -56,6 +57,7 @@ where
     }
 }
 #[doc = "SRAM Controller 1 reset control.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum SramCtrl1Rst {
     #[doc = "0: Bloc is not reset."]
@@ -109,6 +111,7 @@ where
     }
 }
 #[doc = "SRAM Controller 2 reset control.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum SramCtrl2Rst {
     #[doc = "0: Bloc is not reset."]
@@ -162,6 +165,7 @@ where
     }
 }
 #[doc = "Flash controller reset control.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum FlashRst {
     #[doc = "0: Bloc is not reset."]
@@ -215,6 +219,7 @@ where
     }
 }
 #[doc = "FMC controller reset control.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum FmcRst {
     #[doc = "0: Bloc is not reset."]
@@ -268,6 +273,7 @@ where
     }
 }
 #[doc = "Input Mux reset control.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum MuxRst {
     #[doc = "0: Bloc is not reset."]
@@ -321,6 +327,7 @@ where
     }
 }
 #[doc = "I/O controller reset control.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum IoconRst {
     #[doc = "0: Bloc is not reset."]
@@ -374,6 +381,7 @@ where
     }
 }
 #[doc = "GPIO0 reset control.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Gpio0Rst {
     #[doc = "0: Bloc is not reset."]
@@ -427,6 +435,7 @@ where
     }
 }
 #[doc = "GPIO1 reset control.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Gpio1Rst {
     #[doc = "0: Bloc is not reset."]
@@ -480,6 +489,7 @@ where
     }
 }
 #[doc = "Pin interrupt (PINT) reset control.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum PintRst {
     #[doc = "0: Bloc is not reset."]
@@ -533,6 +543,7 @@ where
     }
 }
 #[doc = "Group interrupt (GINT) reset control.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum GintRst {
     #[doc = "0: Bloc is not reset."]
@@ -586,6 +597,7 @@ where
     }
 }
 #[doc = "DMA0 reset control.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Dma0Rst {
     #[doc = "0: Bloc is not reset."]
@@ -639,6 +651,7 @@ where
     }
 }
 #[doc = "CRCGEN reset control.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum CrcgenRst {
     #[doc = "0: Bloc is not reset."]
@@ -692,6 +705,7 @@ where
     }
 }
 #[doc = "Watchdog Timer reset control.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum WwdtRst {
     #[doc = "0: Bloc is not reset."]
@@ -745,6 +759,7 @@ where
     }
 }
 #[doc = "Real Time Clock (RTC) reset control.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum RtcRst {
     #[doc = "0: Bloc is not reset."]
@@ -798,6 +813,7 @@ where
     }
 }
 #[doc = "Inter CPU communication Mailbox reset control.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum MailboxRst {
     #[doc = "0: Bloc is not reset."]
@@ -851,6 +867,7 @@ where
     }
 }
 #[doc = "ADC reset control.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum AdcRst {
     #[doc = "0: Bloc is not reset."]
@@ -988,6 +1005,29 @@ impl R {
     #[inline(always)]
     pub fn adc_rst(&self) -> AdcRstR {
         AdcRstR::new(((self.bits >> 27) & 1) != 0)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PRESETCTRL_PRESETCTRL0")
+            .field("rom_rst", &self.rom_rst())
+            .field("sram_ctrl1_rst", &self.sram_ctrl1_rst())
+            .field("sram_ctrl2_rst", &self.sram_ctrl2_rst())
+            .field("flash_rst", &self.flash_rst())
+            .field("fmc_rst", &self.fmc_rst())
+            .field("mux_rst", &self.mux_rst())
+            .field("iocon_rst", &self.iocon_rst())
+            .field("gpio0_rst", &self.gpio0_rst())
+            .field("gpio1_rst", &self.gpio1_rst())
+            .field("pint_rst", &self.pint_rst())
+            .field("gint_rst", &self.gint_rst())
+            .field("dma0_rst", &self.dma0_rst())
+            .field("crcgen_rst", &self.crcgen_rst())
+            .field("wwdt_rst", &self.wwdt_rst())
+            .field("rtc_rst", &self.rtc_rst())
+            .field("mailbox_rst", &self.mailbox_rst())
+            .field("adc_rst", &self.adc_rst())
+            .finish()
     }
 }
 impl W {

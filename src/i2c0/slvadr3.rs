@@ -3,6 +3,7 @@ pub type R = crate::R<Slvadr3Spec>;
 #[doc = "Register `SLVADR3` writer"]
 pub type W = crate::W<Slvadr3Spec>;
 #[doc = "Slave Address n Disable.\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Sadisable {
     #[doc = "0: Enabled. Slave Address n is enabled."]
@@ -69,6 +70,14 @@ impl R {
     #[inline(always)]
     pub fn slvadr(&self) -> SlvadrR {
         SlvadrR::new(((self.bits >> 1) & 0x7f) as u8)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SLVADR3")
+            .field("sadisable", &self.sadisable())
+            .field("slvadr", &self.slvadr())
+            .finish()
     }
 }
 impl W {

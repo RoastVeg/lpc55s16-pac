@@ -85,6 +85,21 @@ impl R {
         SelExtR::new(((self.bits >> 28) & 1) != 0)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PLL0SSCG1")
+            .field("md_mbs", &self.md_mbs())
+            .field("md_req", &self.md_req())
+            .field("mf", &self.mf())
+            .field("mr", &self.mr())
+            .field("mc", &self.mc())
+            .field("mdiv_ext", &self.mdiv_ext())
+            .field("mreq", &self.mreq())
+            .field("dither", &self.dither())
+            .field("sel_ext", &self.sel_ext())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - input word of the wrapper bit 32."]
     #[inline(always)]

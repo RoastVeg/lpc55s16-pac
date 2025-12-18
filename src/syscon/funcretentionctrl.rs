@@ -3,6 +3,7 @@ pub type R = crate::R<FuncretentionctrlSpec>;
 #[doc = "Register `FUNCRETENTIONCTRL` writer"]
 pub type W = crate::W<FuncretentionctrlSpec>;
 #[doc = "functional retention in power down only.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Funcretena {
     #[doc = "0: disable functional retention."]
@@ -78,6 +79,15 @@ impl R {
     #[inline(always)]
     pub fn ret_lenth(&self) -> RetLenthR {
         RetLenthR::new(((self.bits >> 14) & 0x03ff) as u16)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("FUNCRETENTIONCTRL")
+            .field("funcretena", &self.funcretena())
+            .field("ret_start", &self.ret_start())
+            .field("ret_lenth", &self.ret_lenth())
+            .finish()
     }
 }
 impl W {

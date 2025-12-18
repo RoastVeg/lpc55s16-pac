@@ -3,6 +3,7 @@ pub type R = crate::R<LdopmuSpec>;
 #[doc = "Register `LDOPMU` writer"]
 pub type W = crate::W<LdopmuSpec>;
 #[doc = "Sets the Always-On domain LDO output level.\n\nValue on reset: 24"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Vadj {
@@ -465,6 +466,7 @@ pub type VadjBoostPwdR = crate::FieldReader;
 #[doc = "Field `VADJ_BOOST_PWD` writer - Sets the Always-On domain LDO Boost output level in all power down modes."]
 pub type VadjBoostPwdW<'a, REG> = crate::FieldWriter<'a, REG, 5>;
 #[doc = "Controls LDOMEM bleed current.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Bleed {
     #[doc = "0: Bleed current is disable."]
@@ -518,6 +520,7 @@ where
     }
 }
 #[doc = "Control the LDO AO boost mode in ACTIVE mode.\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum BoostEna {
     #[doc = "0: LDO AO Boost Mode is disable."]
@@ -571,6 +574,7 @@ where
     }
 }
 #[doc = "Control the LDO AO boost mode in the different low power modes (DEEP SLEEP, POWERDOWN, and DEEP POWER DOWN).\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum BoostEnaPwd {
     #[doc = "0: LDO AO Boost Mode is disable."]
@@ -658,6 +662,19 @@ impl R {
     #[inline(always)]
     pub fn boost_ena_pwd(&self) -> BoostEnaPwdR {
         BoostEnaPwdR::new(((self.bits >> 25) & 1) != 0)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LDOPMU")
+            .field("vadj", &self.vadj())
+            .field("vadj_pwd", &self.vadj_pwd())
+            .field("vadj_boost", &self.vadj_boost())
+            .field("vadj_boost_pwd", &self.vadj_boost_pwd())
+            .field("bleed", &self.bleed())
+            .field("boost_ena", &self.boost_ena())
+            .field("boost_ena_pwd", &self.boost_ena_pwd())
+            .finish()
     }
 }
 impl W {

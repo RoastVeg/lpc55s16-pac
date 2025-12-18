@@ -7,6 +7,7 @@ pub type MaskR = crate::FieldReader;
 #[doc = "Field `MASK` writer - Interrupt mask (which of the 8 PLU Outputs contribute to interrupt)"]
 pub type MaskW<'a, REG> = crate::FieldWriter<'a, REG, 8>;
 #[doc = "control input of the PLU, add filtering for glitch.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum FilterMode {
@@ -93,6 +94,7 @@ where
     }
 }
 #[doc = "hclk is divided by 2**filter_clksel.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum FilterClksel {
@@ -198,6 +200,17 @@ impl R {
     #[inline(always)]
     pub fn intr_clear(&self) -> IntrClearR {
         IntrClearR::new(((self.bits >> 13) & 1) != 0)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("WAKEINT_CTRL")
+            .field("mask", &self.mask())
+            .field("filter_mode", &self.filter_mode())
+            .field("filter_clksel", &self.filter_clksel())
+            .field("latch_enable", &self.latch_enable())
+            .field("intr_clear", &self.intr_clear())
+            .finish()
     }
 }
 impl W {

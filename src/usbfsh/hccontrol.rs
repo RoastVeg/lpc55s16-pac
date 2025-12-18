@@ -85,6 +85,21 @@ impl R {
         RweR::new(((self.bits >> 10) & 1) != 0)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("HCCONTROL")
+            .field("cbsr", &self.cbsr())
+            .field("ple", &self.ple())
+            .field("ie", &self.ie())
+            .field("cle", &self.cle())
+            .field("ble", &self.ble())
+            .field("hcfs", &self.hcfs())
+            .field("ir", &self.ir())
+            .field("rwc", &self.rwc())
+            .field("rwe", &self.rwe())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1 - ControlBulkServiceRatio."]
     #[inline(always)]

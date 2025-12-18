@@ -31,6 +31,15 @@ impl R {
         DevEnableR::new(((self.bits >> 16) & 1) != 0)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PORTMODE")
+            .field("id", &self.id())
+            .field("id_en", &self.id_en())
+            .field("dev_enable", &self.dev_enable())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Port ID pin value."]
     #[inline(always)]

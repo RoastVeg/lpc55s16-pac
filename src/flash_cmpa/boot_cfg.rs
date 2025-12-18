@@ -3,6 +3,7 @@ pub type R = crate::R<BootCfgSpec>;
 #[doc = "Register `BOOT_CFG` writer"]
 pub type W = crate::W<BootCfgSpec>;
 #[doc = "Default ISP mode:\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum DefaultIspMode {
@@ -115,6 +116,7 @@ where
     }
 }
 #[doc = "Core clock:\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum BootSpeed {
@@ -193,6 +195,15 @@ impl R {
     #[inline(always)]
     pub fn boot_failure_pin(&self) -> BootFailurePinR {
         BootFailurePinR::new(((self.bits >> 24) & 0xff) as u8)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("BOOT_CFG")
+            .field("default_isp_mode", &self.default_isp_mode())
+            .field("boot_speed", &self.boot_speed())
+            .field("boot_failure_pin", &self.boot_failure_pin())
+            .finish()
     }
 }
 impl W {

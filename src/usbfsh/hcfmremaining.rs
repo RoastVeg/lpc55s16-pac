@@ -18,6 +18,14 @@ impl R {
         FrtR::new(((self.bits >> 31) & 1) != 0)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("HCFMREMAINING")
+            .field("fr", &self.fr())
+            .field("frt", &self.frt())
+            .finish()
+    }
+}
 impl W {}
 #[doc = "A 14-bit counter showing the bit time remaining in the current frame\n\nYou can [`read`](crate::Reg::read) this register and get [`hcfmremaining::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`hcfmremaining::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct HcfmremainingSpec;

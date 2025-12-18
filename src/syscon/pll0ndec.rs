@@ -22,6 +22,14 @@ impl R {
         NreqR::new(((self.bits >> 8) & 1) != 0)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PLL0NDEC")
+            .field("ndiv", &self.ndiv())
+            .field("nreq", &self.nreq())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:7 - pre-divider divider ratio (N-divider)."]
     #[inline(always)]

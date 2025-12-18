@@ -2,6 +2,11 @@
 pub type W = crate::W<KeyBlockSpec>;
 #[doc = "Field `KEY_BLOCK` writer - Write a value to block quiddikey/PUF all index."]
 pub type KeyBlockW<'a, REG> = crate::FieldWriter<'a, REG, 32, u32>;
+impl core::fmt::Debug for crate::generic::Reg<KeyBlockSpec> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "(not readable)")
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - Write a value to block quiddikey/PUF all index."]
     #[inline(always)]

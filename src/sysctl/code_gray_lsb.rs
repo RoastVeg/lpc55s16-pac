@@ -13,6 +13,13 @@ impl R {
         CodeGrayLsbR::new(self.bits)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("CODE_GRAY_LSB")
+            .field("code_gray_lsb", &self.code_gray_lsb())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - Gray code (42bits) to be converted back to binary"]
     #[inline(always)]

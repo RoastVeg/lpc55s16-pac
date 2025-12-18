@@ -2,6 +2,11 @@
 pub type W = crate::W<Dma0ItrigEnaSetSpec>;
 #[doc = "Field `SET` writer - Write : If bit #i = 1, bit #i in DMA0_ITRIG_ENA register is set to 1; if bit #i = 0 , no change in DMA0_ITRIG_ENA register"]
 pub type SetW<'a, REG> = crate::FieldWriter<'a, REG, 22, u32>;
+impl core::fmt::Debug for crate::generic::Reg<Dma0ItrigEnaSetSpec> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "(not readable)")
+    }
+}
 impl W {
     #[doc = "Bits 0:21 - Write : If bit #i = 1, bit #i in DMA0_ITRIG_ENA register is set to 1; if bit #i = 0 , no change in DMA0_ITRIG_ENA register"]
     #[inline(always)]

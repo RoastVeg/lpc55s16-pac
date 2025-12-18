@@ -67,6 +67,19 @@ impl R {
         CodeoutavailenR::new(((self.bits >> 7) & 1) != 0)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("INTEN")
+            .field("readyen", &self.readyen())
+            .field("succesen", &self.succesen())
+            .field("erroren", &self.erroren())
+            .field("keyinreqen", &self.keyinreqen())
+            .field("keyoutavailen", &self.keyoutavailen())
+            .field("codeinreqen", &self.codeinreqen())
+            .field("codeoutavailen", &self.codeoutavailen())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Enable corresponding interrupt. Note that bit numbers match those assigned in QK_SR (Quiddikey Status Register)"]
     #[inline(always)]

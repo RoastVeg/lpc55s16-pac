@@ -58,6 +58,18 @@ impl R {
         Xo32kXoutCapcal8pfR::new(((self.bits >> 23) & 0x7f) as u8)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("XO_32KHZ")
+            .field("xo32k_xin_trim_valid", &self.xo32k_xin_trim_valid())
+            .field("xo32k_xin_capcal_6pf", &self.xo32k_xin_capcal_6pf())
+            .field("xo32k_xin_capcal_8pf", &self.xo32k_xin_capcal_8pf())
+            .field("xo32k_xout_trim_valid", &self.xo32k_xout_trim_valid())
+            .field("xo32k_xout_capcal_6pf", &self.xo32k_xout_capcal_6pf())
+            .field("xo32k_xout_capcal_8pf", &self.xo32k_xout_capcal_8pf())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - no description available"]
     #[inline(always)]

@@ -13,6 +13,13 @@ impl R {
         DisRomHidingR::new(self.bits)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DIS_ROM_HIDING")
+            .field("dis_rom_hiding", &self.dis_rom_hiding())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - When 0x3CC35AA5 ROM hiding feture is disabled. All other values critical ROM is hidden."]
     #[inline(always)]

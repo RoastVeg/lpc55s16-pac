@@ -13,6 +13,13 @@ impl R {
         WaferR::new((self.bits & 0xff) as u8)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("ECID_BACKUP_ECID_BACKUP_1")
+            .field("wafer", &self.wafer())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:7 - no description available"]
     #[inline(always)]

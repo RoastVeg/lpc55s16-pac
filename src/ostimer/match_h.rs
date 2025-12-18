@@ -13,6 +13,13 @@ impl R {
         MatchValueR::new((self.bits & 0x03ff) as u16)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("MATCH_H")
+            .field("match_value", &self.match_value())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:9 - The value written (upper 10 bits) to the MATCH (L/H) register pair is compared against the central EVTIMER. When a match occurs, an interrupt request is generated if enabled."]
     #[inline(always)]

@@ -15,6 +15,7 @@ pub type SelpR = crate::FieldReader;
 #[doc = "Field `SELP` writer - Bandwidth select P value."]
 pub type SelpW<'a, REG> = crate::FieldWriter<'a, REG, 5>;
 #[doc = "Bypass PLL input clock is sent directly to the PLL output (default).\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Bypasspll {
     #[doc = "0: use PLL."]
@@ -68,6 +69,7 @@ where
     }
 }
 #[doc = "bypass of the divide-by-2 divider in the post-divider.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Bypasspostdiv2 {
     #[doc = "0: use the divide-by-2 divider in the post-divider."]
@@ -125,6 +127,7 @@ pub type LimupoffR = crate::BitReader;
 #[doc = "Field `LIMUPOFF` writer - limup_off = 1 in spread spectrum and fractional PLL applications."]
 pub type LimupoffW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "control of the bandwidth of the PLL.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Bwdirect {
     #[doc = "0: the bandwidth is changed synchronously with the feedback-divider."]
@@ -178,6 +181,7 @@ where
     }
 }
 #[doc = "bypass of the pre-divider.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Bypassprediv {
     #[doc = "0: use the pre-divider."]
@@ -231,6 +235,7 @@ where
     }
 }
 #[doc = "bypass of the post-divider.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Bypasspostdiv {
     #[doc = "0: use the post-divider."]
@@ -284,6 +289,7 @@ where
     }
 }
 #[doc = "enable the output clock.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Clken {
     #[doc = "0: Disable the output clock."]
@@ -345,6 +351,7 @@ pub type FrmclkstableR = crate::BitReader;
 #[doc = "Field `FRMCLKSTABLE` writer - free running mode clockstable: Warning: Only make frm_clockstable = 1 after the PLL output frequency is stable."]
 pub type FrmclkstableW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Skew mode.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Skewen {
     #[doc = "0: skewmode is disable."]
@@ -462,6 +469,25 @@ impl R {
     #[inline(always)]
     pub fn skewen(&self) -> SkewenR {
         SkewenR::new(((self.bits >> 24) & 1) != 0)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PLL1CTRL")
+            .field("selr", &self.selr())
+            .field("seli", &self.seli())
+            .field("selp", &self.selp())
+            .field("bypasspll", &self.bypasspll())
+            .field("bypasspostdiv2", &self.bypasspostdiv2())
+            .field("limupoff", &self.limupoff())
+            .field("bwdirect", &self.bwdirect())
+            .field("bypassprediv", &self.bypassprediv())
+            .field("bypasspostdiv", &self.bypasspostdiv())
+            .field("clken", &self.clken())
+            .field("frmen", &self.frmen())
+            .field("frmclkstable", &self.frmclkstable())
+            .field("skewen", &self.skewen())
+            .finish()
     }
 }
 impl W {

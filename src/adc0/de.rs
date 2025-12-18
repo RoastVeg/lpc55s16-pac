@@ -3,6 +3,7 @@ pub type R = crate::R<DeSpec>;
 #[doc = "Register `DE` writer"]
 pub type W = crate::W<DeSpec>;
 #[doc = "FIFO 0 Watermark DMA Enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Fwmde0 {
     #[doc = "0: DMA request disabled."]
@@ -56,6 +57,7 @@ where
     }
 }
 #[doc = "FIFO1 Watermark DMA Enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Fwmde1 {
     #[doc = "0: DMA request disabled."]
@@ -118,6 +120,14 @@ impl R {
     #[inline(always)]
     pub fn fwmde1(&self) -> Fwmde1R {
         Fwmde1R::new(((self.bits >> 1) & 1) != 0)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DE")
+            .field("fwmde0", &self.fwmde0())
+            .field("fwmde1", &self.fwmde1())
+            .finish()
     }
 }
 impl W {

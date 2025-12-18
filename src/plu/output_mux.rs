@@ -3,6 +3,7 @@ pub type R = crate::R<OutputMuxSpec>;
 #[doc = "Register `OUTPUT_MUX[%s]` writer"]
 pub type W = crate::W<OutputMuxSpec>;
 #[doc = "Selects the source to be connected to PLU Output 0.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Outputn {
@@ -431,6 +432,13 @@ impl R {
     #[inline(always)]
     pub fn outputn(&self) -> OutputnR {
         OutputnR::new((self.bits & 0x1f) as u8)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("OUTPUT_MUX")
+            .field("outputn", &self.outputn())
+            .finish()
     }
 }
 impl W {

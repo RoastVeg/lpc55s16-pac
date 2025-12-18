@@ -3,6 +3,7 @@ pub type R = crate::R<HashresthwkeySpec>;
 #[doc = "Register `HASHRESTHWKEY` writer"]
 pub type W = crate::W<HashresthwkeySpec>;
 #[doc = "Code value that controls whether HASH AES hardware secret key is unlocked\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u32)]
 pub enum Unlockcode {
@@ -54,6 +55,13 @@ impl R {
     #[inline(always)]
     pub fn unlockcode(&self) -> UnlockcodeR {
         UnlockcodeR::new(self.bits)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("HASHRESTHWKEY")
+            .field("unlockcode", &self.unlockcode())
+            .finish()
     }
 }
 impl W {

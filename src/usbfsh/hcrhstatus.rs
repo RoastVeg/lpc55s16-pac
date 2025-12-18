@@ -58,6 +58,18 @@ impl R {
         CrweR::new(((self.bits >> 31) & 1) != 0)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("HCRHSTATUS")
+            .field("lps", &self.lps())
+            .field("oci", &self.oci())
+            .field("drwe", &self.drwe())
+            .field("lpsc", &self.lpsc())
+            .field("ocic", &self.ocic())
+            .field("crwe", &self.crwe())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - (read) LocalPowerStatus The Root Hub does not support the local power status feature; thus, this bit is always read as 0."]
     #[inline(always)]

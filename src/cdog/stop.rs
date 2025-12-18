@@ -2,6 +2,11 @@
 pub type W = crate::W<StopSpec>;
 #[doc = "Field `STP` writer - Address of stop command access"]
 pub type StpW<'a, REG> = crate::FieldWriter<'a, REG, 32, u32>;
+impl core::fmt::Debug for crate::generic::Reg<StopSpec> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "(not readable)")
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - Address of stop command access"]
     #[inline(always)]

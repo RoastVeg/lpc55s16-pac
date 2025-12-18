@@ -22,6 +22,14 @@ impl R {
         FieldR::new((self.bits >> 1) & 0x7fff_ffff)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("GPO1_GPO1_2")
+            .field("hvst", &self.hvst())
+            .field("field", &self.field())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - High Voltage Stress: 0=not done; 1=done."]
     #[inline(always)]

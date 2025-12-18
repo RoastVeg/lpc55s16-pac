@@ -3,6 +3,7 @@ pub type R = crate::R<ResetctrlSpec>;
 #[doc = "Register `RESETCTRL` writer"]
 pub type W = crate::W<ResetctrlSpec>;
 #[doc = "Wake-up from DEEP POWER DOWN reset event (either from wake up I/O or RTC or OS Event Timer).\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Dpdwakeupresetenable {
     #[doc = "0: Reset event from DEEP POWER DOWN mode is disable."]
@@ -56,6 +57,7 @@ where
     }
 }
 #[doc = "Software reset enable.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Swrresetenable {
     #[doc = "0: Software reset is disable."]
@@ -109,6 +111,7 @@ where
     }
 }
 #[doc = "BOD VBAT reset enable.\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum BodvbatresetenaSecure {
@@ -169,6 +172,7 @@ where
     }
 }
 #[doc = "BOD Core reset enable.\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum BodcoreresetenaSecure {
@@ -229,6 +233,7 @@ where
     }
 }
 #[doc = "BOD VBAT reset enable.\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum BodvbatresetenaSecureDp {
@@ -290,6 +295,7 @@ where
     }
 }
 #[doc = "BOD Core reset enable.\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum BodcoreresetenaSecureDp {
@@ -380,6 +386,24 @@ impl R {
     #[inline(always)]
     pub fn bodcoreresetena_secure_dp(&self) -> BodcoreresetenaSecureDpR {
         BodcoreresetenaSecureDpR::new(((self.bits >> 30) & 3) as u8)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RESETCTRL")
+            .field("dpdwakeupresetenable", &self.dpdwakeupresetenable())
+            .field("swrresetenable", &self.swrresetenable())
+            .field("bodvbatresetena_secure", &self.bodvbatresetena_secure())
+            .field("bodcoreresetena_secure", &self.bodcoreresetena_secure())
+            .field(
+                "bodvbatresetena_secure_dp",
+                &self.bodvbatresetena_secure_dp(),
+            )
+            .field(
+                "bodcoreresetena_secure_dp",
+                &self.bodcoreresetena_secure_dp(),
+            )
+            .finish()
     }
 }
 impl W {

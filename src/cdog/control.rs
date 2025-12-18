@@ -85,6 +85,21 @@ impl R {
         DebugHaltCtrlR::new(((self.bits >> 30) & 3) as u8)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("CONTROL")
+            .field("lock_ctrl", &self.lock_ctrl())
+            .field("timeout_ctrl", &self.timeout_ctrl())
+            .field("miscompare_ctrl", &self.miscompare_ctrl())
+            .field("sequence_ctrl", &self.sequence_ctrl())
+            .field("control_ctrl", &self.control_ctrl())
+            .field("state_ctrl", &self.state_ctrl())
+            .field("address_ctrl", &self.address_ctrl())
+            .field("irq_pause", &self.irq_pause())
+            .field("debug_halt_ctrl", &self.debug_halt_ctrl())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:1 - Lock control field"]
     #[inline(always)]

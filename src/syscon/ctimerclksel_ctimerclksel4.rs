@@ -3,6 +3,7 @@ pub type R = crate::R<CtimerclkselCtimerclksel4Spec>;
 #[doc = "Register `CTIMERCLKSEL4` writer"]
 pub type W = crate::W<CtimerclkselCtimerclksel4Spec>;
 #[doc = "CTimer 4 clock source select.\n\nValue on reset: 7"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Sel {
@@ -145,6 +146,13 @@ impl R {
     #[inline(always)]
     pub fn sel(&self) -> SelR {
         SelR::new((self.bits & 7) as u8)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("CTIMERCLKSEL_CTIMERCLKSEL4")
+            .field("sel", &self.sel())
+            .finish()
     }
 }
 impl W {

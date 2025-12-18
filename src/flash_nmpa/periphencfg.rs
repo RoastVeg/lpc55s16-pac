@@ -22,6 +22,14 @@ impl R {
         Cpu1EnableR::new(((self.bits >> 31) & 1) != 0)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PERIPHENCFG")
+            .field("peripheral_configuration", &self.peripheral_configuration())
+            .field("cpu1_enable", &self.cpu1_enable())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:15 - no description available"]
     #[inline(always)]

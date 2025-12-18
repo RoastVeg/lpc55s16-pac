@@ -3,6 +3,7 @@ pub type R = crate::R<SecCtrlApbBridge1MemCtrl1Spec>;
 #[doc = "Register `SEC_CTRL_APB_BRIDGE1_MEM_CTRL1` writer"]
 pub type W = crate::W<SecCtrlApbBridge1MemCtrl1Spec>;
 #[doc = "Standard counter/Timer 2\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Ctimer2Rule {
@@ -89,6 +90,7 @@ where
     }
 }
 #[doc = "Standard counter/Timer 3\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Ctimer3Rule {
@@ -175,6 +177,7 @@ where
     }
 }
 #[doc = "Standard counter/Timer 4\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Ctimer4Rule {
@@ -261,6 +264,7 @@ where
     }
 }
 #[doc = "Real Time Counter\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum RtcRule {
@@ -347,6 +351,7 @@ where
     }
 }
 #[doc = "OS Event Timer\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum OseventRule {
@@ -457,6 +462,17 @@ impl R {
     #[inline(always)]
     pub fn osevent_rule(&self) -> OseventRuleR {
         OseventRuleR::new(((self.bits >> 20) & 3) as u8)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SEC_CTRL_APB_BRIDGE1_MEM_CTRL1")
+            .field("ctimer2_rule", &self.ctimer2_rule())
+            .field("ctimer3_rule", &self.ctimer3_rule())
+            .field("ctimer4_rule", &self.ctimer4_rule())
+            .field("rtc_rule", &self.rtc_rule())
+            .field("osevent_rule", &self.osevent_rule())
+            .finish()
     }
 }
 impl W {

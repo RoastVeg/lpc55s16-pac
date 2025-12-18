@@ -1,4 +1,5 @@
 #[repr(C)]
+#[derive(Debug)]
 #[doc = "no description available"]
 #[doc(alias = "EV")]
 pub struct Ev {

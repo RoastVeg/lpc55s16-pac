@@ -274,6 +274,42 @@ impl R {
         AralR::new(((self.bits >> 29) & 1) != 0)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("ILS")
+            .field("rf0nl", &self.rf0nl())
+            .field("rf0wl", &self.rf0wl())
+            .field("rf0fl", &self.rf0fl())
+            .field("rf0ll", &self.rf0ll())
+            .field("rf1nl", &self.rf1nl())
+            .field("rf1wl", &self.rf1wl())
+            .field("rf1fl", &self.rf1fl())
+            .field("rf1ll", &self.rf1ll())
+            .field("hpml", &self.hpml())
+            .field("tcl", &self.tcl())
+            .field("tcfl", &self.tcfl())
+            .field("tfel", &self.tfel())
+            .field("tefnl", &self.tefnl())
+            .field("tefwl", &self.tefwl())
+            .field("teffl", &self.teffl())
+            .field("tefll", &self.tefll())
+            .field("tswl", &self.tswl())
+            .field("mrafl", &self.mrafl())
+            .field("tool", &self.tool())
+            .field("drxl", &self.drxl())
+            .field("becl", &self.becl())
+            .field("beul", &self.beul())
+            .field("elol", &self.elol())
+            .field("epl", &self.epl())
+            .field("ewl", &self.ewl())
+            .field("bol", &self.bol())
+            .field("wdil", &self.wdil())
+            .field("peal", &self.peal())
+            .field("pedl", &self.pedl())
+            .field("aral", &self.aral())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Rx FIFO 0 new message interrupt line."]
     #[inline(always)]

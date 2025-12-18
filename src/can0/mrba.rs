@@ -13,6 +13,11 @@ impl R {
         BaR::new(((self.bits >> 16) & 0xffff) as u16)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("MRBA").field("ba", &self.ba()).finish()
+    }
+}
 impl W {
     #[doc = "Bits 16:31 - Base address for the message RAM in the chip memory map."]
     #[inline(always)]

@@ -13,6 +13,11 @@ impl R {
         EidmR::new(self.bits & 0x1fff_ffff)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("XIDAM").field("eidm", &self.eidm()).finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:28 - Extended ID mask."]
     #[inline(always)]

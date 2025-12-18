@@ -5,6 +5,7 @@ pub type W = crate::W<StatusSpec>;
 #[doc = "Field `OK_STATUS_3V` reader - Indicates the USB 3v power rails are in range."]
 pub type OkStatus3vR = crate::BitReader;
 #[doc = "Indicates at the local host (downstream) port that the remote device has disconnected while in High-Speed mode\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum HostdiscondetectStatus {
     #[doc = "0: USB cable disconnect has not been detected at the local host"]
@@ -41,6 +42,7 @@ impl HostdiscondetectStatusR {
     }
 }
 #[doc = "Status indicator for non-standard resistive plugged-in detection Indicates that the device has been connected on the USB_DP and USB_DM lines using the nonstandard resistive plugged-in detection method controlled by CTRL\\[4\\]\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum DevpluginStatus {
     #[doc = "0: No attachment to a USB host is detected"]
@@ -98,6 +100,16 @@ impl R {
     #[inline(always)]
     pub fn resume_status(&self) -> ResumeStatusR {
         ResumeStatusR::new(((self.bits >> 10) & 1) != 0)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("STATUS")
+            .field("ok_status_3v", &self.ok_status_3v())
+            .field("hostdiscondetect_status", &self.hostdiscondetect_status())
+            .field("devplugin_status", &self.devplugin_status())
+            .field("resume_status", &self.resume_status())
+            .finish()
     }
 }
 impl W {}

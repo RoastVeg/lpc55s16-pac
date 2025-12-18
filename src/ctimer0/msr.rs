@@ -13,6 +13,13 @@ impl R {
         ShadowR::new(self.bits)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("MSR")
+            .field("shadow", &self.shadow())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - Timer counter match shadow value."]
     #[inline(always)]

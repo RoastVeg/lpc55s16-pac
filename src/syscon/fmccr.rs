@@ -3,6 +3,7 @@ pub type R = crate::R<FmccrSpec>;
 #[doc = "Register `FMCCR` writer"]
 pub type W = crate::W<FmccrSpec>;
 #[doc = "Instruction fetch configuration.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Fetchcfg {
@@ -76,6 +77,7 @@ where
     }
 }
 #[doc = "Data read configuration.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Datacfg {
@@ -149,6 +151,7 @@ where
     }
 }
 #[doc = "Acceleration enable.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Accel {
     #[doc = "0: Flash acceleration is disabled."]
@@ -202,6 +205,7 @@ where
     }
 }
 #[doc = "Prefetch enable.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Prefen {
     #[doc = "0: No instruction prefetch is performed."]
@@ -255,6 +259,7 @@ where
     }
 }
 #[doc = "Prefetch override.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Prefovr {
     #[doc = "0: Any previously initiated prefetch will be completed."]
@@ -308,6 +313,7 @@ where
     }
 }
 #[doc = "Flash memory access time.\n\nValue on reset: 2"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Flashtim {
@@ -527,6 +533,18 @@ impl R {
     #[inline(always)]
     pub fn flashtim(&self) -> FlashtimR {
         FlashtimR::new(((self.bits >> 12) & 0x0f) as u8)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("FMCCR")
+            .field("fetchcfg", &self.fetchcfg())
+            .field("datacfg", &self.datacfg())
+            .field("accel", &self.accel())
+            .field("prefen", &self.prefen())
+            .field("prefovr", &self.prefovr())
+            .field("flashtim", &self.flashtim())
+            .finish()
     }
 }
 impl W {

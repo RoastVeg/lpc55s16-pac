@@ -5,6 +5,7 @@ pub type W = crate::W<StatusclkSpec>;
 #[doc = "Field `XTAL32KOK` reader - XTAL oscillator 32 K OK signal."]
 pub type Xtal32kokR = crate::BitReader;
 #[doc = "XTAL32 KHZ oscillator oscillation failure detection indicator.\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Xtal32koscfailure {
     #[doc = "0: No oscillation failure has been detetced since the last time this bit has been cleared."]
@@ -67,6 +68,14 @@ impl R {
     #[inline(always)]
     pub fn xtal32koscfailure(&self) -> Xtal32koscfailureR {
         Xtal32koscfailureR::new(((self.bits >> 2) & 1) != 0)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("STATUSCLK")
+            .field("xtal32kok", &self.xtal32kok())
+            .field("xtal32koscfailure", &self.xtal32koscfailure())
+            .finish()
     }
 }
 impl W {

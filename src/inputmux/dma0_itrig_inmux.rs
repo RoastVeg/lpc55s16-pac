@@ -3,6 +3,7 @@ pub type R = crate::R<Dma0ItrigInmuxSpec>;
 #[doc = "Register `DMA0_ITRIG_INMUX[%s]` writer"]
 pub type W = crate::W<Dma0ItrigInmuxSpec>;
 #[doc = "Trigger input number (decimal value) for DMA channel n (n = 0 to 22).\n\nValue on reset: 31"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Inp {
@@ -457,6 +458,13 @@ impl R {
     #[inline(always)]
     pub fn inp(&self) -> InpR {
         InpR::new((self.bits & 0x1f) as u8)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DMA0_ITRIG_INMUX")
+            .field("inp", &self.inp())
+            .finish()
     }
 }
 impl W {

@@ -3,6 +3,7 @@ pub type R = crate::R<Rtcosc32kSpec>;
 #[doc = "Register `RTCOSC32K` writer"]
 pub type W = crate::W<Rtcosc32kSpec>;
 #[doc = "Select the 32K oscillator to be used in Deep Power Down Mode for the RTC (either XTAL32KHz or FRO32KHz) .\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Sel {
     #[doc = "0: FRO 32 KHz."]
@@ -105,6 +106,18 @@ impl R {
     #[inline(always)]
     pub fn clk1hzdivupdatereq(&self) -> Clk1hzdivupdatereqR {
         Clk1hzdivupdatereqR::new(((self.bits >> 31) & 1) != 0)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RTCOSC32K")
+            .field("sel", &self.sel())
+            .field("clk1khzdiv", &self.clk1khzdiv())
+            .field("clk1khzdivupdatereq", &self.clk1khzdivupdatereq())
+            .field("clk1hzdiv", &self.clk1hzdiv())
+            .field("clk1hzdivhalt", &self.clk1hzdivhalt())
+            .field("clk1hzdivupdatereq", &self.clk1hzdivupdatereq())
+            .finish()
     }
 }
 impl W {

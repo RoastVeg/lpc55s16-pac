@@ -3,6 +3,7 @@ pub type R = crate::R<ClkoutselSpec>;
 #[doc = "Register `CLKOUTSEL` writer"]
 pub type W = crate::W<ClkoutselSpec>;
 #[doc = "CLKOUT clock source select.\n\nValue on reset: 15"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Sel {
@@ -197,6 +198,13 @@ impl R {
     #[inline(always)]
     pub fn sel(&self) -> SelR {
         SelR::new((self.bits & 0x0f) as u8)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("CLKOUTSEL")
+            .field("sel", &self.sel())
+            .finish()
     }
 }
 impl W {

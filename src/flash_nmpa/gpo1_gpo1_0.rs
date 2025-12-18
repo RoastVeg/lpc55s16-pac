@@ -76,6 +76,23 @@ impl R {
         MetalRevisionIdR::new(((self.bits >> 28) & 0x0f) as u8)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("GPO1_GPO1_0")
+            .field("final_test_not_done", &self.final_test_not_done())
+            .field("partconfig", &self.partconfig())
+            .field("device_type_sec", &self.device_type_sec())
+            .field("sram_size", &self.sram_size())
+            .field(
+                "cpu0_security_extension_disable",
+                &self.cpu0_security_extension_disable(),
+            )
+            .field("field", &self.field())
+            .field("rom_revision_minor", &self.rom_revision_minor())
+            .field("metal_revision_id", &self.metal_revision_id())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:3 - FINAL_TEST_NOT_DONE\\[3:0\\]: 1010 : Final Test Not Done. All Other values: Final Test Done."]
     #[inline(always)]

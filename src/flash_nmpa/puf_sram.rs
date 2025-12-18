@@ -15,6 +15,7 @@ pub type CkgatingR = crate::BitReader;
 #[doc = "Field `ckgating` writer - PUF SRAM Clock Gating control"]
 pub type CkgatingW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Source Biasing voltage.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Smb {
@@ -192,6 +193,24 @@ impl R {
     #[inline(always)]
     pub fn stbp(&self) -> StbpR {
         StbpR::new(((self.bits >> 25) & 1) != 0)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PUF_SRAM")
+            .field("puf_sram_valid", &self.puf_sram_valid())
+            .field("mode", &self.mode())
+            .field("ckgating", &self.ckgating())
+            .field("smb", &self.smb())
+            .field("rm", &self.rm())
+            .field("wm", &self.wm())
+            .field("wrme", &self.wrme())
+            .field("raen", &self.raen())
+            .field("ram", &self.ram())
+            .field("waen", &self.waen())
+            .field("wam", &self.wam())
+            .field("stbp", &self.stbp())
+            .finish()
     }
 }
 impl W {

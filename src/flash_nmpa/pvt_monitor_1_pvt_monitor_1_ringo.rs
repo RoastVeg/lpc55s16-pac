@@ -22,6 +22,14 @@ impl R {
         RingoFreqHzR::new((self.bits >> 1) & 0x7fff_ffff)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PVT_MONITOR_1_PVT_MONITOR_1_RINGO")
+            .field("ringo_valid", &self.ringo_valid())
+            .field("ringo_freq_hz", &self.ringo_freq_hz())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - no description available"]
     #[inline(always)]

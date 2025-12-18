@@ -32,6 +32,16 @@ impl R {
         AllowgetkeyR::new(((self.bits >> 3) & 1) != 0)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("ALLOW")
+            .field("allowenroll", &self.allowenroll())
+            .field("allowstart", &self.allowstart())
+            .field("allowsetkey", &self.allowsetkey())
+            .field("allowgetkey", &self.allowgetkey())
+            .finish()
+    }
+}
 impl W {}
 #[doc = "PUF Allow register\n\nYou can [`read`](crate::Reg::read) this register and get [`allow::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`allow::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct AllowSpec;

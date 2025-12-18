@@ -3,6 +3,7 @@ pub type R = crate::R<Fro192mCtrlSpec>;
 #[doc = "Register `FRO192M_CTRL` writer"]
 pub type W = crate::W<Fro192mCtrlSpec>;
 #[doc = "12 MHz clock control.\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Ena12mhzclk {
     #[doc = "0: 12 MHz clock is disabled."]
@@ -66,6 +67,7 @@ pub type UsbclkadjW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `USBMODCHG` reader - If it reads as 1 when reading the DAC_TRIM field and USBCLKADJ=1, it should be re-read until it is 0."]
 pub type UsbmodchgR = crate::BitReader;
 #[doc = "96 MHz clock control.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Ena96mhzclk {
     #[doc = "0: 96 MHz clock is disabled."]
@@ -145,6 +147,17 @@ impl R {
     #[inline(always)]
     pub fn ena_96mhzclk(&self) -> Ena96mhzclkR {
         Ena96mhzclkR::new(((self.bits >> 30) & 1) != 0)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("FRO192M_CTRL")
+            .field("ena_12mhzclk", &self.ena_12mhzclk())
+            .field("dac_trim", &self.dac_trim())
+            .field("usbclkadj", &self.usbclkadj())
+            .field("usbmodchg", &self.usbmodchg())
+            .field("ena_96mhzclk", &self.ena_96mhzclk())
+            .finish()
     }
 }
 impl W {

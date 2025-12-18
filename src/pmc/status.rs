@@ -3,6 +3,7 @@ pub type R = crate::R<StatusSpec>;
 #[doc = "Register `STATUS` writer"]
 pub type W = crate::W<StatusSpec>;
 #[doc = "Power Management Controller Main Finite State Machine (FSM) status.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Fsmmain {
@@ -85,6 +86,7 @@ pub type FsmpwdnR = crate::FieldReader;
 #[doc = "Field `FSMDPWD` reader - DEEP POWER DOWN Finite State Machine (FSM) status."]
 pub type FsmdpwdR = crate::FieldReader;
 #[doc = "Latest IC Boot cause:.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Bootmode {
@@ -179,6 +181,19 @@ impl R {
     #[inline(always)]
     pub fn wafertestdonevect(&self) -> WafertestdonevectR {
         WafertestdonevectR::new(((self.bits >> 28) & 0x0f) as u8)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("STATUS")
+            .field("fsmmain", &self.fsmmain())
+            .field("fsmpwup", &self.fsmpwup())
+            .field("fsmdslp", &self.fsmdslp())
+            .field("fsmpwdn", &self.fsmpwdn())
+            .field("fsmdpwd", &self.fsmdpwd())
+            .field("bootmode", &self.bootmode())
+            .field("wafertestdonevect", &self.wafertestdonevect())
+            .finish()
     }
 }
 impl W {}

@@ -2,6 +2,11 @@
 pub type W = crate::W<KeymaskSpec>;
 #[doc = "Field `KEYMASK` writer - no description available"]
 pub type KeymaskW<'a, REG> = crate::FieldWriter<'a, REG, 32, u32>;
+impl core::fmt::Debug for crate::generic::Reg<KeymaskSpec> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "(not readable)")
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - no description available"]
     #[inline(always)]

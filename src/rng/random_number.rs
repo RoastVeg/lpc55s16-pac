@@ -9,6 +9,13 @@ impl R {
         RandomNumberR::new(self.bits)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RANDOM_NUMBER")
+            .field("random_number", &self.random_number())
+            .finish()
+    }
+}
 #[doc = "This register contains a random 32 bit number which is computed on demand, at each time it is read\n\nYou can [`read`](crate::Reg::read) this register and get [`random_number::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct RandomNumberSpec;
 impl crate::RegisterSpec for RandomNumberSpec {

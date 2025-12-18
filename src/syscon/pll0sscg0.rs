@@ -13,6 +13,13 @@ impl R {
         MdLbsR::new(self.bits)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PLL0SSCG0")
+            .field("md_lbs", &self.md_lbs())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - input word of the wrapper bit 31 to 0."]
     #[inline(always)]

@@ -39,6 +39,17 @@ impl R {
         Rf0lR::new(((self.bits >> 25) & 1) != 0)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RXF0S")
+            .field("f0fl", &self.f0fl())
+            .field("f0gi", &self.f0gi())
+            .field("f0pi", &self.f0pi())
+            .field("f0f", &self.f0f())
+            .field("rf0l", &self.rf0l())
+            .finish()
+    }
+}
 impl W {}
 #[doc = "Rx FIFO 0 Status\n\nYou can [`read`](crate::Reg::read) this register and get [`rxf0s::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rxf0s::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct Rxf0sSpec;

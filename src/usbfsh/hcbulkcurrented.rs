@@ -13,6 +13,13 @@ impl R {
         BcedR::new((self.bits >> 4) & 0x0fff_ffff)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("HCBULKCURRENTED")
+            .field("bced", &self.bced())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 4:31 - BulkCurrentED This is advanced to the next ED after the HC has served the current one."]
     #[inline(always)]

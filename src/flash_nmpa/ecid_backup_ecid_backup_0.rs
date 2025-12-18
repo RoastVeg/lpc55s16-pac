@@ -22,6 +22,14 @@ impl R {
         CoordXR::new(((self.bits >> 16) & 0xffff) as u16)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("ECID_BACKUP_ECID_BACKUP_0")
+            .field("coord_y", &self.coord_y())
+            .field("coord_x", &self.coord_x())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:15 - no description available"]
     #[inline(always)]

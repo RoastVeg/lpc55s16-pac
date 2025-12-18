@@ -121,6 +121,25 @@ impl R {
         ToffenableR::new(((self.bits >> 31) & 1) != 0)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DCDC_POWER_PROFILE_LOW_DCDC_POWER_PROFILE_LOW_1")
+            .field("rtrimoffet", &self.rtrimoffet())
+            .field("rsensetrim", &self.rsensetrim())
+            .field("dtestenable", &self.dtestenable())
+            .field("setcurve", &self.setcurve())
+            .field("setdc", &self.setdc())
+            .field("dtestsel", &self.dtestsel())
+            .field("iscaleenable", &self.iscaleenable())
+            .field("forcebypass", &self.forcebypass())
+            .field("trimautocot", &self.trimautocot())
+            .field("forcefullcycle", &self.forcefullcycle())
+            .field("lcenable", &self.lcenable())
+            .field("toff", &self.toff())
+            .field("toffenable", &self.toffenable())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:3 - Adjust the offset voltage of BJT based comparator."]
     #[inline(always)]

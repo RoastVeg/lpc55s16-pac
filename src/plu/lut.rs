@@ -1,9 +1,9 @@
 #[repr(C)]
+#[derive(Debug)]
 #[doc = "no description available"]
 #[doc(alias = "LUT")]
 pub struct Lut {
     lut_inp_mux: [LutInpMux; 5],
-    _reserved_end: [u8; 0x0c],
 }
 impl Lut {
     #[doc = "0x00..0x14 - LUTn input x MUX"]

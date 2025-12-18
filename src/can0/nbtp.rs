@@ -40,6 +40,16 @@ impl R {
         NsjwR::new(((self.bits >> 25) & 0x7f) as u8)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("NBTP")
+            .field("ntseg2", &self.ntseg2())
+            .field("ntseg1", &self.ntseg1())
+            .field("nbrp", &self.nbrp())
+            .field("nsjw", &self.nsjw())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:6 - Nominal time segment after sample point."]
     #[inline(always)]

@@ -3,6 +3,7 @@ pub type R = crate::R<LutInpMuxSpec>;
 #[doc = "Register `LUT_INP_MUX%s` writer"]
 pub type W = crate::W<LutInpMuxSpec>;
 #[doc = "Selects the input source to be connected to LUT0 input0. For each LUT, the slot associated with the output from LUTn itself is tied low.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum LutnInpx {
@@ -509,6 +510,13 @@ impl R {
     #[inline(always)]
     pub fn lutn_inpx(&self) -> LutnInpxR {
         LutnInpxR::new((self.bits & 0x3f) as u8)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LUT_INP_MUX")
+            .field("lutn_inpx", &self.lutn_inpx())
+            .finish()
     }
 }
 impl W {

@@ -9,6 +9,13 @@ impl R {
         RomRevMinorR::new(((self.bits >> 20) & 0x0f) as u8)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DEVICE_ID0")
+            .field("rom_rev_minor", &self.rom_rev_minor())
+            .finish()
+    }
+}
 #[doc = "Device ID\n\nYou can [`read`](crate::Reg::read) this register and get [`device_id0::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct DeviceId0Spec;
 impl crate::RegisterSpec for DeviceId0Spec {

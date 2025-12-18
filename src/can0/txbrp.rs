@@ -9,6 +9,11 @@ impl R {
         TrpR::new(self.bits)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("TXBRP").field("trp", &self.trp()).finish()
+    }
+}
 #[doc = "Tx Buffer Request Pending\n\nYou can [`read`](crate::Reg::read) this register and get [`txbrp::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct TxbrpSpec;
 impl crate::RegisterSpec for TxbrpSpec {

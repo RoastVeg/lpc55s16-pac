@@ -13,6 +13,11 @@ impl R {
         EtscR::new((self.bits & 0xffff) as u16)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("ETSCV").field("etsc", &self.etsc()).finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:15 - External timestamp counter."]
     #[inline(always)]

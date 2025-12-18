@@ -22,6 +22,14 @@ impl R {
         PpcmR::new(((self.bits >> 16) & 0xffff) as u16)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("HCRHDESCRIPTORB")
+            .field("dr", &self.dr())
+            .field("ppcm", &self.ppcm())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:15 - DeviceRemovable Each bit is dedicated to a port of the Root Hub."]
     #[inline(always)]

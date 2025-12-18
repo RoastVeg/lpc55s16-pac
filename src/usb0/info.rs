@@ -5,6 +5,7 @@ pub type W = crate::W<InfoSpec>;
 #[doc = "Field `FRAME_NR` reader - Frame number. This contains the frame number of the last successfully received SOF. In case no SOF was received by the device at the beginning of a frame, the frame number returned is that of the last successfully received SOF. In case the SOF frame number contained a CRC error, the frame number returned will be the corrupted frame number as received by the device."]
 pub type FrameNrR = crate::FieldReader<u16>;
 #[doc = "The error code which last occurred:\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum ErrCode {
@@ -270,6 +271,16 @@ impl R {
     #[inline(always)]
     pub fn majrev(&self) -> MajrevR {
         MajrevR::new(((self.bits >> 24) & 0xff) as u8)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("INFO")
+            .field("frame_nr", &self.frame_nr())
+            .field("err_code", &self.err_code())
+            .field("minrev", &self.minrev())
+            .field("majrev", &self.majrev())
+            .finish()
     }
 }
 impl W {

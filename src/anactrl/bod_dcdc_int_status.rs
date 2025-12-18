@@ -1,6 +1,7 @@
 #[doc = "Register `BOD_DCDC_INT_STATUS` reader"]
 pub type R = crate::R<BodDcdcIntStatusSpec>;
 #[doc = "BOD VBAT Interrupt status before Interrupt Enable.\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum BodvbatStatus {
     #[doc = "0: No interrupt pending.."]
@@ -37,6 +38,7 @@ impl BodvbatStatusR {
     }
 }
 #[doc = "BOD VBAT Interrupt status after Interrupt Enable.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum BodvbatIntStatus {
     #[doc = "0: No interrupt pending.."]
@@ -73,6 +75,7 @@ impl BodvbatIntStatusR {
     }
 }
 #[doc = "Current value of BOD VBAT power status output.\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum BodvbatVal {
     #[doc = "0: VBAT voltage level is below the threshold."]
@@ -109,6 +112,7 @@ impl BodvbatValR {
     }
 }
 #[doc = "BOD CORE Interrupt status before Interrupt Enable.\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum BodcoreStatus {
     #[doc = "0: No interrupt pending.."]
@@ -145,6 +149,7 @@ impl BodcoreStatusR {
     }
 }
 #[doc = "BOD CORE Interrupt status after Interrupt Enable.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum BodcoreIntStatus {
     #[doc = "0: No interrupt pending.."]
@@ -181,6 +186,7 @@ impl BodcoreIntStatusR {
     }
 }
 #[doc = "Current value of BOD CORE power status output.\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum BodcoreVal {
     #[doc = "0: CORE voltage level is below the threshold."]
@@ -217,6 +223,7 @@ impl BodcoreValR {
     }
 }
 #[doc = "DCDC Interrupt status before Interrupt Enable.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum DcdcStatus {
     #[doc = "0: No interrupt pending.."]
@@ -253,6 +260,7 @@ impl DcdcStatusR {
     }
 }
 #[doc = "DCDC Interrupt status after Interrupt Enable.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum DcdcIntStatus {
     #[doc = "0: No interrupt pending.."]
@@ -289,6 +297,7 @@ impl DcdcIntStatusR {
     }
 }
 #[doc = "Current value of DCDC power status output.\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum DcdcVal {
     #[doc = "0: DCDC output Voltage is below the targeted regulation level."]
@@ -369,6 +378,21 @@ impl R {
     #[inline(always)]
     pub fn dcdc_val(&self) -> DcdcValR {
         DcdcValR::new(((self.bits >> 8) & 1) != 0)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("BOD_DCDC_INT_STATUS")
+            .field("bodvbat_status", &self.bodvbat_status())
+            .field("bodvbat_int_status", &self.bodvbat_int_status())
+            .field("bodvbat_val", &self.bodvbat_val())
+            .field("bodcore_status", &self.bodcore_status())
+            .field("bodcore_int_status", &self.bodcore_int_status())
+            .field("bodcore_val", &self.bodcore_val())
+            .field("dcdc_status", &self.dcdc_status())
+            .field("dcdc_int_status", &self.dcdc_int_status())
+            .field("dcdc_val", &self.dcdc_val())
+            .finish()
     }
 }
 #[doc = "BoDs & DCDC interrupts status register\n\nYou can [`read`](crate::Reg::read) this register and get [`bod_dcdc_int_status::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

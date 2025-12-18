@@ -3,6 +3,7 @@ pub type R = crate::R<SecCtrlAhbPort8Slave0RuleSpec>;
 #[doc = "Register `SEC_CTRL_AHB_PORT8_SLAVE0_RULE` writer"]
 pub type W = crate::W<SecCtrlAhbPort8Slave0RuleSpec>;
 #[doc = "USB high Speed device registers\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum UsbHsDevRule {
@@ -89,6 +90,7 @@ where
     }
 }
 #[doc = "CRC engine\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum CrcRule {
@@ -175,6 +177,7 @@ where
     }
 }
 #[doc = "Flexcomm interface 5\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Flexcomm5Rule {
@@ -261,6 +264,7 @@ where
     }
 }
 #[doc = "Flexcomm interface 6\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Flexcomm6Rule {
@@ -366,6 +370,16 @@ impl R {
     #[inline(always)]
     pub fn flexcomm6_rule(&self) -> Flexcomm6RuleR {
         Flexcomm6RuleR::new(((self.bits >> 28) & 3) as u8)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SEC_CTRL_AHB_PORT8_SLAVE0_RULE")
+            .field("usb_hs_dev_rule", &self.usb_hs_dev_rule())
+            .field("crc_rule", &self.crc_rule())
+            .field("flexcomm5_rule", &self.flexcomm5_rule())
+            .field("flexcomm6_rule", &self.flexcomm6_rule())
+            .finish()
     }
 }
 impl W {

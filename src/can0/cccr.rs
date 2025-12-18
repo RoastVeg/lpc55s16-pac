@@ -130,6 +130,26 @@ impl R {
         NisoR::new(((self.bits >> 15) & 1) != 0)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("CCCR")
+            .field("init", &self.init())
+            .field("cce", &self.cce())
+            .field("asm", &self.asm())
+            .field("csa", &self.csa())
+            .field("csr", &self.csr())
+            .field("mon", &self.mon())
+            .field("dar", &self.dar())
+            .field("test", &self.test())
+            .field("fdoe", &self.fdoe())
+            .field("brse", &self.brse())
+            .field("pxhd", &self.pxhd())
+            .field("efbi", &self.efbi())
+            .field("txp", &self.txp())
+            .field("niso", &self.niso())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Initialization."]
     #[inline(always)]

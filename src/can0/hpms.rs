@@ -30,6 +30,16 @@ impl R {
         FlstR::new(((self.bits >> 15) & 1) != 0)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("HPMS")
+            .field("bidx", &self.bidx())
+            .field("msi", &self.msi())
+            .field("fidx", &self.fidx())
+            .field("flst", &self.flst())
+            .finish()
+    }
+}
 #[doc = "High Priority Message Status\n\nYou can [`read`](crate::Reg::read) this register and get [`hpms::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct HpmsSpec;
 impl crate::RegisterSpec for HpmsSpec {

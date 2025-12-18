@@ -13,6 +13,13 @@ impl R {
         IntpinR::new((self.bits & 0x3f) as u8)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PINTSECSEL")
+            .field("intpin", &self.intpin())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:5 - Pin number select for pin interrupt secure or pattern match engine input. For PIO0_x: INTPIN = x. PIO0_0 to PIO0_31 correspond to numbers 0 to 31."]
     #[inline(always)]

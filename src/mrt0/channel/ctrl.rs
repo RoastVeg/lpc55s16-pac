@@ -3,6 +3,7 @@ pub type R = crate::R<CtrlSpec>;
 #[doc = "Register `CTRL` writer"]
 pub type W = crate::W<CtrlSpec>;
 #[doc = "Enable the TIMERn interrupt.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Inten {
     #[doc = "0: Disabled. TIMERn interrupt is disabled."]
@@ -56,6 +57,7 @@ where
     }
 }
 #[doc = "Selects timer mode.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Mode {
@@ -138,6 +140,14 @@ impl R {
     #[inline(always)]
     pub fn mode(&self) -> ModeR {
         ModeR::new(((self.bits >> 1) & 3) as u8)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("CTRL")
+            .field("inten", &self.inten())
+            .field("mode", &self.mode())
+            .finish()
     }
 }
 impl W {

@@ -15,6 +15,7 @@ pub type Addr2PrgR = crate::FieldReader;
 #[doc = "Field `ADDR2_PRG` writer - Programmable portion of the base address of region 2"]
 pub type Addr2PrgW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "Lock PRINCE region0 settings\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum LockReg0 {
@@ -101,6 +102,7 @@ where
     }
 }
 #[doc = "Lock PRINCE region1 settings\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum LockReg1 {
@@ -187,6 +189,7 @@ where
     }
 }
 #[doc = "For PRINCE region0 enable checking whether all encrypted pages are erased together\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Reg0EraseCheckEn {
@@ -273,6 +276,7 @@ where
     }
 }
 #[doc = "For PRINCE region1 enable checking whether all encrypted pages are erased together\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Reg1EraseCheckEn {
@@ -359,6 +363,7 @@ where
     }
 }
 #[doc = "For PRINCE region2 enable checking whether all encrypted pages are erased together\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Reg2EraseCheckEn {
@@ -484,6 +489,20 @@ impl R {
     #[inline(always)]
     pub fn reg2_erase_check_en(&self) -> Reg2EraseCheckEnR {
         Reg2EraseCheckEnR::new(((self.bits >> 28) & 3) as u8)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PRINCE_BASE_ADDR")
+            .field("addr0_prg", &self.addr0_prg())
+            .field("addr1_prg", &self.addr1_prg())
+            .field("addr2_prg", &self.addr2_prg())
+            .field("lock_reg0", &self.lock_reg0())
+            .field("lock_reg1", &self.lock_reg1())
+            .field("reg0_erase_check_en", &self.reg0_erase_check_en())
+            .field("reg1_erase_check_en", &self.reg1_erase_check_en())
+            .field("reg2_erase_check_en", &self.reg2_erase_check_en())
+            .finish()
     }
 }
 impl W {

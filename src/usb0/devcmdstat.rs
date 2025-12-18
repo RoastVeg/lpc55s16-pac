@@ -15,6 +15,7 @@ pub type SetupR = crate::BitReader;
 #[doc = "Field `SETUP` writer - SETUP token received. If a SETUP token is received and acknowledged by the device, this bit is set. As long as this bit is set all received IN and OUT tokens will be NAKed by HW. SW must clear this bit by writing a one. If this bit is zero, HW will handle the tokens to the CTRL EP0 as indicated by the CTRL EP0 IN and OUT data information programmed by SW."]
 pub type SetupW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Forces the NEEDCLK output to always be on:\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum ForceNeedclk {
     #[doc = "0: USB_NEEDCLK has normal function."]
@@ -68,6 +69,7 @@ where
     }
 }
 #[doc = "LPM Supported:\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum LpmSup {
     #[doc = "0: LPM not supported."]
@@ -121,6 +123,7 @@ where
     }
 }
 #[doc = "Interrupt on NAK for interrupt and bulk OUT EP\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum IntonnakAo {
     #[doc = "0: Only acknowledged packets generate an interrupt"]
@@ -174,6 +177,7 @@ where
     }
 }
 #[doc = "Interrupt on NAK for interrupt and bulk IN EP\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum IntonnakAi {
     #[doc = "0: Only acknowledged packets generate an interrupt"]
@@ -227,6 +231,7 @@ where
     }
 }
 #[doc = "Interrupt on NAK for control OUT EP\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum IntonnakCo {
     #[doc = "0: Only acknowledged packets generate an interrupt"]
@@ -280,6 +285,7 @@ where
     }
 }
 #[doc = "Interrupt on NAK for control IN EP\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum IntonnakCi {
     #[doc = "0: Only acknowledged packets generate an interrupt"]
@@ -445,6 +451,29 @@ impl R {
     #[inline(always)]
     pub fn vbusdebounced(&self) -> VbusdebouncedR {
         VbusdebouncedR::new(((self.bits >> 28) & 1) != 0)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DEVCMDSTAT")
+            .field("dev_addr", &self.dev_addr())
+            .field("dev_en", &self.dev_en())
+            .field("setup", &self.setup())
+            .field("force_needclk", &self.force_needclk())
+            .field("lpm_sup", &self.lpm_sup())
+            .field("intonnak_ao", &self.intonnak_ao())
+            .field("intonnak_ai", &self.intonnak_ai())
+            .field("intonnak_co", &self.intonnak_co())
+            .field("intonnak_ci", &self.intonnak_ci())
+            .field("dcon", &self.dcon())
+            .field("dsus", &self.dsus())
+            .field("lpm_sus", &self.lpm_sus())
+            .field("lpm_rewp", &self.lpm_rewp())
+            .field("dcon_c", &self.dcon_c())
+            .field("dsus_c", &self.dsus_c())
+            .field("dres_c", &self.dres_c())
+            .field("vbusdebounced", &self.vbusdebounced())
+            .finish()
     }
 }
 impl W {

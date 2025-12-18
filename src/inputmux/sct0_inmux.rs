@@ -3,6 +3,7 @@ pub type R = crate::R<Sct0InmuxSpec>;
 #[doc = "Register `SCT0_INMUX[%s]` writer"]
 pub type W = crate::W<Sct0InmuxSpec>;
 #[doc = "Input number to SCT0 inputs 0 to 6..\n\nValue on reset: 31"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum InpN {
@@ -457,6 +458,13 @@ impl R {
     #[inline(always)]
     pub fn inp_n(&self) -> InpNR {
         InpNR::new((self.bits & 0x1f) as u8)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SCT0_INMUX")
+            .field("inp_n", &self.inp_n())
+            .finish()
     }
 }
 impl W {

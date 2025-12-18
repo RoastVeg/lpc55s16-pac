@@ -9,6 +9,11 @@ impl R {
         ActR::new(self.bits)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("ACTIVE0").field("act", &self.act()).finish()
+    }
+}
 #[doc = "Channel Active status for all DMA channels.\n\nYou can [`read`](crate::Reg::read) this register and get [`active0::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct Active0Spec;
 impl crate::RegisterSpec for Active0Spec {

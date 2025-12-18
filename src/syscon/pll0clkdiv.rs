@@ -7,6 +7,7 @@ pub type DivR = crate::FieldReader;
 #[doc = "Field `DIV` writer - Clock divider value."]
 pub type DivW<'a, REG> = crate::FieldWriter<'a, REG, 8>;
 #[doc = "Resets the divider counter.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Reset {
     #[doc = "0: Divider is not reset."]
@@ -38,6 +39,7 @@ where
     }
 }
 #[doc = "Halts the divider counter.\n\nValue on reset: 1"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Halt {
     #[doc = "0: Divider clock is running."]
@@ -91,6 +93,7 @@ where
     }
 }
 #[doc = "Divider status flag.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Reqflag {
     #[doc = "0: Divider clock is stable."]
@@ -141,6 +144,15 @@ impl R {
     #[inline(always)]
     pub fn reqflag(&self) -> ReqflagR {
         ReqflagR::new(((self.bits >> 31) & 1) != 0)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PLL0CLKDIV")
+            .field("div", &self.div())
+            .field("halt", &self.halt())
+            .field("reqflag", &self.reqflag())
+            .finish()
     }
 }
 impl W {

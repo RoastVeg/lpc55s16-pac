@@ -8,6 +8,8 @@ critical-section = { version = "1.0", optional = true }
 cortex-m = "0.7.7"
 cortex-m-rt = { version = "0.7.5", optional = true }
 vcell = "0.1.2"
+defmt = { version = "0.3", optional = true }
 
 [features]
 rt = ["cortex-m-rt/device"]
+defmt-03 = ["dep:defmt"]

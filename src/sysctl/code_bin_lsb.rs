@@ -9,6 +9,13 @@ impl R {
         CodeBinLsbR::new(self.bits)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("CODE_BIN_LSB")
+            .field("code_bin_lsb", &self.code_bin_lsb())
+            .finish()
+    }
+}
 #[doc = "CODE_BIN LSB output Register\n\nYou can [`read`](crate::Reg::read) this register and get [`code_bin_lsb::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct CodeBinLsbSpec;
 impl crate::RegisterSpec for CodeBinLsbSpec {

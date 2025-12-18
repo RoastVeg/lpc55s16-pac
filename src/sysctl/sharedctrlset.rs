@@ -3,6 +3,7 @@ pub type R = crate::R<SharedctrlsetSpec>;
 #[doc = "Register `SHAREDCTRLSET%s` writer"]
 pub type W = crate::W<SharedctrlsetSpec>;
 #[doc = "Selects the source for SCK of this shared signal set.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Sharedscksel {
@@ -141,6 +142,7 @@ where
     }
 }
 #[doc = "Selects the source for WS of this shared signal set.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Sharedwssel {
@@ -279,6 +281,7 @@ where
     }
 }
 #[doc = "Selects the source for DATA input for this shared signal set.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Shareddatasel {
@@ -417,6 +420,7 @@ where
     }
 }
 #[doc = "Controls FC0 contribution to SHAREDDATAOUT for this shared set.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Fc0dataouten {
     #[doc = "0: Data output from FC0 does not contribute to this shared set."]
@@ -470,6 +474,7 @@ where
     }
 }
 #[doc = "Controls FC1 contribution to SHAREDDATAOUT for this shared set.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Fc1dataouten {
     #[doc = "0: Data output from FC1 does not contribute to this shared set."]
@@ -523,6 +528,7 @@ where
     }
 }
 #[doc = "Controls FC2 contribution to SHAREDDATAOUT for this shared set.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Fc2dataouten {
     #[doc = "0: Data output from FC2 does not contribute to this shared set."]
@@ -576,6 +582,7 @@ where
     }
 }
 #[doc = "Controls FC4 contribution to SHAREDDATAOUT for this shared set.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Fc4dataouten {
     #[doc = "0: Data output from FC4 does not contribute to this shared set."]
@@ -629,6 +636,7 @@ where
     }
 }
 #[doc = "Controls FC5 contribution to SHAREDDATAOUT for this shared set.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Fc5dataouten {
     #[doc = "0: Data output from FC5 does not contribute to this shared set."]
@@ -682,6 +690,7 @@ where
     }
 }
 #[doc = "Controls FC6 contribution to SHAREDDATAOUT for this shared set.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Fc6dataouten {
     #[doc = "0: Data output from FC6 does not contribute to this shared set."]
@@ -735,6 +744,7 @@ where
     }
 }
 #[doc = "Controls FC7 contribution to SHAREDDATAOUT for this shared set.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Fc7dataouten {
     #[doc = "0: Data output from FC7 does not contribute to this shared set."]
@@ -837,6 +847,22 @@ impl R {
     #[inline(always)]
     pub fn fc7dataouten(&self) -> Fc7dataoutenR {
         Fc7dataoutenR::new(((self.bits >> 23) & 1) != 0)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SHAREDCTRLSET")
+            .field("sharedscksel", &self.sharedscksel())
+            .field("sharedwssel", &self.sharedwssel())
+            .field("shareddatasel", &self.shareddatasel())
+            .field("fc0dataouten", &self.fc0dataouten())
+            .field("fc1dataouten", &self.fc1dataouten())
+            .field("fc2dataouten", &self.fc2dataouten())
+            .field("fc4dataouten", &self.fc4dataouten())
+            .field("fc5dataouten", &self.fc5dataouten())
+            .field("fc6dataouten", &self.fc6dataouten())
+            .field("fc7dataouten", &self.fc7dataouten())
+            .finish()
     }
 }
 impl W {

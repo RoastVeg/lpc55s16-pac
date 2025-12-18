@@ -1,6 +1,7 @@
 #[doc = "Register `ANALOG_CTRL_STATUS` reader"]
 pub type R = crate::R<AnalogCtrlStatusSpec>;
 #[doc = "Flash Power Down status.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum FlashPwrdwn {
     #[doc = "0: Flash is not in power down mode."]
@@ -37,6 +38,7 @@ impl FlashPwrdwnR {
     }
 }
 #[doc = "Flash initialization error status.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum FlashInitError {
     #[doc = "0: No error."]
@@ -82,6 +84,14 @@ impl R {
     #[inline(always)]
     pub fn flash_init_error(&self) -> FlashInitErrorR {
         FlashInitErrorR::new(((self.bits >> 13) & 1) != 0)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("ANALOG_CTRL_STATUS")
+            .field("flash_pwrdwn", &self.flash_pwrdwn())
+            .field("flash_init_error", &self.flash_init_error())
+            .finish()
     }
 }
 #[doc = "Analog Macroblock Identity registers, Flash Status registers\n\nYou can [`read`](crate::Reg::read) this register and get [`analog_ctrl_status::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

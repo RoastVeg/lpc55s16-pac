@@ -13,6 +13,13 @@ impl R {
         CfieR::new(self.bits)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("TXBCIE")
+            .field("cfie", &self.cfie())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - Cancellation finished interrupt enable."]
     #[inline(always)]

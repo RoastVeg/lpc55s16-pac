@@ -22,6 +22,14 @@ impl R {
         MultR::new(((self.bits >> 8) & 0xff) as u8)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("FLEXFRGCTRL_FLEXFRG1CTRL")
+            .field("div", &self.div())
+            .field("mult", &self.mult())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:7 - Denominator of the fractional rate divider."]
     #[inline(always)]

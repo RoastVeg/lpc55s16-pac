@@ -22,6 +22,14 @@ impl R {
         AesDtCfgR::new(((self.bits >> 1) & 1) != 0)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("MISC_CFG")
+            .field("aes_reseed", &self.aes_reseed())
+            .field("aes_dt_cfg", &self.aes_dt_cfg())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - If set, ENCRYPTED_NUMBER generation becomes predictable, provided all secrets and current internal state are known: independant from entropy source."]
     #[inline(always)]

@@ -3,6 +3,7 @@ pub type R = crate::R<MiscctrlSpec>;
 #[doc = "Register `MISCCTRL` writer"]
 pub type W = crate::W<MiscctrlSpec>;
 #[doc = "Select LDO Deep Sleep reference source.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Ldodeepsleepref {
     #[doc = "0: LDO DEEP Sleep uses Flash buffer biasing as reference."]
@@ -56,6 +57,7 @@ where
     }
 }
 #[doc = "Control the activation of LDO MEM High Z mode.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Ldomemhighzmode {
     #[doc = "0: LDO MEM High Z mode is disabled."]
@@ -117,6 +119,7 @@ pub type Miscctrl3_11R = crate::FieldReader<u16>;
 #[doc = "Field `MISCCTRL_3_11` writer - Reserved."]
 pub type Miscctrl3_11W<'a, REG> = crate::FieldWriter<'a, REG, 9, u16>;
 #[doc = "Controls LDO MEM bleed current. This field is expected to be controlled by the Low Power Software only in DEEP SLEEP low power mode.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum DisableBleed {
     #[doc = "0: LDO_MEM bleed current is enabled."]
@@ -203,6 +206,18 @@ impl R {
     #[inline(always)]
     pub fn miscctrl_13_15(&self) -> Miscctrl13_15R {
         Miscctrl13_15R::new(((self.bits >> 13) & 7) as u8)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("MISCCTRL")
+            .field("ldodeepsleepref", &self.ldodeepsleepref())
+            .field("ldomemhighzmode", &self.ldomemhighzmode())
+            .field("lowpwr_flash_buf", &self.lowpwr_flash_buf())
+            .field("miscctrl_3_11", &self.miscctrl_3_11())
+            .field("disable_bleed", &self.disable_bleed())
+            .field("miscctrl_13_15", &self.miscctrl_13_15())
+            .finish()
     }
 }
 impl W {

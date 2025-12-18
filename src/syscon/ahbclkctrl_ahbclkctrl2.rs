@@ -3,6 +3,7 @@ pub type R = crate::R<AhbclkctrlAhbclkctrl2Spec>;
 #[doc = "Register `AHBCLKCTRL2` writer"]
 pub type W = crate::W<AhbclkctrlAhbclkctrl2Spec>;
 #[doc = "Enables the clock for the DMA1.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Dma1 {
     #[doc = "0: Disable Clock."]
@@ -56,6 +57,7 @@ where
     }
 }
 #[doc = "Enables the clock for the Comparator.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Comp {
     #[doc = "0: Disable Clock."]
@@ -109,6 +111,7 @@ where
     }
 }
 #[doc = "Enables the clock for the USB1-HS Host.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Usb1Host {
     #[doc = "0: Disable Clock."]
@@ -162,6 +165,7 @@ where
     }
 }
 #[doc = "Enables the clock for the USB1-HS device.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Usb1Dev {
     #[doc = "0: Disable Clock."]
@@ -215,6 +219,7 @@ where
     }
 }
 #[doc = "Enables the clock for the USB1-HS RAM.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Usb1Ram {
     #[doc = "0: Disable Clock."]
@@ -268,6 +273,7 @@ where
     }
 }
 #[doc = "Enables the clock for the USB1-HS PHY.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Usb1Phy {
     #[doc = "0: Disable Clock."]
@@ -321,6 +327,7 @@ where
     }
 }
 #[doc = "Enables the clock for the Frequency meter.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Freqme {
     #[doc = "0: Disable Clock."]
@@ -374,6 +381,7 @@ where
     }
 }
 #[doc = "Enables the clock for the code watchdog.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Cdog {
     #[doc = "0: Disable Clock."]
@@ -427,6 +435,7 @@ where
     }
 }
 #[doc = "Enables the clock for the RNG.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Rng {
     #[doc = "0: Disable Clock."]
@@ -480,6 +489,7 @@ where
     }
 }
 #[doc = "SYSCTL block clock.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Sysctl {
     #[doc = "0: Disable Clock."]
@@ -533,6 +543,7 @@ where
     }
 }
 #[doc = "Enables the clock for the USB0-FS Host Master.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Usb0Hostm {
     #[doc = "0: Disable Clock."]
@@ -586,6 +597,7 @@ where
     }
 }
 #[doc = "Enables the clock for the USB0-FS Host Slave.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Usb0Hosts {
     #[doc = "0: Disable Clock."]
@@ -639,6 +651,7 @@ where
     }
 }
 #[doc = "Enables the clock for the HASH_AES.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum HashAes {
     #[doc = "0: Disable Clock."]
@@ -692,6 +705,7 @@ where
     }
 }
 #[doc = "Enables the clock for the PLU LUT.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Plulut {
     #[doc = "0: Disable Clock."]
@@ -745,6 +759,7 @@ where
     }
 }
 #[doc = "Enables the clock for the Timer 3.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Timer3 {
     #[doc = "0: Disable Clock."]
@@ -798,6 +813,7 @@ where
     }
 }
 #[doc = "Enables the clock for the Timer 4.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Timer4 {
     #[doc = "0: Disable Clock."]
@@ -851,6 +867,7 @@ where
     }
 }
 #[doc = "Enables the clock for the PUF reset control.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Puf {
     #[doc = "0: Disable Clock."]
@@ -904,6 +921,7 @@ where
     }
 }
 #[doc = "Enables the clock for the Casper.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Casper {
     #[doc = "0: Disable Clock."]
@@ -957,6 +975,7 @@ where
     }
 }
 #[doc = "Enables the clock for the analog control.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum AnalogCtrl {
     #[doc = "0: Disable Clock."]
@@ -1010,6 +1029,7 @@ where
     }
 }
 #[doc = "Enables the clock for the HS LSPI.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum HsLspi {
     #[doc = "0: Disable Clock."]
@@ -1063,6 +1083,7 @@ where
     }
 }
 #[doc = "Enables the clock for the GPIO secure.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum GpioSec {
     #[doc = "0: Disable Clock."]
@@ -1116,6 +1137,7 @@ where
     }
 }
 #[doc = "Enables the clock for the GPIO secure int.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum GpioSecInt {
     #[doc = "0: Disable Clock."]
@@ -1278,6 +1300,34 @@ impl R {
     #[inline(always)]
     pub fn gpio_sec_int(&self) -> GpioSecIntR {
         GpioSecIntR::new(((self.bits >> 30) & 1) != 0)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("AHBCLKCTRL_AHBCLKCTRL2")
+            .field("dma1", &self.dma1())
+            .field("comp", &self.comp())
+            .field("usb1_host", &self.usb1_host())
+            .field("usb1_dev", &self.usb1_dev())
+            .field("usb1_ram", &self.usb1_ram())
+            .field("usb1_phy", &self.usb1_phy())
+            .field("freqme", &self.freqme())
+            .field("cdog", &self.cdog())
+            .field("rng", &self.rng())
+            .field("sysctl", &self.sysctl())
+            .field("usb0_hostm", &self.usb0_hostm())
+            .field("usb0_hosts", &self.usb0_hosts())
+            .field("hash_aes", &self.hash_aes())
+            .field("plulut", &self.plulut())
+            .field("timer3", &self.timer3())
+            .field("timer4", &self.timer4())
+            .field("puf", &self.puf())
+            .field("casper", &self.casper())
+            .field("analog_ctrl", &self.analog_ctrl())
+            .field("hs_lspi", &self.hs_lspi())
+            .field("gpio_sec", &self.gpio_sec())
+            .field("gpio_sec_int", &self.gpio_sec_int())
+            .finish()
     }
 }
 impl W {

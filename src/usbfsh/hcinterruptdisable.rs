@@ -85,6 +85,21 @@ impl R {
         MieR::new(((self.bits >> 31) & 1) != 0)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("HCINTERRUPTDISABLE")
+            .field("so", &self.so())
+            .field("wdh", &self.wdh())
+            .field("sf", &self.sf())
+            .field("rd", &self.rd())
+            .field("ue", &self.ue())
+            .field("fno", &self.fno())
+            .field("rhsc", &self.rhsc())
+            .field("oc", &self.oc())
+            .field("mie", &self.mie())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Scheduling Overrun interrupt."]
     #[inline(always)]

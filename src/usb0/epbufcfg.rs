@@ -13,6 +13,13 @@ impl R {
         BufSbR::new(((self.bits >> 2) & 0xff) as u8)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EPBUFCFG")
+            .field("buf_sb", &self.buf_sb())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 2:9 - Buffer usage: This register has one bit per physical endpoint. 0: Single-buffer. 1: Double-buffer. If the bit is set to single-buffer (0), it will not toggle the corresponding EPINUSE bit when it clears the active bit. If the bit is set to double-buffer (1), HW will toggle the EPINUSE bit when it clears the Active bit for the buffer."]
     #[inline(always)]

@@ -274,6 +274,42 @@ impl R {
         AraeR::new(((self.bits >> 29) & 1) != 0)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("IE")
+            .field("rf0ne", &self.rf0ne())
+            .field("rf0we", &self.rf0we())
+            .field("rf0fe", &self.rf0fe())
+            .field("rf0le", &self.rf0le())
+            .field("rf1ne", &self.rf1ne())
+            .field("rf1we", &self.rf1we())
+            .field("rf1fe", &self.rf1fe())
+            .field("rf1le", &self.rf1le())
+            .field("hpme", &self.hpme())
+            .field("tce", &self.tce())
+            .field("tcfe", &self.tcfe())
+            .field("tfee", &self.tfee())
+            .field("tefne", &self.tefne())
+            .field("tefwe", &self.tefwe())
+            .field("teffe", &self.teffe())
+            .field("tefle", &self.tefle())
+            .field("tswe", &self.tswe())
+            .field("mrafe", &self.mrafe())
+            .field("tooe", &self.tooe())
+            .field("drxe", &self.drxe())
+            .field("bece", &self.bece())
+            .field("beue", &self.beue())
+            .field("eloe", &self.eloe())
+            .field("epe", &self.epe())
+            .field("ewe", &self.ewe())
+            .field("boe", &self.boe())
+            .field("wdie", &self.wdie())
+            .field("peae", &self.peae())
+            .field("pede", &self.pede())
+            .field("arae", &self.arae())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - Rx FIFO 0 new message interrupt enable."]
     #[inline(always)]

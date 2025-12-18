@@ -3,6 +3,7 @@ pub type R = crate::R<Clk32kclkselSpec>;
 #[doc = "Register `CLK32KCLKSEL` writer"]
 pub type W = crate::W<Clk32kclkselSpec>;
 #[doc = "clock low speed source select for HS USB.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Sel {
     #[doc = "0: Oscillator 32 kHz clock."]
@@ -60,6 +61,13 @@ impl R {
     #[inline(always)]
     pub fn sel(&self) -> SelR {
         SelR::new(((self.bits >> 3) & 1) != 0)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("CLK32KCLKSEL")
+            .field("sel", &self.sel())
+            .finish()
     }
 }
 impl W {

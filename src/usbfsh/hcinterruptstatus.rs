@@ -76,6 +76,20 @@ impl R {
         OcR::new((self.bits >> 10) & 0x003f_ffff)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("HCINTERRUPTSTATUS")
+            .field("so", &self.so())
+            .field("wdh", &self.wdh())
+            .field("sf", &self.sf())
+            .field("rd", &self.rd())
+            .field("ue", &self.ue())
+            .field("fno", &self.fno())
+            .field("rhsc", &self.rhsc())
+            .field("oc", &self.oc())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bit 0 - SchedulingOverrun This bit is set when the USB schedule for the current Frame overruns and after the update of HccaFrameNumber."]
     #[inline(always)]

@@ -3,6 +3,7 @@ pub type R = crate::R<IeSpec>;
 #[doc = "Register `IE` writer"]
 pub type W = crate::W<IeSpec>;
 #[doc = "FIFO 0 Watermark Interrupt Enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Fwmie0 {
     #[doc = "0: FIFO 0 watermark interrupts are not enabled."]
@@ -56,6 +57,7 @@ where
     }
 }
 #[doc = "Result FIFO 0 Overflow Interrupt Enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Fofie0 {
     #[doc = "0: FIFO 0 overflow interrupts are not enabled."]
@@ -109,6 +111,7 @@ where
     }
 }
 #[doc = "FIFO1 Watermark Interrupt Enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Fwmie1 {
     #[doc = "0: FIFO1 watermark interrupts are not enabled."]
@@ -162,6 +165,7 @@ where
     }
 }
 #[doc = "Result FIFO1 Overflow Interrupt Enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Fofie1 {
     #[doc = "0: No result FIFO1 overflow has occurred since the last time the flag was cleared."]
@@ -215,6 +219,7 @@ where
     }
 }
 #[doc = "Trigger Exception Interrupt Enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum TexcIe {
     #[doc = "0: Trigger exception interrupts are disabled."]
@@ -268,6 +273,7 @@ where
     }
 }
 #[doc = "Trigger Completion Interrupt Enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u16)]
 pub enum TcompIe {
@@ -474,6 +480,18 @@ impl R {
     #[inline(always)]
     pub fn tcomp_ie(&self) -> TcompIeR {
         TcompIeR::new(((self.bits >> 16) & 0xffff) as u16)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("IE")
+            .field("fwmie0", &self.fwmie0())
+            .field("fofie0", &self.fofie0())
+            .field("fwmie1", &self.fwmie1())
+            .field("fofie1", &self.fofie1())
+            .field("texc_ie", &self.texc_ie())
+            .field("tcomp_ie", &self.tcomp_ie())
+            .finish()
     }
 }
 impl W {

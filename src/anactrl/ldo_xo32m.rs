@@ -3,6 +3,7 @@ pub type R = crate::R<LdoXo32mSpec>;
 #[doc = "Register `LDO_XO32M` writer"]
 pub type W = crate::W<LdoXo32mSpec>;
 #[doc = "Activate LDO bypass.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Bypass {
     #[doc = "0: Disable bypass mode (for normal operations)."]
@@ -56,6 +57,7 @@ where
     }
 }
 #[doc = ".\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Highz {
     #[doc = "0: Output in High normal state."]
@@ -109,6 +111,7 @@ where
     }
 }
 #[doc = "Sets the LDO output level.\n\nValue on reset: 4"]
+#[cfg_attr(feature = "defmt-03", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Vout {
@@ -279,6 +282,17 @@ impl R {
     #[inline(always)]
     pub fn stabmode(&self) -> StabmodeR {
         StabmodeR::new(((self.bits >> 8) & 3) as u8)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LDO_XO32M")
+            .field("bypass", &self.bypass())
+            .field("highz", &self.highz())
+            .field("vout", &self.vout())
+            .field("ibias", &self.ibias())
+            .field("stabmode", &self.stabmode())
+            .finish()
     }
 }
 impl W {

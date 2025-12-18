@@ -31,6 +31,15 @@ impl R {
         UsbUseXo32mCapaBanksR::new(((self.bits >> 16) & 1) != 0)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("USBCFG")
+            .field("xo32m_ready_time_out_ms", &self.xo32m_ready_time_out_ms())
+            .field("usb_speed", &self.usb_speed())
+            .field("usb_use_xo32m_capa_banks", &self.usb_use_xo32m_capa_banks())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:7 - no description available"]
     #[inline(always)]

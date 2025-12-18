@@ -13,6 +13,13 @@ impl R {
         PersisR::new(self.bits)
     }
 }
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PERSISTENT")
+            .field("persis", &self.persis())
+            .finish()
+    }
+}
 impl W {
     #[doc = "Bits 0:31 - 32 regs free for user SW to enjoy"]
     #[inline(always)]

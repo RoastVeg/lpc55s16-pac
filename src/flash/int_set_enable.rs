@@ -8,6 +8,11 @@ pub type ErrW<'a, REG> = crate::BitWriter<'a, REG>;
 pub type DoneW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `ECC_ERR` writer - When a SET_ENABLE bit is written to 1, the corresponding INT_ENABLE bit is set."]
 pub type EccErrW<'a, REG> = crate::BitWriter<'a, REG>;
+impl core::fmt::Debug for crate::generic::Reg<IntSetEnableSpec> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "(not readable)")
+    }
+}
 impl W {
     #[doc = "Bit 0 - When a SET_ENABLE bit is written to 1, the corresponding INT_ENABLE bit is set."]
     #[inline(always)]
